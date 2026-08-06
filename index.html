@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Геймдизайнера</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #111; color: #fff; margin: 0; padding: 40px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { margin-bottom: 60px; }
+        h1 { font-size: 2.5rem; margin: 0 0 10px 0; font-weight: 700; }
+        p.subtitle { color: #888; font-size: 1.2rem; margin: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .card { background: #1a1a1a; border-radius: 8px; overflow: hidden; border: 1px solid #222; }
+        .card img { width: 100%; height: 220px; object-fit: cover; background: #2a2a2a; }
+        .card-content { padding: 20px; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.4rem; }
+        .card p { color: #aaa; margin: 0 0 15px 0; font-size: 0.95rem; line-height: 1.5; }
+        .role { display: inline-block; background: #333; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; color: #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sofya Bandarenka / Никнейм</h1>
+            <p class="subtitle">Game Designer & Level Designer. Создаю миры и игровые механики.</p>
+        </header>
+
+        <div class="grid">
+            <!-- Проект 1 -->
+            <div class="card">
+                <img src="project1.jpg" alt="Обложка игры">
+                <div class="card-content">
+                    <h3>Название Первой Игры</h3>
+                    <p>Краткое описание игры, жанр и на каком движке сделана (например, Unreal Engine 5 / Unity).</p>
+                    <span class="role">Моя роль: Левел-дизайн (Greybox, Скриптинг)</span>
+                </div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="card">
+                <img src="project2.jpg" alt="Обложка игры">
+                <div class="card-content">
+                    <h3>Название Второй Игры</h3>
+                    <p>Описание второго проекта или игры с гейм-джема. Что было сделано, какая ключевая механика.</p>
+                    <span class="role">Моя роль: Геймдизайнер (Баланс, Системы)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
