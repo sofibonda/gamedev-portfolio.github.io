@@ -30,12 +30,14 @@
         .about-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 60px; }
         
         /* Левая колонка с аватаром */
-        .profile-pic-container { flex-shrink: 0; width: 240px; display: flex; justify-content: center; padding-top: 65px; } /* Отступ сверху равен высоте заголовка About + его маргину */
+        .profile-pic-container { flex-shrink: 0; width: 240px; display: flex; justify-content: center; padding-top: 45px; } /* Сбалансированный отступ под новый размер About */
         .profile-pic { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; background: #f5f5f5; }
         
         /* Правая колонка с текстом и выровненным заголовком */
         .content-block { flex: 1; max-width: 640px; text-align: left; }
-        .about-section-title { font-size: 3rem; font-weight: 300; color: #cccccc; margin: 0 0 25px 0; letter-spacing: -0.5px; line-height: 1; }
+        
+        /* Исправленный, аккуратный заголовок About */
+        .about-section-title { font-size: 1.4rem; font-weight: 400; color: #999999; margin: 0 0 20px 0; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
         
         .text-block { font-size: 0.95rem; color: #555555; line-height: 1.7; font-weight: 400; }
         .text-block h2 { font-size: 2rem; font-weight: 700; color: #111111; margin: 0 0 25px 0; letter-spacing: -0.5px; }
