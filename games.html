@@ -1,103 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sofya Bandarenka - Games</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; text-align: center; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Шапка сайта */
-        header { padding: 40px 0 20px 0; }
-        h1 { font-size: 1.5rem; margin: 0 0 5px 0; font-weight: 400; letter-spacing: 1px; color: #555; }
-        .subtitle { color: #aaaaaa; font-size: 0.95rem; margin: 0 0 30px 0; letter-spacing: 0.5px; }
-        
-        /* Навигация */
-        nav { display: flex; justify-content: center; gap: 30px; margin-bottom: 70px; }
-        nav a { text-decoration: none; color: #aaaaaa; font-size: 1.1rem; transition: color 0.2s; }
-        nav a.active, nav a:hover { color: #333333; }
-        
-        /* Плиточная сетка проектов (Grid) */
-        .projects-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 30px; justify-content: center; text-align: center; margin-bottom: 60px; }
-        
-        /* Карточка проекта */
-        .project-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; }
-        .project-image { width: 100%; aspect-ratio: 4 / 3; border-radius: 20px; object-fit: cover; background-color: #f0f0f0; transition: transform 0.2s ease; }
-        .project-card:hover .project-image { transform: scale(1.02); }
-        
-        .project-title { font-size: 1.05rem; font-weight: 400; color: #444444; margin: 15px 0 3px 0; line-height: 1.3; }
-        .project-year { font-size: 0.75rem; color: #cccccc; margin: 0; letter-spacing: 0.5px; }
-
-        /* Адаптивность под планшеты и телефоны */
-        @media (max-width: 900px) {
-            .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 20px; }
-        }
-        @media (max-width: 500px) {
-            .projects-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Sofya Bandarenka - Portfolio</h1>
-            <p class="subtitle">Game Designer & 2D/UI Artist</p>
-            <nav>
-                <a href="index.html">About</a>
-                <a href="games.html" class="active">Games</a>
-                <a href="#">Gallery</a>
-                <a href="#">Experience</a>
-                <a href="#">Contact/CV</a>
-            </nav>
-        </header>
-
-        <!-- Сетка проектов -->
-        <div class="projects-grid">
+    <!-- Сетка из 5 игр (3 колонки) -->
+    <main class="container">
+        <div class="games-grid">
             
-            <!-- 1. LostVille (ведет на отдельную страницу проекта) -->
+            <!-- 1. Lostville -->
             <a href="lostville.html" class="project-card">
-                <img src="p1.jpg" alt="LostVille" class="project-image">
-                <h3 class="project-title">LostVille: Find Hidden Objects</h3>
-                <p class="project-year">2025</p>
+                <div class="project-media-box">
+                    <img src="lostville-preview.jpg" alt="Lostville">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Lostville: Find Hidden Objects</h3>
+                </div>
             </a>
 
-            <!-- 2. Make a Wish -->
+            <!-- 2. Last Shelter -->
             <a href="#" class="project-card">
-                <img src="p2.jpg" alt="Make a Wish" class="project-image">
-                <h3 class="project-title">Make a Wish</h3>
-                <p class="project-year">2025</p>
+                <div class="project-media-box">
+                    <img src="last-shelter-preview.jpg" alt="Last Shelter">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Last Shelter</h3>
+                </div>
             </a>
 
-            <!-- 3. The Dwarves -->
+            <!-- 3. Ghost Guys -->
             <a href="#" class="project-card">
-                <img src="p3.jpg" alt="The Dwarves" class="project-image">
-                <h3 class="project-title">The Dwarves</h3>
-                <p class="project-year">2024</p>
+                <div class="project-media-box">
+                    <img src="ghost-guys-preview.jpg" alt="Ghost Guys">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Ghost Guys</h3>
+                </div>
             </a>
 
-            <!-- 4. Jungle Block -->
+            <!-- 4. Glow of the Depths -->
             <a href="#" class="project-card">
-                <img src="p4.jpg" alt="Jungle Block" class="project-image">
-                <h3 class="project-title">Jungle Block</h3>
-                <p class="project-year">2023</p>
+                <div class="project-media-box">
+                    <img src="glow-preview.jpg" alt="Glow of the Depths">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Glow of the Depths</h3>
+                </div>
             </a>
 
-            <!-- 5. Animations -->
+            <!-- 5. The Dwarves -->
             <a href="#" class="project-card">
-                <img src="p5.jpg" alt="Animations" class="project-image">
-                <h3 class="project-title">Animations</h3>
-                <p class="project-year"></p>
-            </a>
-
-            <!-- 6. 3D -->
-            <a href="#" class="project-card">
-                <img src="p6.jpg" alt="3D" class="project-image">
-                <h3 class="project-title">3D</h3>
-                <p class="project-year"></p>
+                <div class="project-media-box">
+                    <img src="dwarves-preview.jpg" alt="The Dwarves">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">The Dwarves</h3>
+                </div>
             </a>
 
         </div>
-    </div>
-</body>
-</html>
+    </main>
