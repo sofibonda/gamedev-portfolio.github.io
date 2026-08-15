@@ -29,22 +29,22 @@
         .games-wrapper { width: 100%; position: relative; }
         
         /* Заголовок GAMES строго по центру страницы и приподнят к меню */
-        .games-section-title { 
-            font-size: 3rem; 
+        games-section-title { 
+            font-size: 2.2rem; 
             font-weight: 300; 
             color: #cccccc; 
             margin: 0;
             position: absolute;
-            top: -20px; /* Сдвинули ниже, чтобы не пересекалось с меню */
+            top: -45px; /* Точная высота, как у About */
             left: 50%;
             transform: translateX(-50%); 
             letter-spacing: -0.5px; 
             line-height: 1; 
-            text-transform: uppercase;
+            text-transform: none; /* Убрали капс, теперь первая буква заглавная */
         }
         
-        /* Сетка опускается ниже (padding-top: 80px), освобождая место для заголовка */
-        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; padding-top: 80px; }
+        /* Сетка возвращается на свою сбалансированную высоту */
+        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; padding-top: 40px; }
         
         /* Карточка проекта */
         .project-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; text-align: left; }
@@ -109,7 +109,7 @@
         <div class="games-wrapper">
             
             <!-- Центральный заголовок страницы (Идентичен About) -->
-            <h2 class="games-section-title">Games</h2>
+            <<h2 class="games-section-title">Games</h2>
             
             <div class="games-grid">
                 
