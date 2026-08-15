@@ -30,12 +30,12 @@
         
         /* Заголовок GAMES строго по центру страницы и приподнят к меню */
         .games-section-title { 
-            font-size: 2.2rem; 
+            font-size: 3rem; 
             font-weight: 300; 
             color: #cccccc; 
             margin: 0;
             position: absolute;
-            top: -45px; 
+            top: -20px; /* Сдвинули ниже, чтобы не пересекалось с меню */
             left: 50%;
             transform: translateX(-50%); 
             letter-spacing: -0.5px; 
@@ -43,8 +43,8 @@
             text-transform: uppercase;
         }
         
-        /* Сбалансированная сетка в 3 колонки зафиксирована на месте */
-        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; padding-top: 40px; }
+        /* Сетка опускается ниже (padding-top: 80px), освобождая место для заголовка */
+        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; padding-top: 80px; }
         
         /* Карточка проекта */
         .project-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; text-align: left; }
