@@ -1,56 +1,180 @@
-    <!-- Сетка из 5 игр (3 колонки) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - Games</title>
+    <!-- Подключаем премиальный гротеск Inter, как на главной -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Полное совпадение со страницей About */
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        /* СВЕТЛО-СЕРАЯ ШАПКА - ТОЧНАЯ КОПИЯ С INDEX.HTML */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.6rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.5px; color: #111111; }
+        header .subtitle { color: #666666; font-size: 0.9rem; margin: 0 0 28px 0; letter-spacing: 0.5px; font-weight: 500; }
+        
+        /* Навигация (GAMES активна - темная, с подчеркиванием) */
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        /* Главный контент */
+        main { flex: 1; padding: 60px 0 100px 0; }
+        .games-wrapper { width: 100%; position: relative; }
+        
+        /* Заголовок GAMES строго по центру страницы и приподнят к меню */
+        .games-section-title { 
+            font-size: 2.2rem; 
+            font-weight: 300; 
+            color: #cccccc; 
+            margin: 0;
+            position: absolute;
+            top: -45px; 
+            left: 50%;
+            transform: translateX(-50%); 
+            letter-spacing: -0.5px; 
+            line-height: 1; 
+            text-transform: uppercase;
+        }
+        
+        /* Сбалансированная сетка в 3 колонки зафиксирована на месте */
+        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; padding-top: 40px; }
+        
+        /* Карточка проекта */
+        .project-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; text-align: left; }
+        
+        /* Заглушка для картинок/гифок с мягким скруглением 16px */
+        .project-media-box { width: 100%; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background-color: #f5f5f5; border: 1px solid #e5e5e5; transition: transform 0.2s ease, border-color 0.2s ease; }
+        .project-card:hover .project-media-box { transform: translateY(-4px); border-color: #b5b5b5; }
+        .project-media-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+        
+        /* Текстовые названия строго под карточками */
+        .project-info { padding: 15px 2px 0 2px; }
+        .project-title { font-size: 1.1rem; font-weight: 500; color: #111111; margin: 0; line-height: 1.3; }
+
+        /* ТОЧНАЯ КОПИЯ ФУТЕРА С INDEX.HTML */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        
+        /* Иконки соцсетей в футере */
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* Адаптивность под планшеты и мобилки */
+        @media (max-width: 900px) {
+            .games-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 30px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            main { padding: 40px 0 60px 0; }
+            .games-grid { padding-top: 40px; }
+            .games-section-title { top: -20px; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+        @media (max-width: 600px) {
+            .games-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html" class="active">Games</a>
+                <a href="#">Other Projects</a>
+                <a href="#">Resume</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Сетка из 5 игр -->
     <main class="container">
-        <div class="games-grid">
+        <div class="games-wrapper">
             
-            <!-- 1. Lostville -->
-            <a href="lostville.html" class="project-card">
-                <div class="project-media-box">
-                    <img src="lostville-preview.jpg" alt="Lostville">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Lostville: Find Hidden Objects</h3>
-                </div>
-            </a>
+            <!-- Центральный заголовок страницы (Идентичен About) -->
+            <h2 class="games-section-title">Games</h2>
+            
+            <div class="games-grid">
+                
+                <!-- 1. Lostville -->
+                <a href="lostville.html" class="project-card">
+                    <div class="project-media-box">
+                        <img src="lostville-preview.jpg" alt="Lostville">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Lostville: Find Hidden Objects</h3>
+                    </div>
+                </a>
 
-            <!-- 2. Last Shelter -->
-            <a href="#" class="project-card">
-                <div class="project-media-box">
-                    <img src="last-shelter-preview.jpg" alt="Last Shelter">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Last Shelter</h3>
-                </div>
-            </a>
+                <!-- 2. Last Shelter -->
+                <a href="#" class="project-card">
+                    <div class="project-media-box">
+                        <img src="last-shelter-preview.jpg" alt="Last Shelter">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Last Shelter</h3>
+                    </div>
+                </a>
 
-            <!-- 3. Ghost Guys -->
-            <a href="#" class="project-card">
-                <div class="project-media-box">
-                    <img src="ghost-guys-preview.jpg" alt="Ghost Guys">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Ghost Guys</h3>
-                </div>
-            </a>
+                <!-- 3. Ghost Guys -->
+                <a href="#" class="project-card">
+                    <div class="project-media-box">
+                        <img src="ghost-guys-preview.jpg" alt="Ghost Guys">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Ghost Guys</h3>
+                    </div>
+                </a>
 
-            <!-- 4. Glow of the Depths -->
-            <a href="#" class="project-card">
-                <div class="project-media-box">
-                    <img src="glow-preview.jpg" alt="Glow of the Depths">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Glow of the Depths</h3>
-                </div>
-            </a>
+                <!-- 4. Glow of the Depths -->
+                <a href="#" class="project-card">
+                    <div class="project-media-box">
+                        <img src="glow-preview.jpg" alt="Glow of the Depths">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Glow of the Depths</h3>
+                    </div>
+                </a>
 
-            <!-- 5. The Dwarves -->
-            <a href="#" class="project-card">
-                <div class="project-media-box">
-                    <img src="dwarves-preview.jpg" alt="The Dwarves">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">The Dwarves</h3>
-                </div>
-            </a>
+                <!-- 5. The Dwarves -->
+                <a href="#" class="project-card">
+                    <div class="project-media-box">
+                        <img src="dwarves-preview.jpg" alt="The Dwarves">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">The Dwarves</h3>
+                    </div>
+                </a>
 
+            </div>
         </div>
     </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                Portfolio by Sofibonda
+            </div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                <a href="#" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="#" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
+                <a href="#" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg></a>
