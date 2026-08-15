@@ -14,18 +14,18 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* Шапка сайта и Навигация. ДОБАВЛЕНА СЕРАЯ ПОЛОСКА СВЕРХУ */
-        header { padding: 40px 0 40px 0; text-align: center; border-top: 1px solid #e5e5e5; }
-        h1 { font-size: 1.15rem; margin: 0 0 6px 0; font-weight: 400; letter-spacing: 0.8px; color: #555555; }
-        .subtitle { color: #aaaaaa; font-size: 0.85rem; margin: 0 0 40px 0; letter-spacing: 0.5px; }
+        /* СЕРАЯ ШАПКА НА ВСЮ ШИРИНУ ЭКРАНА (Как на макете) */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 25px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.15rem; margin: 0 0 6px 0; font-weight: 400; letter-spacing: 0.5px; color: #555555; }
+        header .subtitle { color: #aaaaaa; font-size: 0.85rem; margin: 0 0 30px 0; letter-spacing: 0.5px; }
         
-        /* Сбалансированное меню КАПСОМ */
-        nav { display: flex; justify-content: center; gap: 35px; margin-bottom: 10px; }
-        nav a { text-decoration: none; color: #999999; font-size: 0.9rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s ease; }
-        nav a.active, nav a:hover { color: #111111; }
+        /* Навигация (как на скрине, аккуратный текстовый стиль) */
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #444444; font-size: 1.15rem; font-weight: 400; transition: color 0.2s ease; }
+        nav a.active, nav a:hover { color: #aaaaaa; }
         
         /* Главный контент (About) */
-        main { flex: 1; display: flex; align-items: center; padding: 0px 0 100px 0; }
+        main { flex: 1; display: flex; align-items: center; padding: 60px 0 100px 0; }
         .about-wrapper { width: 100%; position: relative; }
         .about-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 60px; }
         
@@ -36,18 +36,17 @@
         /* Правая колонка с текстом */
         .content-block { flex: 1; max-width: 640px; text-align: left; }
         
-        /* Заголовок About ПО ЦЕНТРУ ЭКРАНА И ВЫШЕ. Текст ниже не двигается */
+        /* Заголовок About СТРОГО ПО ЦЕНТРУ и на идеальной высоте */
         .about-section-title { 
-            font-size: 1.4rem; 
-            font-weight: 400; 
-            color: #999999; 
+            font-size: 2.2rem; 
+            font-weight: 300; 
+            color: #cccccc; 
             margin: 0;
             position: absolute;
-            top: -30px; /* Тянет слово About выше к меню */
+            top: -45px; 
             left: 50%;
-            transform: translateX(-50%); /* Центрирует ровно посередине экрана */
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
+            transform: translateX(-50%); 
+            letter-spacing: -0.5px; 
             line-height: 1; 
         }
         
@@ -59,7 +58,7 @@
         
         /* Баланс кнопки CV */
         .cv-button-container { display: flex; justify-content: flex-end; margin-top: 35px; }
-        .cv-button { display: inline-block; background: #1a1a1a; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 24px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.3px; transition: background 0.2s ease, transform 0.1s ease; }
+        .cv-button { display: inline-block; background: #222222; color: #ffffff; text-decoration: none; padding: 11px 26px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s ease, transform 0.1s ease; }
         .cv-button:hover { background: #444444; }
         .cv-button:active { transform: scale(0.98); }
         
@@ -77,9 +76,9 @@
 
         /* Адаптивность под мобильные устройства */
         @media (max-width: 768px) {
-            header { padding: 40px 0 10px 0; }
+            header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
-            main { padding: 20px 0 60px 0; }
+            main { padding: 30px 0 60px 0; }
             .about-content { flex-direction: column-reverse; align-items: center; gap: 40px; }
             .content-block { text-align: center; max-width: 100%; padding-top: 40px; }
             .profile-pic-container { width: 100%; padding-top: 0; }
@@ -90,23 +89,25 @@
 </head>
 <body>
 
-    <!-- Шапка сайта -->
-    <header class="container">
-        <h1>Sofya Bandarenka - Portfolio</h1>
-        <p class="subtitle">Game & Level Designer</p>
-        <nav>
-            <a href="index.html" class="active">About</a>
-            <a href="games.html">Games</a>
-            <a href="#">Other Projects</a>
-            <a href="#">Resume</a>
-            <a href="#">Contact</a>
-        </nav>
+    <!-- Шапка сайта с серым фоном на всю ширину -->
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka - Portfolio</h1>
+            <div class="subtitle">Game & Level Designer</div>
+            <nav>
+                <a href="index.html" class="active">About</a>
+                <a href="games.html">Games</a>
+                <a href="#">Other Projects</a>
+                <a href="#">Resume</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Основной контент -->
     <main class="container">
         <div class="about-wrapper">
-            <!-- Заголовок About вынесен отдельно для центрирования по всему экрану -->
+            <!-- Заголовок About посередине -->
             <h2 class="about-section-title">About</h2>
             
             <div class="about-content">
