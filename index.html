@@ -14,15 +14,15 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* Светло-серая шапка в стиле Adobe Portfolio */
-        header { background: #f4f4f4; width: 100%; padding: 40px 0 30px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
-        header h1 { font-size: 1.15rem; margin: 0 0 6px 0; font-weight: 400; letter-spacing: 0.5px; color: #555555; }
-        header .subtitle { color: #aaaaaa; font-size: 0.85rem; margin: 0 0 30px 0; letter-spacing: 0.5px; }
+        /* ИДЕАЛЬНЫЙ ХЭДЕР ПО ЗАКОНАМ ДИЗАЙНА */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.6rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.5px; color: #111111; }
+        header .subtitle { color: #666666; font-size: 0.9rem; margin: 0 0 28px 0; letter-spacing: 0.5px; font-weight: 500; }
         
-        /* Исправленная навигация (ABOUT активна) */
+        /* Изящное меню в исходном регистре (Как на вашем первом макете) */
         nav { display: flex; justify-content: center; gap: 35px; }
-        nav a { text-decoration: none; color: #999999; font-size: 1.15rem; font-weight: 400; transition: color 0.2s ease; }
-        nav a.active, nav a:hover { color: #111111; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
         /* Главный контент */
         main { flex: 1; display: flex; align-items: center; padding: 60px 0 100px 0; }
@@ -36,7 +36,7 @@
         /* Правая колонка с текстом */
         .content-block { flex: 1; max-width: 640px; text-align: left; }
         
-        /* Заголовок About строго по центру и на идеальной высоте */
+        /* Заголовок About строго по центру страницы */
         .about-section-title { 
             font-size: 2.2rem; 
             font-weight: 300; 
@@ -58,7 +58,7 @@
         
         /* Премиальный дизайн кнопки CV */
         .cv-button-container { display: flex; justify-content: flex-end; margin-top: 35px; }
-        .cv-button { display: inline-block; background: #222222; color: #ffffff; text-decoration: none; padding: 12px 28px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s ease, transform 0.1s ease; }
+        .cv-button { display: inline-block; background: #222222; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s ease, transform 0.1s ease; }
         .cv-button:hover { background: #444444; }
         .cv-button:active { transform: scale(0.98); }
         
@@ -69,7 +69,7 @@
         .footer-right { display: flex; align-items: center; gap: 15px; }
         .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
         
-        /* Идеально ровные круглые иконки */
+        /* Идельно ровные круглые иконки */
         .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
@@ -92,7 +92,7 @@
     <!-- Шапка сайта -->
     <header>
         <div class="container">
-            <h1>Sofya Bandarenka - Portfolio</h1>
+            <h1>Sofya Bandarenka</h1>
             <div class="subtitle">Game & Level Designer</div>
             <nav>
                 <a href="index.html" class="active">About</a>
@@ -156,11 +156,11 @@
                     <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg>
                 </a>
                 
-                <!-- ВЫПРОВЛЕННЫЙ ИДЕАЛЬНЫЙ DISCORD -->
+                <!-- Discord -->
                 <a href="#" class="social-icon" target="_blank" title="Discord">
                     <svg viewBox="0 0 125 125">
                         <g transform="scale(0.95) translate(3, 13)">
-                            <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65.81,77.53a105.54,105.54,0,0,0,32,16.19,79,79,0,0,0,6.85-11.14,68.42,68.42,0,0,1-10.75-5.13c.91-.66,1.8-1.34,2.65-2a75.58,75.58,0,0,0,71.08,0c.85.69,1.74,1.37,2.65,2a68.42,68.42,0,0,1-10.75,5.13,79,79,0,0,0,6.85,11.14,105.54,105.54,0,0,0,32-16.19C129.4,54.65,123.57,31.58,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/>
+                            <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65.81,77.53a105.54,105.54,0,0,0,32,16.19,79,79,0,0,0,6.85-11.14,68.42,68.42,0,0,1-10.75-5.13c.91-.66,1.8-1.34,2.65-2a75.58,75.58,0,0,0,71.08,0c.85.69,1.74,1.37,2.65,2a68.42,68.42,0,0,1-10.75,5.13,79,79,0,0,0,6.85,11.14,105.54,105.54,0,0,0,32-16.19C129.4,54.65,123.57,31.58,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69z"/>
                         </g>
                     </svg>
                 </a>
@@ -170,4 +170,3 @@
     </footer>
 
 </body>
-</html>
