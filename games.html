@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Полное совпадение со страницей About */
+        /* Базовые настройки баланса */
         * { box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
@@ -24,26 +24,24 @@
         nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
         nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
-        /* Главный контент с большим нижним отступом от футера */
-        main { flex: 1; padding: 60px 0 120px 0; }
-        .games-wrapper { width: 100%; position: relative; }
+        /* Главный контент - Единый жесткий поток */
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        .games-wrapper { width: 100%; padding: 45px 0 120px 0; display: flex; flex-direction: column; align-items: center; }
         
-        /* Заголовок Games — ПОЛНАЯ КОПИЯ ABOUT (размер, шрифт, положение по центру) */
+        /* Заголовок Games — Строго в потоке, выровнен по центру, не прыгает */
         .games-section-title { 
             font-size: 2.2rem; 
             font-weight: 300; 
             color: #cccccc; 
-            margin: 0;
-            position: absolute;
-            top: -45px; 
-            left: 50%;
-            transform: translateX(-50%); 
+            margin: 0 0 40px 0; /* Создает идеальный отступ ДО карточек */
+            text-align: center;
             letter-spacing: -0.5px; 
-            line-height: 1;
+            line-height: 1; 
+            text-transform: none;
         }
         
-        /* Сбалансированная сетка в 3 колонки */
-        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; padding-top: 40px; }
+        /* Сетка в 3 колонки */
+        .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; width: 100%; }
         
         /* Карточка проекта */
         .project-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; text-align: center; }
@@ -76,9 +74,7 @@
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
-            main { padding: 40px 0 60px 0; }
-            .games-grid { padding-top: 40px; }
-            .games-section-title { top: -20px; }
+            .games-wrapper { padding: 30px 0 60px 0; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
         @media (max-width: 600px) {
@@ -92,7 +88,7 @@
     <header>
         <div class="container">
             <h1>Sofya Bandarenka</h1>
-            <div class="subtitle">Game Designer & Level Designer</div>
+            <div class="subtitle">Game & Level Designer</div>
             <nav>
                 <a href="index.html">About</a>
                 <a href="games.html" class="active">Games</a>
@@ -193,3 +189,4 @@
                 <!-- Discord -->
                 <a href="#" class="social-icon" target="_blank" title="Discord">
                     <svg viewBox="0 0 125 125">
+                        <g transform="scale(0.95) translate(3, 13)">
