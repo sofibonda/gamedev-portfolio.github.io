@@ -12,7 +12,7 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ХЭДЕР ПОЛНОСТЬЮ ИДЕНТИЧЕН НА ВСЕХ СТРАНИЦАХ */
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -21,23 +21,27 @@
         nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
         nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
-        /* Главный контент с выверенными отступами в общем потоке */
+        /* Главный контент */
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
-        .page-wrapper { width: 100%; padding: 45px 0 120px 0; display: flex; flex-direction: column; align-items: center; }
+        .page-wrapper { width: 100%; padding: 25px 0 60px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Подзаголовок страницы - ЖЕСТКИЙ ПОТОК, ИДЕНТИЧНОЕ РАСПОЛОЖЕНИЕ */
+        /* ПОДЗАГОЛОВОК СТАЛ МЕНЬШЕ, ВЫШЕ И СТРОГО ПО ЦЕНТРУ */
         .page-section-title { 
-            font-size: 2.2rem; 
-            font-weight: 300; 
+            font-size: 1.4rem; 
+            font-weight: 500; 
             color: #cccccc; 
-            margin: 0 0 40px 0; 
-            text-align: center;
-            letter-spacing: -0.5px; 
+            margin: 0; 
+            position: absolute;
+            top: 25px; /* Подняли вплотную к серой плашке хэдера */
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 0.5px; 
             line-height: 1; 
+            text-transform: none;
         }
         
-        /* Контентная область About */
-        .about-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 60px; width: 100%; }
+        /* Контентная область смещена ниже, чтобы не пересекаться с поднятым заголовком */
+        .about-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 60px; width: 100%; padding-top: 55px; }
         
         /* Левая колонка с аватаром */
         .profile-pic-container { flex-shrink: 0; width: 240px; display: flex; justify-content: center; }
@@ -56,7 +60,7 @@
         .cv-button:hover { background: #444444; }
         .cv-button:active { transform: scale(0.98); }
         
-        /* ФУТЕР ПОЛНОСТЬЮ ИДЕНТИЧЕН НА ВСЕХ СТРАНИЦАХ */
+        /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -70,8 +74,8 @@
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
-            .page-wrapper { padding: 30px 0 60px 0; }
-            .about-content { flex-direction: column-reverse; align-items: center; gap: 40px; }
+            .page-wrapper { padding: 25px 0 40px 0; }
+            .about-content { flex-direction: column-reverse; align-items: center; gap: 40px; padding-top: 40px; }
             .content-block { text-align: center; max-width: 100%; }
             .profile-pic-container { width: 100%; }
             .cv-button-container { justify-content: center; }
@@ -97,6 +101,7 @@
 
     <main class="container">
         <div class="page-wrapper">
+            <!-- Подзаголовок страницы -->
             <h2 class="page-section-title">About</h2>
             
             <div class="about-content">
