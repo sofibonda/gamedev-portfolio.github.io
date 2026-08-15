@@ -4,82 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sofya Bandarenka - Portfolio</title>
+    <!-- Подключаем идеальный гротеск Inter -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; text-align: center; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        /* Базовые настройки баланса */
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* Шапка сайта */
-        header { padding: 40px 0 20px 0; }
-        h1 { font-size: 1.5rem; margin: 0 0 5px 0; font-weight: 400; letter-spacing: 1px; color: #555; }
-        .subtitle { color: #aaaaaa; font-size: 0.95rem; margin: 0 0 30px 0; letter-spacing: 0.5px; }
+        /* Шапка сайта и Навигация */
+        header { padding: 50px 0 30px 0; text-align: center; }
+        h1 { font-size: 1.15rem; margin: 0 0 6px 0; font-weight: 400; letter-spacing: 0.8px; color: #555555; }
+        .subtitle { color: #aaaaaa; font-size: 0.85rem; margin: 0 0 35px 0; letter-spacing: 0.5px; }
+        nav { display: flex; justify-content: center; gap: 35px; margin-bottom: 30px; }
+        nav a { text-decoration: none; color: #999999; font-size: 1.15rem; font-weight: 400; transition: color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; }
         
-        /* Навигация */
-        nav { display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; }
-        nav a { text-decoration: none; color: #aaaaaa; font-size: 1.1rem; transition: color 0.2s; }
-        nav a.active, nav a:hover { color: #333333; }
+        /* Главный контент (About) */
+        main { flex: 1; display: flex; align-items: center; padding: 40px 0 80px 0; }
+        .about-wrapper { width: 100%; }
+        .about-section-title { font-size: 3rem; font-weight: 300; color: #cccccc; margin: 0 0 30px 0; letter-spacing: -0.5px; }
+        .about-content { display: flex; align-items: flex-start; justify-content: space-between; gap: 60px; }
         
-        /* Иконки программ */
-        .software-icons { display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 70px; flex-wrap: wrap; }
-        .software-icons img { height: 45px; width: auto; object-fit: contain; }
+        /* Аватар */
+        .profile-pic-container { flex-shrink: 0; width: 240px; display: flex; justify-content: center; }
+        .profile-pic { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; background: #f5f5f5; }
         
-        /* Блок About */
-        .about-title { font-size: 2.5rem; font-weight: 500; margin-bottom: 40px; color: #222; }
-        .about-content { display: flex; align-items: flex-start; justify-content: center; gap: 50px; text-align: left; margin-bottom: 50px; }
-        .profile-pic { width: 220px; height: 220px; border-radius: 16px; object-fit: cover; flex-shrink: 0; background: #eee; }
-        .text-block { font-size: 1rem; color: #555555; line-height: 1.6; max-width: 600px; }
+        /* Текстовый блок */
+        .text-block { flex: 1; max-width: 640px; font-size: 0.95rem; color: #555555; line-height: 1.65; font-weight: 400; }
+        .text-block h2 { font-size: 2rem; font-weight: 700; color: #111111; margin: 0 0 25px 0; letter-spacing: -0.5px; }
         .text-block p { margin: 0 0 20px 0; }
+        .text-block strong { color: #111111; font-weight: 600; }
         
-        /* Кнопка CV */
-        .cv-button { display: inline-block; background: #333333; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; margin-top: 10px; transition: background 0.2s; }
-        .cv-button:hover { background: #555555; }
+        /* Баланс кнопки CV */
+        .cv-button-container { display: flex; justify-content: flex-end; margin-top: 30px; }
+        .cv-button { display: inline-block; background: #222222; color: #ffffff; text-decoration: none; padding: 11px 26px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s ease, transform 0.1s ease; }
+        .cv-button:hover { background: #444444; }
+        .cv-button:active { transform: scale(0.98); }
+        
+        /* Сбалансированный аккуратный футер */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; }
+        
+        /* Круглые иконки соцсетей */
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
+        /* Адаптивность под мобильные устройства */
         @media (max-width: 768px) {
-            .about-content { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+            header { padding: 30px 0 10px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            main { padding: 20px 0 50px 0; }
+            .about-content { flex-direction: column; align-items: center; gap: 40px; text-align: center; }
+            .profile-pic-container { width: 100%; }
+            .cv-button-container { justify-content: center; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Sofya Bandarenka - Portfolio</h1>
-            <p class="subtitle">Game & Level Designer</p>
-            <nav>
-                <a href="index.html" class="active">About</a>
-                <a href="games.html">Games</a>
-                <a href="#">Gallery</a>
-                <a href="#">Experience</a>
-                <a href="#">Contact/CV</a>
-            </nav>
-        </header>
 
-        <!-- Блок с иконками софта -->
-        <div class="software-icons">
-            <img src="https://jsdelivr.net" alt="GitHub">
-            <img src="https://jsdelivr.net" alt="Unity">
-            <img src="https://jsdelivr.net" alt="Photoshop">
-            <img src="https://jsdelivr.net" alt="Illustrator">
-            <img src="https://jsdelivr.net" alt="Blender">
-            <img src="https://icons8.com" alt="3ds Max">
-            <img src="https://icons8.com" alt="Substance">
-        </div>
+    <!-- Шапка сайта -->
+    <header class="container">
+        <h1>Sofya Bandarenka - Portfolio</h1>
+        <p class="subtitle">Game & Level Designer</p>
+        <nav>
+            <a href="index.html" class="active">About</a>
+            <a href="games.html">Games</a>
+            <a href="#">Other Projects</a>
+            <a href="#">Resume</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
-        <h2 class="about-title">About</h2>
-
-        <div class="about-content">
-            <!-- Ваше фото -->
-            <img src="avatar.jpg" alt="Sofya" class="profile-pic">
-            
-            <!-- Ваш text -->
-            <div class="text-block">
-                <p>Hi! I'm Sofi - a student of the Game Development specialization at Collegium Da Vinci with a passion for creating interactive experiences.</p>
-                <p>In my studies, I focus on how gameplay and visual design work together, developing projects that blend clear mechanics with artistic direction. My background in 2D art helps me shape the visual identity of my ideas, and I also have experience with 3D when needed for specific projects.</p>
-                <p>I'm constantly learning, experimenting, and expanding my creative toolkit, and I'm excited to grow further within the game industry.</p>
+    <!-- Основной контент -->
+    <main class="container">
+        <div class="about-wrapper">
+            <h2 class="about-section-title">About</h2>
+            <div class="about-content">
                 
-                <div style="text-align: right;">
-                    <a href="#" class="cv-button">Download my CV</a>
+                <!-- Аватарка (ссылается на ваш файл avatar.jpg) -->
+                <div class="profile-pic-container">
+                    <img src="avatar.jpg" alt="Sofya Bandarenka" class="profile-pic">
                 </div>
+                
+                <!-- Текст -->
+                <div class="text-block">
+                    <h2>Hello!</h2>
+                    <p>I’m <strong>Sofya Bandarenka</strong>, a game & level designer with 3 years of experience across both commercial and indie projects, working primarily in <strong>Unity</strong>.</p>
+                    <p>I always design from the player’s perspective, focusing on clean mechanics logic and shaping levels around solid pacing, good composition, and clear visual guidance.</p>
+                    
+                    <div class="cv-button-container">
+                        <a href="#" class="cv-button">Download my CV</a>
+                    </div>
+                </div>
+                
             </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                Portfolio by Portfolio by Sofibonda
+            </div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                
+                <!-- Иконка 1: LinkedIn (Вставьте ссылку вместо #) -->
+                <a href="#" class="social-icon" target="_blank" title="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                
+                <!-- Иконка 2: Email (Вставьте mailto:ваша_почта вместо #) -->
+                <a href="#" class="social-icon" title="Email">
+                    <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                </a>
+                
+                <!-- Иконка 3: Telegram (Вставьте ссылку вместо #) -->
+                <a href="#" class="social-icon" target="_blank" title="Telegram">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg>
+                </a>
+                
+                <!-- Иконка 4: Discord (Вставьте ссылку или ваш профиль вместо #) -->
+                <a href="#" class="social-icon" target="_blank" title="Discord">
+                    <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.094 13.094 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011c3.92 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.246.195.373.289a.077.077 0 0 1-.006.127 12.298 12.298 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/></svg>
+                </a>
+                
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
