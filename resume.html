@@ -12,7 +12,7 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -25,7 +25,7 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; position: relative; }
         
-        /* ПОДЗАГОЛОВОК СТРОГО ПО ЦЕНТРУ И КООРДИНАТАМ ОДИН В ОДИН */
+        /* ПОДЗАГОЛОВОК СТРОГО ПО ЦЕНТРУ И КООРДИНАТАМ */
         .page-section-title { 
             font-size: 1.4rem; 
             font-weight: 500; 
@@ -48,15 +48,21 @@
         /* Линейная структура разделов сайта */
         .web-resume-section { width: 100%; margin-bottom: 50px; }
         .web-resume-section:last-of-type { margin-bottom: 0; }
-        .web-resume-section h3 { font-size: 0.9rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
+        .web-resume-section h3 { font-size: 0.9rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 25px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
         
         /* Описание профиля */
         .profile-large-text { font-size: 1.05rem; color: #333333; line-height: 1.7; margin: 0; font-weight: 400; max-width: 900px; }
         
-        /* Горизонтальная сетка навыков в 4 колонки */
-        .skills-web-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; width: 100%; }
-        .skill-column h4 { font-size: 0.9rem; font-weight: 600; color: #111111; margin: 0 0 10px 0; }
-        .skill-column p { font-size: 0.85rem; color: #666666; margin: 0; line-height: 1.5; }
+        /* КРЕАТИВНЫЙ ДИЗАЙН НАВЫКОВ: СЕТКА С ТЕГАМИ */
+        .skills-web-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 50px; width: 100%; }
+        .skill-column h4 { font-size: 0.95rem; font-weight: 600; color: #111111; margin: 0 0 14px 0; }
+        
+        /* Контейнер для плашек флексом */
+        .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        
+        /* Минималистичные аккуратные теги */
+        .tech-tag { display: inline-block; padding: 6px 12px; background: #f5f5f5; color: #555555; font-size: 0.82rem; font-weight: 400; border-radius: 8px; border: 1px solid #eaeaea; transition: all 0.2s ease; }
+        .tech-tag:hover { background: #ededed; color: #111111; border-color: #dcdcdc; }
         
         /* Элементы опыта */
         .job-item { margin-bottom: 30px; }
@@ -85,15 +91,12 @@
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
-        @media (max-width: 900px) {
-            .skills-web-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        }
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
             .page-wrapper { padding: 25px 0 60px 0; }
             .resume-header-panel { padding-top: 40px; margin-bottom: 25px; justify-content: center; }
-            .skills-web-grid { grid-template-columns: 1fr; gap: 20px; }
+            .skills-web-grid { grid-template-columns: 1fr; gap: 30px; }
             .resume-bottom-split { grid-template-columns: 1fr; gap: 35px; }
             .job-header { flex-direction: column; gap: 10px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
@@ -121,42 +124,85 @@
             <!-- Подзаголовок страницы -->
             <h2 class="page-section-title">Resume</h2>
             
-            <!-- Панель управления (Аккуратная кнопка скачивания) -->
+            <!-- Панель управления -->
             <div class="resume-header-panel">
                 <a href="Sofya_Bandarenka_CV.pdf" class="btn-download" download>Download PDF Version</a>
             </div>
             
-            <!-- РАЗДЕЛ 1: ABOUT (ПРОФИЛЬ) -->
+            <!-- РАЗДЕЛ 1: ABOUT -->
             <section class="web-resume-section">
                 <h3>About</h3>
                 <p class="profile-large-text">
                     Game and level designer with 3 years of experience focused on shaping specific player experiences and emotions through design. Equally skilled in crafting core mechanics logic, building functional gameplay loops inside Unity, and designing intuitive level layouts with tight pacing. Aims to seamlessly blend solid technical logic with responsive controls and clear visual guidance.
                 </p>
             </section>
-            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (ГОРИЗОНТАЛЬНАЯ СЕТКА В 4 КОЛОНКИ) -->
+            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (АККУРАТНЫЕ ОДЕЛЬНЫЕ ПЛАШКИ) -->
             <section class="web-resume-section">
                 <h3>Skills & Tools</h3>
                 <div class="skills-web-grid">
+                    
+                    <!-- Колонна 1 -->
                     <div class="skill-column">
                         <h4>Software & Engines</h4>
-                        <p>Unity Engine, Blender, Substance Painter, Adobe Photoshop, Adobe Illustrator, Git / GitHub, Jira, Confluence, Miro.</p>
+                        <div class="tags-container">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Blender</span>
+                            <span class="tech-tag">Substance Painter</span>
+                            <span class="tech-tag">Photoshop</span>
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">Git / GitHub</span>
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Confluence</span>
+                            <span class="tech-tag">Miro</span>
+                        </div>
                     </div>
+                    
+                    <!-- Колонна 2 -->
                     <div class="skill-column">
                         <h4>Game & Level Design</h4>
-                        <p>Mechanics Design, Level Layout & Blockout, Balancing, Gameplay Loops, Game Design Documentation (GDO / GDD), Level Pacing & Composition, Player Guidance.</p>
+                        <div class="tags-container">
+                            <span class="tech-tag">Mechanics Design</span>
+                            <span class="tech-tag">Level Layout</span>
+                            <span class="tech-tag">Blockout / Greyboxing</span>
+                            <span class="tech-tag">Balancing</span>
+                            <span class="tech-tag">Gameplay Loops</span>
+                            <span class="tech-tag">GDO / GDD Documentation</span>
+                            <span class="tech-tag">Level Pacing</span>
+                            <span class="tech-tag">Composition</span>
+                            <span class="tech-tag">Player Guidance</span>
+                        </div>
                     </div>
+                    
+                    <!-- Колонна 3 -->
                     <div class="skill-column">
                         <h4>Technical & Tech Art</h4>
-                        <p>2D Character Rigging & Bone Setup, Creating Looping Animations, Asset Integration in Unity, Fine-tuning Inspector Variables & Component Configuration.</p>
+                        <div class="tags-container">
+                            <span class="tech-tag">2D Character Rigging</span>
+                            <span class="tech-tag">Bone Setup</span>
+                            <span class="tech-tag">Looping Animations</span>
+                            <span class="tech-tag">Asset Integration</span>
+                            <span class="tech-tag">Inspector Configuration</span>
+                            <span class="tech-tag">Component Setup</span>
+                        </div>
                     </div>
+                    
+                    <!-- Колонна 4 -->
                     <div class="skill-column">
                         <h4>Soft Skills</h4>
-                        <p>Team Collaboration, Creative Problem Solving, Open to Feedback & Iteration, Adaptability, Clear Communication.</p>
+                        <div class="tags-container">
+                            <span class="tech-tag">Team Collaboration</span>
+                            <span class="tech-tag">Creative Problem Solving</span>
+                            <span class="tech-tag">Open to Feedback</span>
+                            <span class="tech-tag">Iteration-Oriented</span>
+                            <span class="tech-tag">Adaptability</span>
+                            <span class="tech-tag">Clear Communication</span>
+                        </div>
                     </div>
+                    
                 </div>
             </section>
             
-            <!-- РАЗДЕЛ 3: EXPERIENCE (КОММЕРЧЕСКИЙ ОПЫТ) -->
+            <!-- РАЗДЕЛ 3: COMMERCIAL EXPERIENCE -->
             <section class="web-resume-section">
                 <h3>Commercial Experience</h3>
                 
@@ -189,7 +235,7 @@
                 <h3>Education</h3>
                 <div class="job-item">
                     <div class="job-header">
-                        <h4 class="job-title">Game Development <span>| Collegium da Vinci</span></h4>
+                        <h4 class="job-title">Game Development <span class="exp-company">| Collegium da Vinci</span></h4>
                         <span class="job-date">2023 – 2026 (Graduated)</span>
                     </div>
                     <p class="profile-text" style="font-size: 0.9rem; margin-top: 6px; color: #666666;">
@@ -214,8 +260,8 @@
                     <div>
                         <ul class="meta-list">
                             <li>Casual & strategy games</li>
-                            <li>Digital illustration</li>
-                            <li>Mechanics analysis</li>
+                            <li>Digital illustration / Concept art</li>
+                            <li>Mechanics & level pacing analysis</li>
                         </ul>
                     </div>
                 </div>
