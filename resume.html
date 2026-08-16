@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - Resume</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
+        header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
+        
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        /* Главный контент */
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; position: relative; }
+        
+        /* ПОДЗАГОЛОВОК СТАЛ МЕНЬШЕ, ВЫШЕ И СТРОГО ПО ЦЕНТРУ (КООРДИНАТЫ ОДИН В ОДИН) */
+        .page-section-title { 
+            font-size: 1.4rem; 
+            font-weight: 500; 
+            color: #cccccc; 
+            margin: 0; 
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 0.5px; 
+            line-height: 1; 
+            text-transform: none;
+        }
+        
+        /* Контейнер верхней кнопки скачивания */
+        .download-container { width: 100%; display: flex; justify-content: center; padding-top: 65px; margin-bottom: 40px; }
+        
+        /* ГРАФИТОВАЯ КНОПКА СКАЧИВАНИЯ С КРУГЛЕНИЕМ 12px КАК НА ГЛАВНОЙ */
+        .btn-download { display: inline-block; padding: 14px 28px; background: #222222; color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-radius: 12px; transition: background 0.2s ease, transform 0.2s ease; }
+        .btn-download:hover { background: #444444; transform: translateY(-1px); }
+        
+        /* Двухколоночная структура резюме */
+        .resume-layout { display: grid; grid-template-columns: 280px 1fr; gap: 50px; width: 100%; }
+        
+        /* Левая узкая колонка */
+        .resume-left { display: flex; flex-direction: column; gap: 35px; }
+        
+        /* Правая широкая колонка */
+        .resume-right { display: flex; flex-direction: column; gap: 40px; }
+        
+        /* Блоки и заголовки внутри резюме */
+        .resume-section h3 { font-size: 1.1rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 0.8px; margin: 0 0 15px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 6px; }
+        .profile-text { font-size: 0.95rem; color: #444444; line-height: 1.6; margin: 0; }
+        
+        /* Списки навыков и языков */
+        .skills-group { margin-bottom: 15px; }
+        .skills-group h4 { font-size: 0.9rem; font-weight: 600; color: #333333; margin: 0 0 5px 0; }
+        .skills-group p { font-size: 0.85rem; color: #666666; margin: 0; line-height: 1.4; }
+        
+        .lang-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+        .lang-list li { font-size: 0.90rem; color: #444444; }
+        .lang-list strong { font-weight: 500; color: #111111; }
+        
+        /* Опыт работы и проекты */
+        .exp-item { margin-bottom: 25px; }
+        .exp-item:last-child { margin-bottom: 0; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+        .exp-title { font-size: 1rem; font-weight: 600; color: #111111; margin: 0; }
+        .exp-company { font-size: 0.95rem; color: #555555; font-weight: 400; }
+        .exp-date { font-size: 0.85rem; color: #888888; font-weight: 400; }
+        .project-intro { font-size: 0.9rem; font-style: italic; color: #666666; margin: -5px 0 20px 0; }
+        
+        .exp-item ul { margin: 8px 0 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+        .exp-item li { font-size: 0.9rem; color: #555555; line-height: 1.5; }
+
+        /* ФУТЕР */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        @media (max-width: 850px) {
+            .resume-layout { grid-template-columns: 1fr; gap: 40px; }
+            .resume-left { gap: 30px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            .page-wrapper { padding: 25px 0 60px 0; }
+            .download-container { padding-top: 40px; margin-bottom: 25px; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game Designer & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html">Games</a>
+                <a href="other.html">Other Projects</a>
+                <a href="resume.html" class="active">Resume</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-wrapper">
+            <!-- Подзаголовок страницы -->
+            <h2 class="page-section-title">Resume</h2>
+            
+            <!-- Кнопка скачивания PDF -->
+            <div class="download-container">
+                <a href="Sofya_Bandarenka_CV.pdf" class="btn-download" download>Download Full CV (PDF)</a>
+            </div>
+            
+            <!-- Сетка Резюме -->
+            <div class="resume-layout">
+                
+                <!-- ЛЕВАЯ КОЛОНКА (Скиллы и Языки) -->
+                <aside class="resume-left">
+                    
+                    <div class="resume-section">
+                        <h3>Skills & Tools</h3>
+                        
+                        <div class="skills-group">
+                            <h4>Software & Engines</h4>
+                            <p>Unity Engine, Blender, Substance Painter, Adobe Photoshop, Adobe Illustrator, Git / GitHub, Jira, Confluence, Miro.</p>
+                        </div>
+                        
+                        <div class="skills-group">
+                            <h4>Game & Level Design</h4>
+                            <p>Mechanics Design, Level Layout & Blockout, Balancing, Gameplay Loops, Game Design Documentation (GDO / GDD), Level Pacing & Composition, Player Guidance.</p>
+                        </div>
+                        
+                        <div class="skills-group">
+                            <h4>Technical & Tech Art</h4>
+                            <p>2D Character Rigging & Bone Setup, Creating Looping Animations, Asset Integration in Unity, Fine-tuning Inspector Variables & Component Configuration.</p>
+                        </div>
+                        
+                        <div class="skills-group">
+                            <h4>Soft Skills</h4>
+                            <p>Team Collaboration, Creative Problem Solving, Open to Feedback & Iteration, Adaptability, Clear Communication.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3>Languages</h3>
+                        <ul class="lang-list">
+                            <li><strong>English</strong> — B2 (Upper-Intermediate)</li>
+                            <li><strong>Polish</strong> — B2 (Upper-Intermediate)</li>
+                            <li><strong>Russian / Belarusian</strong> — Native</li>
+                        </ul>
+                    </div>
+                    
+                </aside>
+                
+                <!-- ПРАВАЯ КОЛОНКА (Профиль, Опыт, Проекты, Образование) -->
+                <section class="resume-right">
+                    
+                    <!-- Блок Профиль -->
+                    <div class="resume-section">
+                        <h3>About</h3>
+                        <p class="profile-text">
