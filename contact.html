@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - Contact</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
+        header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
+        
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        /* Главный контент */
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; position: relative; }
+        
+        /* ПОДЗАГОЛОВОК СТРОГО ПО ЦЕНТРУ И КООРДИНАТАМ ОДИН В ОДИН */
+        .page-section-title { 
+            font-size: 1.4rem; 
+            font-weight: 500; 
+            color: #cccccc; 
+            margin: 0; 
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 0.5px; 
+            line-height: 1; 
+            text-transform: none;
+        }
+        
+        /* КОНТЕЙНЕР КОНТАКТОВ В СТИЛЕ ТВОЕГО ПРИМЕРА */
+        .contact-layout { max-width: 800px; width: 100%; padding-top: 80px; padding-left: 20px; align-self: flex-start; }
+        
+        .contact-layout h3 { font-size: 2.2rem; font-weight: 500; color: #111111; margin: 0 0 25px 0; letter-spacing: -0.5px; }
+        .contact-description { font-size: 1rem; color: #666666; line-height: 1.6; margin: 0 0 45px 0; max-width: 650px; }
+        
+        /* ВЕРТИКАЛЬНЫЙ СТЕК С ИКОНКАМИ */
+        .contact-list { display: flex; flex-direction: column; gap: 20px; padding: 0; margin: 0; }
+        .contact-item { display: flex; align-items: center; gap: 16px; text-decoration: none; color: #444444; transition: color 0.2s ease; }
+        .contact-item:hover { color: #111111; }
+        
+        /* Круглые серые/темные иконки в тон сайта */
+        .contact-icon-box { display: flex; align-items: center; justify-content: center; width: 36px; height: 32px; color: #333333; }
+        .contact-icon-box svg { width: 22px; height: 22px; fill: currentColor; }
+        .contact-value { font-size: 1.1rem; font-weight: 400; letter-spacing: -0.1px; }
+
+        /* ФУТЕР — ОДИН В ОДИН */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            .page-wrapper { padding: 25px 0 60px 0; }
+            .contact-layout { padding-top: 50px; padding-left: 0; }
+            .contact-layout h3 { font-size: 1.8rem; }
+            .contact-value { font-size: 1rem; word-break: break-all; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game Designer & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html">Games</a>
+                <a href="other.html">Other Projects</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-wrapper">
+            <!-- Подзаголовок страницы -->
+            <h2 class="page-section-title">Contact</h2>
+            
+            <div class="contact-layout">
+                <h3>Let's get in touch</h3>
+                <p class="contact-description">Feel free to contact me about any opportunity, or just to chat about gamedev, coding or anything else :)</p>
+                <div class="contact-list">
+                    
+                    <!-- 1. EMAIL -->
+                    <a href="mailto:sofya.bandarenka@gmail.com" class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <span class="contact-value">sofya.bandarenka@gmail.com</span>
+                    </a>
+
+                    <!-- 2. LINKEDIN -->
+                    <a href="https://linkedin.com" target="_blank" class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </div>
+                        <span class="contact-value">://linkedin.com</span>
+                    </a>
+
+                    <!-- 3. TELEGRAM -->
+                    <a href="https://t.me" target="_blank" class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.156.156-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg>
+                        </div>
+                        <span class="contact-value">t.me/yourusername</span>
+                    </a>
+
+                    <!-- 4. WHATSAPP -->
+                    <a href="https://wa.me" target="_blank" class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.89 9.884-.001 2.225.618 3.891 1.746 5.634l-.999 3.648 3.743-.981z"/></svg>
+                        </div>
+                        <span class="contact-value">wa.me/yournumber</span>
+                    </a>
+
+                    <!-- 5. DISCORD -->
+                    <div class="contact-item" style="cursor: default;">
+                        <div class="contact-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.093 13.093 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011c3.92 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.246.195.373.289a.075.075 0 0 1-.006.127 12.298 12.298 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/></svg>
+                        </div>
+                        <span class="contact-value" style="user-select: all;">your_discord_id</span>
+                    </div>
+
+                    <!-- 6. GITHUB -->
+                    <a href="https://github.com" target="_blank" class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 3.071 1.305 3.821.997.107-.775.18-1.305.286-1.604-2.665-.302-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </div>
+                        <span class="contact-value">://github.com</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">Portfolio by Sofibonda</div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                <a href="#" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                <a href="#" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.156.156-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
+                <a href="#" class="social-icon" target="_blank" title="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.093 13.093 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011c3.92 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.246.195.373.289a.075.075 0 0 1-.006.127 12.298 12.298 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
