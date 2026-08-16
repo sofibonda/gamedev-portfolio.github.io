@@ -26,19 +26,6 @@
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
         /* ПОДЗАГОЛОВОК СТАЛ МЕНЬШЕ, ВЫШЕ И СТРОГО ПО ЦЕНТРУ (КООРДИНАТЫ ОДИН В ОДИН) */
-        .page-section-title { 
-            font-size: 1.4rem; 
-            font-weight: 500; 
-            color: #cccccc; 
-            margin: 0; 
-            position: absolute;
-            top: 25px; /* Идентичная высота подъема к хэдеру */
-            left: 50%;
-            transform: translateX(-50%);
-            letter-spacing: 0.5px; 
-            line-height: 1; 
-            text-transform: none;
-        }
         
         /* Сетка в 3 колонки смещена ниже под заголовок */
         .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 40px; width: 100%; padding-top: 55px; }
@@ -100,7 +87,6 @@
     <main class="container">
         <div class="page-wrapper">
             <!-- Подзаголовок страницы -->
-            <h2 class="page-section-title">Games</h2>
             
             <div class="games-grid">
                 
