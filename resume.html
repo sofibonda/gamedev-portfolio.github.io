@@ -12,7 +12,7 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -40,24 +40,22 @@
             text-transform: none;
         }
         
-        /* Верхняя панель заголовка (Кнопка скачивания справа) */
+        /* Панель кнопки скачивания справа */
         .resume-header-panel { display: flex; justify-content: flex-end; width: 100%; padding-top: 65px; margin-bottom: 50px; }
         .btn-download { display: inline-block; padding: 11px 22px; background: #222222; color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-radius: 12px; transition: background 0.2s ease, transform 0.2s ease; }
         .btn-download:hover { background: #444444; transform: translateY(-1px); }
         
-        /* Линейная структура разделов сайта */
+        /* Разделы сайта */
         .web-resume-section { width: 100%; margin-bottom: 60px; position: relative; }
         .web-resume-section:last-of-type { margin-bottom: 0; }
         .web-resume-section h3 { font-size: 0.9rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 1.2px; margin: 0 0 30px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
         
-        /* СТИЛИ ТАЙМЛАЙНА В СТИЛЕ REFENERENCE (SCHOUFFY) */
+        /* СТИЛИ ТАЙМЛАЙНА (ВЕРТИКАЛЬНЫЙ ТРЕК С ЛИНИЕЙ) */
         .timeline-container { position: relative; padding-left: 32px; }
-        /* Тонкая сквозная линия трека */
         .timeline-container::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: #e5e5e5; }
         
         .timeline-item { position: relative; margin-bottom: 40px; }
         .timeline-item:last-child { margin-bottom: 0; }
-        /* Маленькая аккуратная точка на линии */
         .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 9px; height: 9px; background: #ffffff; border: 2px solid #222222; border-radius: 50%; z-index: 2; }
         
         .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; gap: 10px; }
@@ -68,20 +66,26 @@
         .timeline-item ul { margin: 10px 0 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
         .timeline-item li { font-size: 0.9rem; color: #555555; line-height: 1.6; }
         
-        /* ГОРИЗОНТАЛЬНАЯ СЕТКА НАВЫКОВ (ПЛАШКИ-ТЕГИ) */
+        /* СЕТКА НАВЫКОВ (ПЛАШКИ-ТЕГИ) */
         .skills-web-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 50px; width: 100%; }
         .skill-column h4 { font-size: 0.95rem; font-weight: 600; color: #111111; margin: 0 0 14px 0; }
         .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tag { display: inline-block; padding: 6px 12px; background: #f5f5f5; color: #555555; font-size: 0.82rem; font-weight: 400; border-radius: 8px; border: 1px solid #eaeaea; transition: all 0.2s ease; }
         .tech-tag:hover { background: #ededed; color: #111111; border-color: #dcdcdc; }
         
-        /* Подвальный сплит 50/50 */
-        .resume-bottom-split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; }
+        /* СТИЛИ ДЛЯ КРЕАТИВНОГО ПОДВАЛА С ИКОНКАМИ */
+        .personal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 50px; width: 100%; }
+        .personal-item { display: flex; gap: 20px; align-items: flex-start; }
+        .personal-icon-box { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; color: #555555; flex-shrink: 0; margin-top: 2px; }
+        .personal-icon-box svg { width: 20px; height: 20px; fill: currentColor; }
+        .personal-content h4 { font-size: 0.95rem; font-weight: 600; color: #111111; margin: 0 0 8px 0; }
+        .personal-content p { font-size: 0.9rem; color: #555555; line-height: 1.5; margin: 0; }
+        
         .meta-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
         .meta-list li { font-size: 0.9rem; color: #555555; line-height: 1.4; }
         .meta-list strong { font-weight: 500; color: #111111; }
 
-        /* ФУТЕР — НЕИЗМЕНЕН */
+        /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -97,8 +101,7 @@
             nav { gap: 20px; flex-wrap: wrap; }
             .page-wrapper { padding: 25px 0 60px 0; }
             .resume-header-panel { padding-top: 40px; margin-bottom: 30px; justify-content: center; }
-            .skills-web-grid { grid-template-columns: 1fr; gap: 30px; }
-            .resume-bottom-split { grid-template-columns: 1fr; gap: 35px; }
+            .skills-web-grid, .personal-grid { grid-template-columns: 1fr; gap: 30px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -114,26 +117,24 @@
                 <a href="games.html">Games</a>
                 <a href="other.html">Other Projects</a>
                 <a href="resume.html" class="active">CV</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
     <main class="container">
         <div class="page-wrapper">
-            <!-- Подзаголовок страницы теперь CV -->
             <h2 class="page-section-title">CV</h2>
             
-            <!-- Кнопка скачивания теперь европейская Download CV -->
             <div class="resume-header-panel">
                 <a href="Sofya_Bandarenka_CV.pdf" class="btn-download" download>Download CV (PDF)</a>
             </div>
             
-            <!-- РАЗДЕЛ 1: COMMERCIAL EXPERIENCE (СТРОГО НА САМОМ ВЕРХУ ТАЙМЛАЙНОМ) -->
+            <!-- РАЗДЕЛ 1: COMMERCIAL EXPERIENCE -->
             <section class="web-resume-section">
                 <h3>Commercial Experience</h3>
                 <div class="timeline-container">
                     
-                    <!-- Пункт таймлайна 1 -->
                     <div class="timeline-item">
                         <div class="job-header">
                             <h4 class="job-title">2D Artist <span>| Diesel Puppet</span></h4>
@@ -146,7 +147,6 @@
                         </ul>
                     </div>
                     
-                    <!-- Пункт таймлайна 2 -->
                     <div class="timeline-item">
                         <div class="job-header">
                             <h4 class="job-title">Illustrator & Graphic Designer <span>| Freelance</span></h4>
@@ -160,12 +160,12 @@
                     
                 </div>
             </section>
-            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (АККУРАТНЫЕ ОДЕЛЬНЫЕ ПЛАШКИ В ДВЕ КОЛОНКИ) -->
+            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (АККУРАТНЫЕ ПЛАШКИ-ТЕГИ) -->
             <section class="web-resume-section">
                 <h3>Skills & Tools</h3>
                 <div class="skills-web-grid">
                     
-                    <!-- Колонна 1 -->
+                    <!-- Группа 1 -->
                     <div class="skill-column">
                         <h4>Software & Engines</h4>
                         <div class="tags-container">
@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     
-                    <!-- Колонна 2 -->
+                    <!-- Группа 2 -->
                     <div class="skill-column">
                         <h4>Game & Level Design</h4>
                         <div class="tags-container">
@@ -197,7 +197,7 @@
                         </div>
                     </div>
                     
-                    <!-- Колонна 3 -->
+                    <!-- Группа 3 -->
                     <div class="skill-column">
                         <h4>Technical & Tech Art</h4>
                         <div class="tags-container">
@@ -210,7 +210,7 @@
                         </div>
                     </div>
                     
-                    <!-- Колонна 4 -->
+                    <!-- Группа 4 -->
                     <div class="skill-column">
                         <h4>Soft Skills</h4>
                         <div class="tags-container">
@@ -226,7 +226,7 @@
                 </div>
             </section>
             
-            <!-- РАЗДЕЛ 3: EDUCATION (ПРОДОЛЖЕНИЕ ТАЙМЛАЙНА) -->
+            <!-- РАЗДЕЛ 3: EDUCATION (ТАЙМЛАЙН) -->
             <section class="web-resume-section">
                 <h3>Education</h3>
                 <div class="timeline-container">
@@ -241,26 +241,75 @@
                     </div>
                 </div>
             </section>
-            
-            <!-- РАЗДЕЛ 4: LANGUAGES & INTERESTS (РАЗВОРОТ 50/50) -->
+
+            <!-- РАЗДЕЛ 4: LANGUAGES (ОТДЕЛЬНЫЙ ПЛОСКИЙ БЛОК) -->
             <section class="web-resume-section">
-                <h3>Languages & Interests</h3>
-                <div class="resume-bottom-split">
+                <h3>Languages</h3>
+                <div class="resume-bottom-split" style="grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
                         <ul class="meta-list">
                             <li><strong>English</strong> — B2 (Upper-Intermediate)</li>
                             <li><strong>Polish</strong> — B2 (Upper-Intermediate)</li>
-                            <li><strong>Russian</strong> — Native</li>
-                            <li><strong>Belarusian</strong> — Native</li>
                         </ul>
                     </div>
                     <div>
                         <ul class="meta-list">
-                            <li>Casual & strategy games</li>
-                            <li>Digital illustration / Concept art</li>
-                            <li>Mechanics & level pacing analysis</li>
+                            <li><strong>Russian</strong> — Native</li>
+                            <li><strong>Belarusian</strong> — Native</li>
                         </ul>
                     </div>
+                </div>
+            </section>
+            
+            <!-- РАЗДЕЛ 5: OUTSIDE THE ENGINE (ЖИВЫЕ ИНТЕРЕСЫ С ИКОНКАМИ ПО РЕФЕРЕНСУ) -->
+            <section class="web-resume-section">
+                <h3>Outside the Engine</h3>
+                <div class="personal-grid">
+                    
+                    <!-- 1. ИГРЫ -->
+                    <div class="personal-item">
+                        <div class="personal-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                        </div>
+                        <div class="personal-content">
+                            <h4>Games</h4>
+                            <p>I love completely different things: diving into the story campaigns of Call of Duty, racing in Forza and NFS Payback, or figuring out the logic behind JudgeSim. It is equally interesting for me to analyze both massive PC releases and mobile titles.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2. СЕРИАЛЫ И КИНО -->
+                    <div class="personal-item">
+                        <div class="personal-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4h-2l2 4h-3l-2-4h-2v16h18V4z"/></svg>
+                        </div>
+                        <div class="personal-content">
+                            <h4>Cinema & Shows</h4>
+                            <p>I enjoy TV shows with great character development that you can watch for years — my top choices are Supernatural and House, M.D. When it comes to movies, I always rewatch Harry Potter for its cozy atmosphere and Split for its incredible tension.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 3. ДУДЛЫ -->
+                    <div class="personal-item">
+                        <div class="personal-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                        </div>
+                        <div class="personal-content">
+                            <h4>Doodling</h4>
+                            <p>When I need a break from technical documentation and game engines, I draw cute, round, and chubby animals or characters on my tablet. Just for fun and to clear my head.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 4. АКТИВНОСТИ -->
+                    <div class="personal-item">
+                        <div class="personal-icon-box">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 14h-2v2h2v-2zm0-10h-2v6h2V6z"/></svg>
+                        </div>
+                        <div class="personal-content">
+                            <h4>Outside the Room</h4>
+                            <p>To avoid sitting in front of the screen 24/7, I go swimming, visit zoos, and spend time near beautiful lakes. I am also deeply drawn to interactive spaces like optical illusion museums — it's amazing to see how easily our spatial perception can be tricked.</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </section>
                 
@@ -274,10 +323,3 @@
                 <span>Let's talk games:</span>
                 <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.156.156-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
