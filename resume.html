@@ -12,7 +12,7 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ */
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -25,7 +25,7 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; position: relative; }
         
-        /* ПОДЗАГОЛОВОК СТРОГО ПО ЦЕНТРУ И КООРДИНАТАМ */
+        /* ПОДЗАГОЛОВОК СТРОГО ПО ЦЕНТРУ И КООРДИНАТАМ ОДИН В ОДИН */
         .page-section-title { 
             font-size: 1.4rem; 
             font-weight: 500; 
@@ -41,46 +41,47 @@
         }
         
         /* Верхняя панель заголовка (Кнопка скачивания справа) */
-        .resume-header-panel { display: flex; justify-content: flex-end; width: 100%; padding-top: 65px; margin-bottom: 40px; }
+        .resume-header-panel { display: flex; justify-content: flex-end; width: 100%; padding-top: 65px; margin-bottom: 50px; }
         .btn-download { display: inline-block; padding: 11px 22px; background: #222222; color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-radius: 12px; transition: background 0.2s ease, transform 0.2s ease; }
         .btn-download:hover { background: #444444; transform: translateY(-1px); }
         
         /* Линейная структура разделов сайта */
-        .web-resume-section { width: 100%; margin-bottom: 50px; }
+        .web-resume-section { width: 100%; margin-bottom: 60px; position: relative; }
         .web-resume-section:last-of-type { margin-bottom: 0; }
-        .web-resume-section h3 { font-size: 0.9rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 25px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
+        .web-resume-section h3 { font-size: 0.9rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 1.2px; margin: 0 0 30px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
         
-        /* Описание профиля */
-        .profile-large-text { font-size: 1.05rem; color: #333333; line-height: 1.7; margin: 0; font-weight: 400; max-width: 900px; }
+        /* СТИЛИ ТАЙМЛАЙНА В СТИЛЕ REFENERENCE (SCHOUFFY) */
+        .timeline-container { position: relative; padding-left: 32px; }
+        /* Тонкая сквозная линия трека */
+        .timeline-container::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: #e5e5e5; }
         
-        /* КРЕАТИВНЫЙ ДИЗАЙН НАВЫКОВ: СЕТКА С ТЕГАМИ */
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        /* Маленькая аккуратная точка на линии */
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 6px; width: 9px; height: 9px; background: #ffffff; border: 2px solid #222222; border-radius: 50%; z-index: 2; }
+        
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; gap: 10px; }
+        .job-title { font-size: 1.05rem; font-weight: 600; color: #111111; margin: 0; }
+        .job-title span { font-weight: 400; color: #666666; font-size: 1rem; }
+        .job-date { font-size: 0.85rem; color: #999999; font-weight: 400; font-variant-numeric: tabular-nums; }
+        
+        .timeline-item ul { margin: 10px 0 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+        .timeline-item li { font-size: 0.9rem; color: #555555; line-height: 1.6; }
+        
+        /* ГОРИЗОНТАЛЬНАЯ СЕТКА НАВЫКОВ (ПЛАШКИ-ТЕГИ) */
         .skills-web-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 50px; width: 100%; }
         .skill-column h4 { font-size: 0.95rem; font-weight: 600; color: #111111; margin: 0 0 14px 0; }
-        
-        /* Контейнер для плашек флексом */
         .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
-        
-        /* Минималистичные аккуратные теги */
         .tech-tag { display: inline-block; padding: 6px 12px; background: #f5f5f5; color: #555555; font-size: 0.82rem; font-weight: 400; border-radius: 8px; border: 1px solid #eaeaea; transition: all 0.2s ease; }
         .tech-tag:hover { background: #ededed; color: #111111; border-color: #dcdcdc; }
         
-        /* Элементы опыта */
-        .job-item { margin-bottom: 30px; }
-        .job-item:last-child { margin-bottom: 0; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-        .job-title { font-size: 1.05rem; font-weight: 600; color: #111111; margin: 0; }
-        .job-title span { font-weight: 400; color: #666666; font-size: 1rem; }
-        .job-date { font-size: 0.85rem; color: #888888; }
-        .job-item ul { margin: 8px 0 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
-        .job-item li { font-size: 0.9rem; color: #555555; line-height: 1.5; }
-        
         /* Подвальный сплит 50/50 */
-        .resume-bottom-split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; margin-top: 10px; }
+        .resume-bottom-split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; }
         .meta-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
         .meta-list li { font-size: 0.9rem; color: #555555; line-height: 1.4; }
         .meta-list strong { font-weight: 500; color: #111111; }
 
-        /* ФУТЕР */
+        /* ФУТЕР — НЕИЗМЕНЕН */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -95,10 +96,9 @@
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
             .page-wrapper { padding: 25px 0 60px 0; }
-            .resume-header-panel { padding-top: 40px; margin-bottom: 25px; justify-content: center; }
+            .resume-header-panel { padding-top: 40px; margin-bottom: 30px; justify-content: center; }
             .skills-web-grid { grid-template-columns: 1fr; gap: 30px; }
             .resume-bottom-split { grid-template-columns: 1fr; gap: 35px; }
-            .job-header { flex-direction: column; gap: 10px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -114,29 +114,53 @@
                 <a href="games.html">Games</a>
                 <a href="other.html">Other Projects</a>
                 <a href="resume.html" class="active">CV</a>
-                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
     <main class="container">
         <div class="page-wrapper">
-            <!-- Подзаголовок страницы -->
+            <!-- Подзаголовок страницы теперь CV -->
             <h2 class="page-section-title">CV</h2>
             
-            <!-- Панель управления -->
+            <!-- Кнопка скачивания теперь европейская Download CV -->
             <div class="resume-header-panel">
-                <a href="Sofya_Bandarenka_CV.pdf" class="btn-download" download>Download PDF Version</a>
+                <a href="Sofya_Bandarenka_CV.pdf" class="btn-download" download>Download CV (PDF)</a>
             </div>
             
-            <!-- РАЗДЕЛ 1: ABOUT -->
+            <!-- РАЗДЕЛ 1: COMMERCIAL EXPERIENCE (СТРОГО НА САМОМ ВЕРХУ ТАЙМЛАЙНОМ) -->
             <section class="web-resume-section">
-                <h3>About</h3>
-                <p class="profile-large-text">
-                    Game and level designer with 3 years of experience focused on shaping specific player experiences and emotions through design. Equally skilled in crafting core mechanics logic, building functional gameplay loops inside Unity, and designing intuitive level layouts with tight pacing. Aims to seamlessly blend solid technical logic with responsive controls and clear visual guidance.
-                </p>
+                <h3>Commercial Experience</h3>
+                <div class="timeline-container">
+                    
+                    <!-- Пункт таймлайна 1 -->
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <h4 class="job-title">2D Artist <span>| Diesel Puppet</span></h4>
+                            <span class="job-date">Feb 2025 – Feb 2026 (1 year)</span>
+                        </div>
+                        <ul>
+                            <li>Created optimized 2D assets and UI for the commercially released title "Lostville: Find Hidden Objects".</li>
+                            <li>Used AI-assisted workflows for rapid asset ideation and concept generation.</li>
+                            <li>Collaborated daily with developers for seamless asset integration inside Unity.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Пункт таймлайна 2 -->
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <h4 class="job-title">Illustrator & Graphic Designer <span>| Freelance</span></h4>
+                            <span class="job-date">Jun 2022 – Aug 2023 (1 year 3 months)</span>
+                        </div>
+                        <ul>
+                            <li>Developed custom digital illustrations and UI layouts for digital platforms.</li>
+                            <li>Managed full artistic pipelines from raw sketching to final asset delivery.</li>
+                        </ul>
+                    </div>
+                    
+                </div>
             </section>
-            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (АККУРАТНЫЕ ОДЕЛЬНЫЕ ПЛАШКИ) -->
+            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (АККУРАТНЫЕ ОДЕЛЬНЫЕ ПЛАШКИ В ДВЕ КОЛОНКИ) -->
             <section class="web-resume-section">
                 <h3>Skills & Tools</h3>
                 <div class="skills-web-grid">
@@ -202,53 +226,26 @@
                 </div>
             </section>
             
-            <!-- РАЗДЕЛ 3: COMMERCIAL EXPERIENCE -->
-            <section class="web-resume-section">
-                <h3>Commercial Experience</h3>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <h4 class="job-title">2D Artist <span>| Diesel Puppet</span></h4>
-                        <span class="job-date">Feb 2025 – Feb 2026 (1 year)</span>
-                    </div>
-                    <ul>
-                        <li>Created optimized 2D assets and UI for the commercially released title "Lostville: Find Hidden Objects".</li>
-                        <li>Used AI-assisted workflows for rapid asset ideation and concept generation.</li>
-                        <li>Collaborated daily with developers for seamless asset integration inside Unity.</li>
-                    </ul>
-                </div>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <h4 class="job-title">Illustrator & Graphic Designer <span>| Freelance</span></h4>
-                        <span class="job-date">Jun 2022 – Aug 2023 (1 year 3 months)</span>
-                    </div>
-                    <ul>
-                        <li>Developed custom digital illustrations and UI layouts for digital platforms.</li>
-                        <li>Managed full artistic pipelines from raw sketching to final asset delivery.</li>
-                    </ul>
-                </div>
-            </section>
-            
-            <!-- РАЗДЕЛ 4: EDUCATION -->
+            <!-- РАЗДЕЛ 3: EDUCATION (ПРОДОЛЖЕНИЕ ТАЙМЛАЙНА) -->
             <section class="web-resume-section">
                 <h3>Education</h3>
-                <div class="job-item">
-                    <div class="job-header">
-                        <h4 class="job-title">Game Development <span class="exp-company">| Collegium da Vinci</span></h4>
-                        <span class="job-date">2023 – 2026 (Graduated)</span>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <h4 class="job-title">Game Development <span>| Collegium da Vinci</span></h4>
+                            <span class="job-date">2023 – 2026 (Graduated)</span>
+                        </div>
+                        <p style="font-size: 0.95rem; margin: 8px 0 0 0; color: #555555; line-height: 1.5;">
+                            Bachelor’s Program | Full-time studies | Specialization: Game Development
+                        </p>
                     </div>
-                    <p class="profile-text" style="font-size: 0.9rem; margin-top: 6px; color: #666666;">
-                        Bachelor’s Program | Full-time studies<br>
-                        Specialization: Game Development
-                    </p>
                 </div>
             </section>
             
-            <!-- РАЗДЕЛ 5: LANGUAGES & INTERESTS -->
+            <!-- РАЗДЕЛ 4: LANGUAGES & INTERESTS (РАЗВОРОТ 50/50) -->
             <section class="web-resume-section">
                 <h3>Languages & Interests</h3>
-                <div class="resume-bottom-split" style="grid-template-columns: 1fr 1fr; gap: 20px; margin: 0;">
+                <div class="resume-bottom-split">
                     <div>
                         <ul class="meta-list">
                             <li><strong>English</strong> — B2 (Upper-Intermediate)</li>
@@ -275,9 +272,9 @@
             <div class="footer-left">Portfolio by Sofibonda</div>
             <div class="footer-right">
                 <span>Let's talk games:</span>
-                <a href="#" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-                <a href="#" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.156.156-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.156.156-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
             </div>
         </div>
     </footer>
