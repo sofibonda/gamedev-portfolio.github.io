@@ -12,7 +12,7 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ */
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -23,21 +23,29 @@
         
         /* Главный контент */
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
-        .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Сетка в 2 колонки собранная — ИЗМЕНЕНО: добавлено выравнивание строго по центру */
-.games-grid { 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 50px 40px; 
-    width: 100%; 
-    max-width: 960px; 
-    margin: 0 auto; /* Вот эта строчка выровняет всю сетку ровно по центру страницы */
-    padding-top: 20px; 
-}
-
+        /* ИЗМЕНЕНО: Ограничение ширины перенесено на враппер страницы, чтобы гарантировать центрирование всей структуры */
+        .page-wrapper { 
+            max-width: 960px;
+            width: 100%; 
+            padding: 25px 0 120px 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            position: relative; 
+            margin: 0 auto;
+        }
         
-        /* Карточка проекта — ИЗМЕНЕНО: Фикс для принудительного скругления углов медиаконтента */
+        /* Сетка в 2 колонки — ВОЗВРАЩЕНО: Оригинальные параметры ширины, как в исходной версии */
+        .games-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 50px 40px; 
+            width: 100%; 
+            padding-top: 20px; 
+        }
+        
+        /* Карточка проекта — Уникальные фиксы скруглений и теней сохранены */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -49,7 +57,7 @@
             border-radius: 14px;       
             overflow: hidden;          
             
-            /* ЖЕСТКИЙ ФИКС: Включает аппаратное скругление углов, чтобы 150% видео не вылетало за рамку */
+            /* Фикс аппаратного скругления углов, чтобы видео 150% не резало рамку */
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
             -webkit-transform: translateZ(0);
@@ -74,19 +82,17 @@
             position: relative;
         }
         
-        /* Само видео — ИЗМЕНЕНО: Сохранен масштаб 150% из вашей версии, но убрано искажение пропорций */
+        /* Само видео — Сохранена адаптивная ширина 150% и защита от сплющивания */
         .project-media-box video { 
-            width: 150%; /* Возвращено по вашему требованию: убирает пустоты и зазоры */
+            width: 150%; 
             height: 100%; 
-            object-fit: cover; /* Защищает видео от сплющивания и растягивания лиц */
+            object-fit: cover; 
             object-position: center; 
             display: block; 
-            
-            /* Скругление углов непосредственно для тега video */
             border-radius: 13px 13px 0 0; 
         }
 
-        /* Текстовый блок внутри единого кейса */
+        /* Текстовый блок */
         .project-info { 
             padding: 14px 10px 16px 10px; 
             text-align: center; 
