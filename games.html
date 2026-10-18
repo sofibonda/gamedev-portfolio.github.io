@@ -12,7 +12,7 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -45,7 +45,7 @@
             padding-top: 20px; 
         }
         
-        /* Карточка проекта — Фикс для принудительного скругления углов медиаконтента */
+        /* Карточка проекта — Изящная плашка с обводкой и мягкой тенью */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -57,7 +57,7 @@
             border-radius: 14px;       
             overflow: hidden;          
             
-            /* Фикс аппаратного скругления углов, чтобы видео 150% не резало рамку */
+            /* Аппаратный фикс идеального скругления углов */
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
             -webkit-transform: translateZ(0);
@@ -79,17 +79,16 @@
             overflow: hidden; 
             background-color: #fafafa; 
             border-bottom: 1px solid #e0e2e5; 
-            position: relative; /* Необходимо для правильного абсолютного центрирования видео */
+            position: relative; 
         }
         
-        /* Само видео — ИЗМЕНЕНО: Добавлено точное центрирование по осям X и Y */
+        /* Само видео — отцентрировано по осям X и Y */
         .project-media-box video { 
             width: 150%; 
             height: 100%; 
             object-fit: cover; 
             display: block; 
             
-            /* Выравниваем видеоролики ровно по центру рамки */
             position: absolute;
             top: 50%;
             left: 50%;
@@ -98,22 +97,57 @@
             border-radius: 13px 13px 0 0; 
         }
 
-        /* Текстовый блок */
+        /* Текстовый блок карточки */
         .project-info { 
-            padding: 14px 10px 16px 10px; 
-            text-align: center; 
+            padding: 20px 16px 22px 16px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
+        
         .project-title { 
-            font-size: 1.15rem; 
+            font-size: 1.2rem; 
             font-weight: 600; 
-            color: #222222; 
+            color: #111111; 
             margin: 0; 
-            line-height: 1.3; 
+            line-height: 1.2; 
             letter-spacing: -0.2px; 
-            transition: color 0.2s ease;
         }
-        .project-card:hover .project-title {
-            color: #000000; 
+
+        /* Контейнер для тегов */
+        .project-tags {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #777777;
+            background-color: #eaeaea;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.1px;
+        }
+
+        /* Тонкая интерактивная ссылка-подсказка под тегами */
+        .project-btn {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #888888;
+            border-bottom: 1px dashed #b5b5b5; 
+            padding-bottom: 1px;
+            margin-top: 2px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        /* При наведении на карточку текст призыва к действию становится активным черным */
+        .project-card:hover .project-btn {
+            color: #000000;
+            border-color: #000000;
         }
 
         /* ФУТЕР */
@@ -160,6 +194,7 @@
             
             <div class="games-grid">
 
+                <!-- 1. Last Shelter -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
@@ -168,9 +203,15 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Last Shelter</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Game Design</span>
+                            <span class="project-tag">Unity</span>
+                        </div>
+                        <div class="project-btn">View Case Study</div>
                     </div>
                 </a>
 
+                <!-- 2. Ghost Guys -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
@@ -179,9 +220,15 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Ghost Guys</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Level Design</span>
+                            <span class="project-tag">PC / Mobile</span>
+                        </div>
+                        <div class="project-btn">View Case Study</div>
                     </div>
                 </a>
 
+                <!-- 3. Glow of the Depths -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
@@ -190,34 +237,5 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Glow of the Depths</h3>
-                    </div>
-                </a>
-
-                <a href="#" class="project-card">
-                    <div class="project-media-box">
-                        <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
-                            <source src="dwarves-preview.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">The Dwarves</h3>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-left">Portfolio by Sofibonda</div>
-            <div class="footer-right">
-                <span>Let's talk games:</span>
-                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104"/></svg></a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
+                        <div class="project-tags">
+                            <span class="project-tag">Systems Design</span>
