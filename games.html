@@ -25,62 +25,64 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Сетка в 2 колонки — ИЗМЕНЕНО: Ограничили ширину сетки до 960px для идеального баланса на больших мониторах */
+        /* Сетка в 2 колонки собранная (960px) */
         .games-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
-            gap: 55px 40px; 
+            gap: 50px 40px; 
             width: 100%; 
             max-width: 960px; 
             margin: 0 auto;
             padding-top: 20px; 
         }
         
-        /* Карточка проекта */
+        /* Карточка проекта — ИЗМЕНЕНО: Визуально объединяет видео и текст в один понятный кейс */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
             display: flex; 
             flex-direction: column; 
-            background: transparent;
+            text-align: center; 
+            background-color: #f7f7f7; /* Очень мягкий, благородный серый фон */
+            border: 1px solid #e0e2e5;  /* Изящный, аккуратный контур карточки */
+            border-radius: 14px;       /* Мягкое скругление всей плашки */
+            overflow: hidden;          /* Обрезает углы видео строго по контуру рамки */
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease; 
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); /* Легкая тень для объема */
+        }
+        .project-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #b5b5b5; /* Контур становится четче при наведении */
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); /* Тень углубляется */
         }
         
-        /* Контейнер для видео */
+        /* Контейнер для видео — без внутренних скруглений, чтобы избежать щелей */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 16 / 9; 
-            border-radius: 12px; 
+            border-radius: 0; 
             overflow: hidden; 
             background-color: #fafafa; 
-            border: 1px solid #eaeaea;
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            border-bottom: 1px solid #e0e2e5; /* Тонкая линия-разделитель */
         }
         .project-media-box video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-        /* Эффект при наведении увеличивает видео и дает мягкую тень */
-        .project-card:hover .project-media-box { 
-            transform: scale(1.02); 
-            border-color: #cccccc;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06); 
-        }
-        
-        /* Текстовые названия — ИЗМЕНЕНО: Сделали шрифт более премиальным и добавили аккуратный ховер-эффект */
+        /* Текстовый блок внутри единого кейса */
         .project-info { 
-            padding: 14px 0 0 0; 
+            padding: 14px 10px 16px 10px; /* Компактные отступы по вертикали */
             text-align: center; 
         }
         .project-title { 
             font-size: 1.15rem; 
-            font-weight: 600;        /* Сделали чуть жирнее для контраста */
-            color: #222222;          /* Мягкий благородный темно-серый цвет */
+            font-weight: 600; 
+            color: #222222; 
             margin: 0; 
             line-height: 1.3; 
-            letter-spacing: -0.2px;   /* Элегантное сближение букв */
+            letter-spacing: -0.2px; 
             transition: color 0.2s ease;
         }
-        /* При наведении название становится глубоким черным, подсказывая, что на карточку можно кликнуть */
         .project-card:hover .project-title {
-            color: #000000;
+            color: #000000; /* Название становится активным черным при наведении на кейс */
         }
 
         /* ФУТЕР */
