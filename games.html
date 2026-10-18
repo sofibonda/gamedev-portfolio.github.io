@@ -36,7 +36,7 @@
             padding-top: 20px; 
         }
         
-        /* Карточка проекта — ИЗМЕНЕНО: Добавлены фиксы для идеальной обрезки углов видео во всех браузерах */
+        /* Карточка проекта — ИЗМЕНЕНО: Фикс для принудительного скругления углов медиаконтента */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -48,7 +48,7 @@
             border-radius: 14px;       
             overflow: hidden;          
             
-            /* ЖЕСТКИЙ ФИКС: Заставляет браузер намертво обрезать углы контента по рамке */
+            /* ЖЕСТКИЙ ФИКС: Включает аппаратное скругление углов, чтобы 150% видео не вылетало за рамку */
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
             -webkit-transform: translateZ(0);
@@ -70,17 +70,18 @@
             overflow: hidden; 
             background-color: #fafafa; 
             border-bottom: 1px solid #e0e2e5; 
+            position: relative;
         }
         
-        /* Само видео — ИЗМЕНЕНО: Добавлен внутренний радиус, чтобы убрать черные вылеты за обводку */
+        /* Само видео — ИЗМЕНЕНО: Сохранен масштаб 150% из вашей версии, но убрано искажение пропорций */
         .project-media-box video { 
-            width: 100%; 
+            width: 150%; /* Возвращено по вашему требованию: убирает пустоты и зазоры */
             height: 100%; 
-            object-fit: cover; 
+            object-fit: cover; /* Защищает видео от сплющивания и растягивания лиц */
             object-position: center; 
             display: block; 
             
-            /* Скругление верхних углов видео (с учетом 1px толщины рамки), чтобы они зашли ровно под обводку карточки */
+            /* Скругление углов непосредственно для тега video */
             border-radius: 13px 13px 0 0; 
         }
 
@@ -148,7 +149,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="last-preview.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -159,7 +160,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="ghost-preview.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -170,7 +171,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="glow-preview.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -181,7 +182,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-dwarwesback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
                     </div>
