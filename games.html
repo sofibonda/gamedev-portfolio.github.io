@@ -25,10 +25,18 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Сетка в 2 колонки */
-        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px 45px; width: 100%; padding-top: 20px; }
+        /* Сетка в 2 колонки — ИЗМЕНЕНО: Ограничили ширину сетки до 960px для идеального баланса на больших мониторах */
+        .games-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 55px 40px; 
+            width: 100%; 
+            max-width: 960px; 
+            margin: 0 auto;
+            padding-top: 20px; 
+        }
         
-        /* Карточка проекта — Полная чистота, без рамок и фонов */
+        /* Карточка проекта */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -37,7 +45,7 @@
             background: transparent;
         }
         
-        /* Контейнер для видео — Идеальный формат 16:9, мягкое скругление и плавная анимация масштаба */
+        /* Контейнер для видео */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 16 / 9; 
@@ -49,28 +57,28 @@
         }
         .project-media-box video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-        /* Эффект при наведении теперь интерактивно увеличивает САМО видео и добавляет тень */
+        /* Эффект при наведении увеличивает видео и дает мягкую тень */
         .project-card:hover .project-media-box { 
-            transform: scale(1.025); 
-            border-color: #d1d1d1;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); 
+            transform: scale(1.02); 
+            border-color: #cccccc;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06); 
         }
         
-        /* Текстовые названия — Лаконично, чисто, с правильным расстоянием под видео */
+        /* Текстовые названия — ИЗМЕНЕНО: Сделали шрифт более премиальным и добавили аккуратный ховер-эффект */
         .project-info { 
-            padding: 16px 0 0 0; 
+            padding: 14px 0 0 0; 
             text-align: center; 
         }
         .project-title { 
             font-size: 1.15rem; 
-            font-weight: 500; 
-            color: #111111; 
+            font-weight: 600;        /* Сделали чуть жирнее для контраста */
+            color: #222222;          /* Мягкий благородный темно-серый цвет */
             margin: 0; 
             line-height: 1.3; 
-            letter-spacing: -0.1px;
+            letter-spacing: -0.2px;   /* Элегантное сближение букв */
             transition: color 0.2s ease;
         }
-        /* При наведении на карточку название игры аккуратно подсвечивается глубоким черным */
+        /* При наведении название становится глубоким черным, подсказывая, что на карточку можно кликнуть */
         .project-card:hover .project-title {
             color: #000000;
         }
@@ -86,18 +94,15 @@
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
-        @media (max-width: 900px) {
-            .games-grid { gap: 40px 30px; }
-        }
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
             .page-wrapper { padding: 25px 0 60px 0; }
-            .games-grid { padding-top: 40px; }
+            .games-grid { padding-top: 40px; gap: 40px 30px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
         @media (max-width: 600px) {
-            .games-grid { grid-template-columns: 1fr; gap: 40px; }
+            .games-grid { grid-template-columns: 1fr; gap: 45px; }
         }
     </style>
 </head>
