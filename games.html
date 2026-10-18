@@ -123,14 +123,14 @@
             flex-wrap: wrap;
         }
 
+        /* ИЗМЕНЕНО: Базовый стиль тегов оптимизирован под цветной фон */
         .project-tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #777777;
-            background-color: #eaeaea;
-            padding: 3px 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 9px;
             border-radius: 6px;
-            letter-spacing: 0.1px;
+            letter-spacing: 0.2px;
+            text-transform: uppercase; /* Делает теги аккуратными и собранными */
         }
 
         /* Тонкая ссылка-подсказка под тегами */
@@ -196,15 +196,16 @@
                 <!-- 1. Last Shelter -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="last-preview.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Last Shelter</h3>
                         <div class="project-tags">
-                            <span class="project-tag">Game Design</span>
-                            <span class="project-tag">Unity</span>
+                            <!-- Пастельный сине-серый для специализации и песочный для движка -->
+                            <span class="project-tag" style="background-color: #e2ebf0; color: #4a6572;">Game Design</span>
+                            <span class="project-tag" style="background-color: #f7f0e6; color: #8c7853;">Unity</span>
                         </div>
                         <div class="project-btn">View Case Study</div>
                     </div>
@@ -213,15 +214,16 @@
                 <!-- 2. Ghost Guys -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="ghost-preview.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Ghost Guys</h3>
                         <div class="project-tags">
-                            <span class="project-tag">Level Design</span>
-                            <span class="project-tag">PC / Mobile</span>
+                            <!-- Пастельный фиолетовый для Level Design и мягкий розовый для платформ -->
+                            <span class="project-tag" style="background-color: #eae4f2; color: #6d5b80;">Level Design</span>
+                            <span class="project-tag" style="background-color: #fcebeb; color: #9c6666;">PC / Mobile</span>
                         </div>
                         <div class="project-btn">View Case Study</div>
                     </div>
@@ -230,15 +232,16 @@
                 <!-- 3. Glow of the Depths -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="glow-preview.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Glow of the Depths</h3>
                         <div class="project-tags">
-                            <span class="project-tag">Systems Design</span>
-                            <span class="project-tag">Unreal Engine</span>
+                            <!-- Пастельный серо-зеленый для Systems Design и песочный для Unreal -->
+                            <span class="project-tag" style="background-color: #e2ede4; color: #4d6653;">Systems Design</span>
+                            <span class="project-tag" style="background-color: #f7f0e6; color: #8c7853;">Unreal Engine</span>
                         </div>
                         <div class="project-btn">View Case Study</div>
                     </div>
@@ -247,15 +250,16 @@
                 <!-- 4. The Dwarves -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline poster="preview-dwarwesback.jpg">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">The Dwarves</h3>
                         <div class="project-tags">
-                            <span class="project-tag">Level Design</span>
-                            <span class="project-tag">3D Environment</span>
+                            <!-- Фирменные цвета для Level Design и контента -->
+                            <span class="project-tag" style="background-color: #eae4f2; color: #6d5b80;">Level Design</span>
+                            <span class="project-tag" style="background-color: #e6ebf2; color: #50637d;">3D Environment</span>
                         </div>
                         <div class="project-btn">View Case Study</div>
                     </div>
