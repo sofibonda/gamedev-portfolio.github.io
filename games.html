@@ -30,7 +30,7 @@
         /* Сетка в 3 колонки смещена ниже под заголовок */
         .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 40px; width: 100%; padding-top: 20px; }
         
-        /* Карточка проекта — ИЗМЕНЕНО: теперь это единая серая плашка с рамкой */
+        /* Карточка проекта — ИЗМЕНЕНО: добавлена мягкая тень для объема */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -41,28 +41,37 @@
             border: 1px solid #e5e5e5;  /* Внешний контур плашки */
             border-radius: 16px;       /* Единое скругление углов */
             overflow: hidden;          /* Скрывает острые углы видео внутри рамки */
-            transition: transform 0.2s ease, border-color 0.2s ease; 
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; 
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); /* Изящная тень */
         }
         .project-card:hover { 
             transform: translateY(-4px); 
             border-color: #b5b5b5; 
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07); /* Тень становится глубже при наведении */
         }
         
-        /* Заглушка для картинок/гифок — ИЗМЕНЕНО: убрана двойная рамка, скругление только сверху */
+        /* Заглушка для картинок/гифок — ИЗМЕНЕНО: разделительная линия сделана аккуратнее */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 4 / 2; 
             border-radius: 15px 15px 0 0; /* Скруглены только верхние углы */
             overflow: hidden; 
             background-color: #f5f5f5; 
-            border-bottom: 1px solid #e5e5e5; /* Линия-разделитель между видео и текстом */
+            border-bottom: 1px solid #e0e0e0; /* Более мягкая разделительная линия */
         }
         .project-media-box video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
         
-        /* Текстовые названия — ИЗМЕНЕНО: добавлены аккуратные внутренние отступы внутри плашки */
+        /* Текстовые названия — ИЗМЕНЕНО: шрифт стал более четким, контрастным и стильным */
         .project-info { padding: 18px 15px 20px 15px; text-align: center; }
-        .project-title { font-size: 1.1rem; font-weight: 500; color: #111111; margin: 0; line-height: 1.3; }
+        .project-title { 
+            font-size: 1.15rem; 
+            font-weight: 600; 
+            color: #000000; /* Глубокий черный цвет для четкости */
+            margin: 0; 
+            line-height: 1.3; 
+            letter-spacing: -0.2px; /* Стильное сближение букв */
+        }
 
         /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
@@ -115,8 +124,8 @@
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-  <source src="last-preview.mp4" type="video/mp4">
-</video>
+                            <source src="last-preview.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Last Shelter</h3>
@@ -126,8 +135,8 @@
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-  <source src="ghost-preview.mp4" type="video/mp4">
-</video>
+                            <source src="ghost-preview.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Ghost Guys</h3>
@@ -137,8 +146,8 @@
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-  <source src="glow-preview.mp4" type="video/mp4">
-</video>
+                            <source src="glow-preview.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Glow of the Depths</h3>
@@ -149,15 +158,14 @@
                     <div class="project-media-box">
                         <!-- <img src="dwarves-preview.gif" alt="The Dwarves"> -->
                         <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
-  <source src="dwarves-preview.mp4" type="video/mp4">
-</video>
+                            <source src="dwarves-preview.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">The Dwarves</h3>
                     </div>
                 </a>
 
-                
             </div>
         </div>
     </main>
@@ -167,7 +175,7 @@
             <div class="footer-left">Portfolio by Sofibonda</div>
             <div class="footer-right">
                 <span>Let's talk games:</span>
-                <a href="https://www.linkedin.com/in/sofya-bandarenka/" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104"/></svg></a>
             </div>
         </div>
