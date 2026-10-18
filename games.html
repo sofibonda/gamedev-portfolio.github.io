@@ -25,16 +25,17 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Сетка в 2 колонки собранная (960px) */
-        .games-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 50px 40px; 
-            width: 100%; 
-            max-width: 960px; 
-            margin: 0 auto;
-            padding-top: 20px; 
-        }
+        /* Сетка в 2 колонки собранная — ИЗМЕНЕНО: добавлено выравнивание строго по центру */
+.games-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 50px 40px; 
+    width: 100%; 
+    max-width: 960px; 
+    margin: 0 auto; /* Вот эта строчка выровняет всю сетку ровно по центру страницы */
+    padding-top: 20px; 
+}
+
         
         /* Карточка проекта — ИЗМЕНЕНО: Фикс для принудительного скругления углов медиаконтента */
         .project-card { 
