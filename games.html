@@ -25,51 +25,51 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Сетка в 2 колонки из вашего кода */
+        /* Сетка в 2 колонки */
         .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 40px; width: 100%; padding-top: 20px; }
         
-        /* Карточка проекта — ИЗМЕНЕНО: Возвращен серый цвет, добавлен темный ободок и густая тень */
+        /* Карточка проекта — ИЗМЕНЕНО: Базовый цвет стабилен, рамка темная и четкая, добавлена тень */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
             display: flex; 
             flex-direction: column; 
             text-align: center; 
-            background-color: #ffffff; /* Ваш плотный серый фон */
-            border: 3px solid #b5b5b5;  /* Темная контрастная обводка, чтобы рамка не сливалась */
+            background-color: #ededed; 
+            border: 1px solid #b5b5b5;  
             border-radius: 16px;       
             overflow: hidden;          
             transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease; 
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09); /* Более темная, заметная в браузере тень */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09); 
         }
         .project-card:hover { 
             transform: translateY(-4px); 
-            border-color: #777777; /* Ободок темнеет при наведении */
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16); /* Тень становится глубже */
+            border-color: #777777; /* Обводка всей карточки плавно темнеет при наведении */
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16); 
         }
         
-       /* Заглушка для картинок/гифок — пропорции 4/2 и тонкая разделительная линия */
-.project-media-box { 
-    width: 100%; 
-    aspect-ratio: 4 / 2; 
-    border-radius: 0;          /* ИЗМЕНЕНО: убрали скругление здесь, теперь overflow: hidden на карточке сделает стык идеальным */
-    overflow: hidden; 
-    background-color: #f5f5f5; 
-    border-bottom: 1px solid #b5b5b5; 
-}
-
+        /* Заглушка для картинок/гифок — ИЗМЕНЕНО: border-radius: 0 убрал белую щель в углах */
+        .project-media-box { 
+            width: 100%; 
+            aspect-ratio: 4 / 2; 
+            border-radius: 0; 
+            overflow: hidden; 
+            background-color: #f5f5f5; 
+            border-bottom: 1px solid #b5b5b5; 
+        }
         .project-media-box video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-        /* Текстовые названия — ИЗМЕНЕНО: Уменьшена высота плашки по вертикали, сохранен серый цвет */
+        /* Текстовые названия — ИЗМЕНЕНО: Высота меньше, добавлен плавный переход цвета фонового подклада */
         .project-info { 
-            padding: 12px 10px 14px 10px; /* Узкие отступы по вертикали, как вы просили */
+            padding: 12px 10px 14px 10px; 
             text-align: center; 
-            background-color: #ededed;    /* Серый фон сливается со всей карточкой */
+            background-color: #ededed;    
+            transition: background-color 0.25s ease; /* Плавное переливание цвета плашки */
         }
         .project-title { 
             font-size: 1.15rem; 
             font-weight: 600; 
-            color: #000000; /* Контрастный черный цвет шрифта */
+            color: #000000; 
             margin: 0; 
             line-height: 1.3; 
             letter-spacing: -0.2px; 
@@ -122,56 +122,55 @@
             
             <div class="games-grid">
 
-    <!-- 1. Last Shelter: Теплый, выживальческий серо-коричневый оттенок -->
-    <a href="#" class="project-card" onmouseover="this.style.backgroundColor='#e3ded9'; this.style.borderColor='#9e948a'" onmouseout="this.style.backgroundColor='#ededed'; this.style.borderColor='#b5b5b5'">
-        <div class="project-media-box" style="border-radius: 0;">
-            <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-                <source src="last-preview.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">Last Shelter</h3>
-        </div>
-    </a>
+                <!-- 1. Last Shelter: Подсвечиваем только блок текста в выживальческий серо-коричневый цвет -->
+                <a href="#" class="project-card" onmouseover="this.querySelector('.project-info').style.backgroundColor='#e3ded9'" onmouseout="this.querySelector('.project-info').style.backgroundColor='#ededed'">
+                    <div class="project-media-box">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                            <source src="last-preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Last Shelter</h3>
+                    </div>
+                </a>
 
-    <!-- 2. Ghost Guys: Неоново-пастельный фиолетово-розовый из игры -->
-    <a href="#" class="project-card" onmouseover="this.style.backgroundColor='#e9def2'; this.style.borderColor='#bfa6d4'" onmouseout="this.style.backgroundColor='#ededed'; this.style.borderColor='#b5b5b5'">
-        <div class="project-media-box" style="border-radius: 0;">
-            <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-                <source src="ghost-preview.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">Ghost Guys</h3>
-        </div>
-    </a>
+                <!-- 2. Ghost Guys: Подсвечиваем только блок текста в игровой фиолетово-розовый цвет -->
+                <a href="#" class="project-card" onmouseover="this.querySelector('.project-info').style.backgroundColor='#e9def2'" onmouseout="this.querySelector('.project-info').style.backgroundColor='#ededed'">
+                    <div class="project-media-box">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                            <source src="ghost-preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Ghost Guys</h3>
+                    </div>
+                </a>
 
-    <!-- 3. Glow of the Depths: Глубокий, загадочный серо-зеленый (атмосфера глубин) -->
-    <a href="#" class="project-card" onmouseover="this.style.backgroundColor='#dae3dc'; this.style.borderColor='#8fa394'" onmouseout="this.style.backgroundColor='#ededed'; this.style.borderColor='#b5b5b5'">
-        <div class="project-media-box" style="border-radius: 0;">
-            <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-                <source src="glow-preview.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">Glow of the Depths</h3>
-        </div>
-    </a>
+                <!-- 3. Glow of the Depths: Подсвечиваем только блок текста в атмосферный серо-зеленый цвет -->
+                <a href="#" class="project-card" onmouseover="this.querySelector('.project-info').style.backgroundColor='#dae3dc'" onmouseout="this.querySelector('.project-info').style.backgroundColor='#ededed'">
+                    <div class="project-media-box">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                            <source src="glow-preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Glow of the Depths</h3>
+                    </div>
+                </a>
 
-    <!-- 4. The Dwarves: Благородный, фэнтезийный золотисто-бронзовый оттенок -->
-    <a href="#" class="project-card" onmouseover="this.style.backgroundColor='#e5dfd3'; this.style.borderColor='#ad9f85'" onmouseout="this.style.backgroundColor='#ededed'; this.style.borderColor='#b5b5b5'">
-        <div class="project-media-box" style="border-radius: 0;">
-            <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
-                <source src="dwarves-preview.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">The Dwarves</h3>
-        </div>
-    </a>
+                <!-- 4. The Dwarves: Подсвечиваем только блок текста в золотисто-бронзовый цвет -->
+                <a href="#" class="project-card" onmouseover="this.querySelector('.project-info').style.backgroundColor='#e5dfd3'" onmouseout="this.querySelector('.project-info').style.backgroundColor='#ededed'">
+                    <div class="project-media-box">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
+                            <source src="dwarves-preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">The Dwarves</h3>
+                    </div>
+                </a>
 
-</div>
-
+            </div>
         </div>
     </main>
 
@@ -181,10 +180,3 @@
             <div class="footer-right">
                 <span>Let's talk games:</span>
                 <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104"/></svg></a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
