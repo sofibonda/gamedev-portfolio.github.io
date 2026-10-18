@@ -36,40 +36,57 @@
             padding-top: 20px; 
         }
         
-        /* Карточка проекта — ИЗМЕНЕНО: Визуально объединяет видео и текст в один понятный кейс */
+        /* Карточка проекта — ИЗМЕНЕНО: Добавлены фиксы для идеальной обрезки углов видео во всех браузерах */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
             display: flex; 
             flex-direction: column; 
             text-align: center; 
-            background-color: #f7f7f7; /* Очень мягкий, благородный серый фон */
-            border: 1px solid #e0e2e5;  /* Изящный, аккуратный контур карточки */
-            border-radius: 14px;       /* Мягкое скругление всей плашки */
-            overflow: hidden;          /* Обрезает углы видео строго по контуру рамки */
+            background-color: #f7f7f7; 
+            border: 1px solid #e0e2e5;  
+            border-radius: 14px;       
+            overflow: hidden;          
+            
+            /* ЖЕСТКИЙ ФИКС: Заставляет браузер намертво обрезать углы контента по рамке */
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            
             transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease; 
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); /* Легкая тень для объема */
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); 
         }
         .project-card:hover { 
             transform: translateY(-5px); 
-            border-color: #b5b5b5; /* Контур становится четче при наведении */
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); /* Тень углубляется */
+            border-color: #b5b5b5; 
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); 
         }
         
-        /* Контейнер для видео — без внутренних скруглений, чтобы избежать щелей */
+        /* Контейнер для видео */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 16 / 9; 
-            border-radius: 0; 
             overflow: hidden; 
             background-color: #fafafa; 
-            border-bottom: 1px solid #e0e2e5; /* Тонкая линия-разделитель */
+            border-bottom: 1px solid #e0e2e5; 
         }
-        .project-media-box video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        
+        /* Само видео — ИЗМЕНЕНО: Добавлен внутренний радиус, чтобы убрать черные вылеты за обводку */
+        .project-media-box video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: center; 
+            display: block; 
+            
+            /* Скругление верхних углов видео (с учетом 1px толщины рамки), чтобы они зашли ровно под обводку карточки */
+            border-radius: 13px 13px 0 0; 
+        }
 
         /* Текстовый блок внутри единого кейса */
         .project-info { 
-            padding: 14px 10px 16px 10px; /* Компактные отступы по вертикали */
+            padding: 14px 10px 16px 10px; 
             text-align: center; 
         }
         .project-title { 
@@ -82,7 +99,7 @@
             transition: color 0.2s ease;
         }
         .project-card:hover .project-title {
-            color: #000000; /* Название становится активным черным при наведении на кейс */
+            color: #000000; 
         }
 
         /* ФУТЕР */
