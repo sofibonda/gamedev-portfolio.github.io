@@ -25,10 +25,10 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* Сетка в 2 колонки — увеличен зазор по вертикали для лёгкости */
+        /* Сетка в 2 колонки */
         .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px 45px; width: 100%; padding-top: 20px; }
         
-        /* Карточка проекта — ИЗМЕНЕНО: Полная чистота, без рамок и фонов */
+        /* Карточка проекта — Полная чистота, без рамок и фонов */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -37,7 +37,7 @@
             background: transparent;
         }
         
-        /* Контейнер для видео — ИЗМЕНЕНО: Идеальный формат 16:9, мягкое скругление и плавная анимация масштаба */
+        /* Контейнер для видео — Идеальный формат 16:9, мягкое скругление и плавная анимация масштаба */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 16 / 9; 
@@ -56,7 +56,7 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); 
         }
         
-        /* Текстовые названия — ИЗМЕНЕНО: Лаконично, чисто, с правильным расстоянием под видео */
+        /* Текстовые названия — Лаконично, чисто, с правильным расстоянием под видео */
         .project-info { 
             padding: 16px 0 0 0; 
             text-align: center; 
@@ -124,7 +124,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
                             <source src="last-preview.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -135,7 +135,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
                             <source src="ghost-preview.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -146,7 +146,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                        <video autoplay loop muted playsinline poster="preview-fallback.jpg">
                             <source src="glow-preview.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -157,7 +157,7 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
+                        <video autoplay loop muted playsinline poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
                     </div>
