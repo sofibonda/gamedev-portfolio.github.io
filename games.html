@@ -6,7 +6,7 @@
     <title>Sofya Bandarenka - Games</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
@@ -25,52 +25,53 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* ПОДЗАГОЛОВОК СТАЛ МЕНЬШЕ, ВЫШЕ И СТРОГО ПО ЦЕНТРУ (КООРДИНАТЫ ОДИН В ОДИН) */
-        
-        /* Сетка в 3 колонки смещена ниже под заголовок */
+        /* Сетка в 2 колонки */
         .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 40px; width: 100%; padding-top: 20px; }
         
-        /* Карточка проекта — ИЗМЕНЕНО: добавлена мягкая тень для объема */
+        /* Карточка проекта — ИЗМЕНЕНО: Добавлена четкая рамка и глубокая мягкая тень */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
             display: flex; 
             flex-direction: column; 
             text-align: center; 
-            background-color: #ededed; /* Серый фон подложки */
-            border: 1px solid #e5e5e5;  /* Внешний контур плашки */
-            border-radius: 16px;       /* Единое скругление углов */
-            overflow: hidden;          /* Скрывает острые углы видео внутри рамки */
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; 
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); /* Изящная тень */
+            background-color: #ffffff; /* Белый фон карточки для максимального контраста */
+            border: 1px solid #dcdcdc;  /* Сделали внешний ободок четче и заметнее */
+            border-radius: 16px;       
+            overflow: hidden;          
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease; 
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); /* Объемная, но мягкая тень в стиле UI-дизайна */
         }
         .project-card:hover { 
-            transform: translateY(-4px); 
-            border-color: #b5b5b5; 
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07); /* Тень становится глубже при наведении */
+            transform: translateY(-6px); 
+            border-color: #999999; /* Рамка становится акцентной при наведении */
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12); /* Тень становится глубже при отрыве от поверхности */
         }
         
-        /* Заглушка для картинок/гифок — ИЗМЕНЕНО: разделительная линия сделана аккуратнее */
+        /* Заглушка для картинок/гифок — ИЗМЕНЕНО: Серая подложка для видео и аккуратная тонкая линия */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 4 / 2; 
-            border-radius: 15px 15px 0 0; /* Скруглены только верхние углы */
+            border-radius: 15px 15px 0 0; 
             overflow: hidden; 
-            background-color: #f5f5f5; 
-            border-bottom: 1px solid #e0e0e0; /* Более мягкая разделительная линия */
+            background-color: #ededed; /* Оставили фирменный серый фон только под видео */
+            border-bottom: 1px solid #e5e5e5; /* Изящная разделительная линия */
         }
         .project-media-box video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-        
-        /* Текстовые названия — ИЗМЕНЕНО: шрифт стал более четким, контрастным и стильным */
-        .project-info { padding: 18px 15px 20px 15px; text-align: center; }
+        /* Текстовые названия — ИЗМЕНЕНО: Чистый белый фон и идеальные отступы */
+        .project-info { 
+            padding: 22px 15px 24px 15px; 
+            text-align: center; 
+            background-color: #ffffff; /* Белая подложка под текст отделяет его от видео */
+        }
         .project-title { 
             font-size: 1.15rem; 
             font-weight: 600; 
-            color: #000000; /* Глубокий черный цвет для четкости */
+            color: #111111; 
             margin: 0; 
             line-height: 1.3; 
-            letter-spacing: -0.2px; /* Стильное сближение букв */
+            letter-spacing: -0.2px; 
         }
 
         /* ФУТЕР */
@@ -117,7 +118,6 @@
 
     <main class="container">
         <div class="page-wrapper">
-            <!-- Подзаголовок страницы -->
             
             <div class="games-grid">
 
@@ -156,7 +156,6 @@
 
                 <a href="#" class="project-card">
                     <div class="project-media-box">
-                        <!-- <img src="dwarves-preview.gif" alt="The Dwarves"> -->
                         <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
