@@ -47,26 +47,26 @@
 
         /* ИСПРАВЛЕННАЯ СЕТКА МЕТА-ДАННЫХ: двигает Duration вправо и выравнивает расстояния */
         .project-meta-grid { 
-            display: flex; 
-            justify-content: space-between; /* Распределяет элементы равномерно по всей ширине сайта */
-            align-items: flex-start;
+            display: grid; 
+            /* 1.4fr дает первой колонке простор, а три колонки по 0.9fr будут строго одинаковой ширины */
+            grid-template-columns: 1.4fr 0.9fr 0.9fr 0.9fr; 
+            gap: 20px; 
             background: #f9f9f9; 
             border: 1px solid #e2e2e2; 
             border-radius: 14px; 
-            padding: 24px 40px; 
-            margin-bottom: 35px; /* Уменьшили отступ снизу до видео плеера */
+            padding: 24px 30px; 
+            margin-bottom: 35px; 
             width: 100%; 
         }
         
         /* Предотвращает хаотичное слипание текстовых блоков */
         .meta-item { 
-            flex: 0 1 auto; 
             text-align: left; 
         }
         
         /* Выделяем первой колонке с длинным текстом чуть больше места, чтобы остальные сдвинулись вправо */
-        .meta-item:first-child {
-            max-width: 340px;
+        .meta-item:last-child {
+            text-align: right;
         }
         
         .meta-item h5 { font-size: 0.75rem; text-transform: uppercase; color: #888888; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
