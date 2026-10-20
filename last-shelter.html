@@ -47,23 +47,24 @@
 
         .project-hero-split {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr; /* Видео справа чуть шире текста */
+            /* Левая часть занимает 400px, правая — всё оставшееся место */
+            grid-template-columns: 400px 1fr; 
             gap: 40px;
-            align-items: start;
+            align-items: stretch; /* Растягивает оба блока до одинаковой высоты */
             width: 100%;
             margin-bottom: 50px;
         }
         /* ИСПРАВЛЕННАЯ СЕТКА МЕТА-ДАННЫХ: двигает Duration вправо и выравнивает расстояния */
         .project-meta-grid { 
             display: flex;
-            flex-direction: column; /* Элементы теперь встанут строго друг под другом */
-            gap: 24px; /* Отступы между блоками информации */
+            flex-direction: column;
+            justify-content: space-between; /* Равномерно распределяет элементы по высоте */
             background: #f9f9f9; 
             border: 1px solid #e2e2e2; 
             border-radius: 14px; 
             padding: 30px; 
-            width: 100%; 
-            margin-bottom: 0; /* Обнулили нижний маржин, так как теперь отступ регулирует общая сетка */
+            width: 100%; /* Занимает ровно выделенные ей 400px */
+            margin-bottom: 0 !important;
         }
         
         /* Предотвращает хаотичное слипание текстовых блоков */
@@ -83,13 +84,14 @@
         /* Окно для полного видео геймплея (уменьшили высоту до 460px, чтобы убрать гигантский размер) */
         .gameplay-video-wrapper { 
             width: 100%; 
-            height: 400px; 
+            height: 100%; /* Автоматически подстраивается под высоту текстовой плашки */
+            min-height: 340px; /* Защита от излишнего сжатия */
             border-radius: 14px; 
             border: 1px solid #e2e2e2; 
             background: #f9f9f9; 
             overflow: hidden; 
             position: relative; 
-            margin-bottom: 0; /* Обнулили, теперь за это отвечает внешняя сетка */
+            margin-bottom: 0 !important;
             transform: translateZ(0); 
             box-shadow: 0 8px 24px rgba(0,0,0,0.02); 
         }
