@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - Last Shelter Case Study</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА — НЕИЗМЕННЫ ПОВСЮДУ */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
+        header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
+        
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        /* Главный контент */
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .page-wrapper { width: 100%; padding: 40px 0 120px 0; display: flex; flex-direction: column; position: relative; }
+        
+        /* Кнопка назад */
+        .back-panel { width: 100%; margin-bottom: 20px; display: flex; justify-content: flex-start; }
+        .back-link { text-decoration: none; color: #888888; font-size: 0.95rem; font-weight: 400; transition: color 0.2s ease; }
+        .back-link:hover { color: #111111; }
+
+        /* Заголовок проекта и теги */
+        .project-title-block { margin-bottom: 35px; text-align: left; width: 100%; }
+        .project-title-block h2 { font-size: 2.2rem; font-weight: 700; color: #111111; letter-spacing: -0.5px; margin-bottom: 12px; }
+        .project-tags { display: flex; gap: 8px; }
+        .tag { font-size: 0.8rem; font-weight: 500; padding: 4px 12px; border-radius: 6px; background: #f5f5f5; border: 1px solid #eaeaea; color: #555555; }
+        .tag-accent { background-color: #e8f4fd; color: #2b6cb0; border-color: #d2e9fb; }
+
+        /* Сетка мета-данных (Выжимка для HR) */
+        .project-meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; background: #f9f9f9; border: 1px solid #e2e2e2; border-radius: 14px; padding: 24px; margin-bottom: 50px; width: 100%; }
+        .meta-item h5 { font-size: 0.75rem; text-transform: uppercase; color: #888888; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
+        .meta-item p { font-size: 0.95rem; color: #111111; font-weight: 500; }
+
+        /* Разделы кейс-стади */
+        .case-section { width: 100%; margin-bottom: 60px; }
+        .case-section h3 { font-size: 1.3rem; font-weight: 600; color: #111111; margin: 0 0 20px 0; letter-spacing: -0.3px; border-left: 3px solid #111111; padding-left: 14px; }
+        .case-section p { font-size: 0.95rem; color: #555555; line-height: 1.8; margin-bottom: 16px; font-weight: 400; }
+        .case-section strong { color: #111111; font-weight: 600; }
+
+        /* Медиа-блоки для скриншотов Unity */
+        .media-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 28px 0; width: 100%; }
+        .media-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 28px 0; width: 100%; }
+        
+        .screenshot-box { width: 100%; border-radius: 14px; border: 1px solid #e2e2e2; background: #f9f9f9; overflow: hidden; display: flex; flex-direction: column; transform: translateZ(0); }
+        .screenshot-box img { width: 100%; height: auto; display: block; object-fit: cover; }
+        .screenshot-caption { padding: 12px 16px; font-size: 0.85rem; color: #777777; background: #f4f4f4; border-top: 1px solid #e2e2e2; text-align: left; line-height: 1.5; }
+
+        /* Списки */
+        .bullet-list { margin-left: 20px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px; list-style-type: square; }
+        .bullet-list li { font-size: 0.95rem; color: #555555; line-height: 1.6; }
+
+        /* Блок документов */
+        .doc-panel { background: #f9f9f9; border: 1px solid #e2e2e2; border-radius: 14px; padding: 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; width: 100%; transform: translateZ(0); }
+        .doc-info { flex: 1; text-align: left; }
+        .doc-info h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: #111111; }
+        .doc-info p { font-size: 0.9rem; color: #666666; margin: 0; line-height: 1.5; }
+        
+        .btn-black { display: inline-block; padding: 12px 24px; background: #222222; color: #ffffff; text-decoration: none; border-radius: 12px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+        .btn-black:hover { background: #444444; }
+        .btn-black:active { transform: scale(0.98); }
+
+        /* ФУТЕР — ОДИН В ОДИН С ОСТАЛЬНЫМИ СТРАНИЦАМИ */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            .page-wrapper { padding: 25px 0 60px 0; }
+            .project-meta-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .media-grid-2, .media-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+            .doc-panel { flex-direction: column; text-align: center; gap: 16px; }
+            .doc-info { text-align: center; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Наша постоянная шапка -->
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game Designer & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html" class="active">Games</a>
+                <a href="other.html">Other Projects</a>
+                <a href="resume.html">CV</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Основная контентная область -->
+    <main class="container">
+        <div class="page-wrapper">
+            
+            <!-- Кнопка возврата в каталог -->
+            <div class="back-panel">
+                <a href="games.html" class="back-link">← Back to Games</a>
+            </div>
+
+            <!-- Блок заголовка кейса -->
+            <div class="project-title-block">
+                <h2>Last Shelter</h2>
+                <div class="project-tags">
+                    <span class="tag tag-accent">Diploma Project</span>
+                    <span class="tag">Game & Level Design</span>
+                    <span class="tag">PC Multiplayer</span>
+                </div>
+            </div>
+
+            <!-- Сухие факты для быстрого сканирования HR -->
+            <div class="project-meta-grid">
+                <div class="meta-item">
+                    <h5>My Role</h5>
+                    <p>Systems GD & Level Designer</p>
+                </div>
+                <div class="meta-item">
+                    <h5>Duration</h5>
+                    <p>5 Months (Diploma)</p>
+                </div>
+                <div class="meta-item">
+                    <h5>Engine & Tools</h5>
+                    <p>Unity 6, Git, Miro</p>
+                </div>
+                <div class="meta-item">
+                    <h5>Team Size</h5>
+                    <p>6 Developers</p>
+                </div>
+            </div>
+
+            <!-- РАЗДЕЛ 1: ОБЗОР -->
+            <section class="case-section">
+                <h3>Project Overview & Core Constraints</h3>
+                <p><strong>Last Shelter</strong> — это кооперативный мультиплеерный проект, уникальная специфика которого заключается в жестком ограничении перемещения: <strong>игроки статичны и на протяжении сессии не перемещаются по локации физически</strong>. Это наложило особые требования как на проектирование геометрии комнаты, так и на баланс информационных систем.</p>
+                <p><strong>Main Objective:</strong> Спроектировать игровое пространство бункера таким образом, чтобы композиция объектов, углы обзора и распределение визуальных интерактивных элементов создавали идеальный фокус внимания, читаемый геймплей и поддерживали высокий уровень напряжения без смены позиций игроками.</p>
+            </section>
+
+            <!-- РАЗДЕЛ 2: ЛЕВЕЛ-ДИЗАЙН -->
+            <section class="case-section">
+                <h3>Composition & Sightline Design (Greybox to Production)</h3>
+                <p>Поскольку точки обзора игроков фиксированы, левел-дизайн строился вокруг геометрии замкнутого пространства с акцентом на центральный интерактивный стол и радиальное расположение рабочих зон у стен.</p>
+                
+                <div class="media-grid-3">
+                    <div class="screenshot-box">
+                        <img src="images/last-shelter/greybox-top.png" alt="Greybox Top View">
+                        <div class="screenshot-caption">Планирование углов обзора и симметрии на этапе Greyboxing (Ортогональный вид)</div>
+                    </div>
+                    <div class="screenshot-box">
+                        <img src="images/last-shelter/greybox-perspective.png" alt="Greybox Perspective">
+                        <div class="screenshot-caption">Тестирование фокусного расстояния от фиксированных мест игроков до панелей</div>
+                    </div>
+                    <div class="screenshot-box">
+                        <img src="images/last-shelter/greybox-wireframe.png" alt="Greybox Wireframe">
+                        <div class="screenshot-caption">Настройка логических зон и сетки мешей внутри пространства (Режим Wireframe)</div>
+                    </div>
+                </div>
+
+                <p><strong>Key Design Solutions:</strong></p>
+                <ul class="bullet-list">
+                    <li><strong>Радиальная композиция:</strong> Центральный шестиугольный стол является главным композиционным якорем сцены, за которым сидят все игроки.</li>
+                    <li><strong>Многоугольная геометрия стен:</strong> Позволила разместить серверные стойки и терминалы по периметру так, чтобы они оставались в зоне видимости статичных камер игроков без визуального перекрытия.</li>
+                </ul>
+
+                <div class="media-grid-2">
+                    <div class="screenshot-box">
+                        <img src="images/last-shelter/final-isometric.png" alt="Final Production Scene">
+                        <div class="screenshot-caption">Финальное распределение пропсов и световое зонирование в Unity 6 (Перспектива)</div>
+                    </div>
+                    <div class="screenshot-box">
+                        <img src="images/last-shelter/final-top.png" alt="Final Production Top-Down">
+                        <div class="screenshot-caption">Окончательный ортогональный план локации бункера со всеми рабочими зонами</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- РАЗДЕЛ 3: СИСТЕМНЫЙ ДИЗАЙН -->
+            <section class="case-section">
+                <h3>Systems Design & Economy Balance</h3>
+                <p>В условиях статичности игроков весь геймплей смещается в сторону системного взаимодействия, менеджмента ресурсов и координации по таблицам баланса.</p>
+                <ul class="bullet-list">
+                    <li><strong>Математический баланс:</strong> На основе данных, не вошедших в общую документацию, были рассчитаны тайминги волн, критические пороги систем бункера и таблицы зависимостей механик.</li>
+                    <li><strong>Интеграция в Unity:</strong> Полная сборка логики сцены — настройка триггеров, связей между объектами и конфигурация компонентов внутри инспектора Unity 6.</li>
+                </ul>
+            </section>
+
+            <!-- РАЗДЕЛ 4: АРТЕФАКТЫ И ДОКУМЕНТЫ -->
+            <section class="case-section">
+                <h3>Design Artifacts & Documentation</h3>
+                <p>Основным документом разработки выступил глубоко проработанный <strong>GDO (Game Design Overview)</strong>, включающий в себя детальный разбор игрового цикла и системных связей.</p>
+                
+                <div class="doc-panel">
+                    <div class="doc-info">
+                        <h4>Game Design Overview (GDO)</h4>
+                        <p>Включает полные математические таблицы баланса, тайминги игрового цикла и спецификации логики статичного взаимодействия.</p>
+                    </div>
+                    <a href="#" class="btn-black" target="_blank">Open GDO Document</a>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">Portfolio by Sofibonda</div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
