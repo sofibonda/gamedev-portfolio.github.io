@@ -235,7 +235,7 @@
             <!-- РАЗДЕЛ 2: ЛЕВЕЛ-ДИЗАЙН И ДИЗАЙН ВЗГЛЯДА -->
             <section class="case-section">
                 <h3>Level Design: Designing Constraints & Sightlines</h3>
-                <p>Ограничение свободы передвижения персонажей было введено на этапе пре-продакшна намеренно: игроки статичны и всю сессию сидят на своих местах у центрального стола. Это позволило полностью сфокусировать их внимание на вербальной коммуникации через Photon Voice, анализе скрытых характеристик друг друга и поведении. В этих условиях левел-дизайн превратился в <strong>дизайн взгляда (Sightline & Composition Design)</strong>.</p>
+                <p>By keeping players seated around the central table, the gameplay focuses entirely on verbal communication and behavioral analysis. Under these strict spatial constraints, level design shifts from traditional environment layout to managing player focus within a restricted <strong>First-Person POV</strong>.</p>
                 
                 <div class="media-grid-3">
                     <div class="screenshot-box">
@@ -252,10 +252,10 @@
                     </div>
                 </div>
 
-            </p><strong>Реализованные левел-дизайн решения:</strong></p>
+            </p><strong>Key Level Design Solutions:</strong></p>
                 <ul class="bullet-list">
-                    <li><strong>Radiała геометрия комнаты:</strong> Я спроектировала многоугольную форму стен бункера. Это позволило разместить серверные стойки, терминалы и датчики по периметру так, чтобы они идеально попадали в фиксированные объективы камер всех игроков без эффекта визуального перекрытия пропсов.</li>
-                    <li><strong>Световое зонирование в Unity 6:</strong> Центральный интерактивный стол выделен ярким направленным источником света, в то время как рабочие зоны у стен погружены в глубокие полутона. Это подчеркивает клаустрофобную атмосферу изоляции и на подсознательном уровне фокусирует группу на зоне принятия решений.</li>
+                    <li><strong>Radial Room Geometry:</strong> Since players view the world from a first-person perspective with a limited viewing angle, I designed a specific polygonal wall layout. This radial geometry ensures that all critical perimeter assets (server racks, terminals, and sensors) remain perfectly readable and enter the player's line of sight smoothly just by rotating their view, completely eliminating visual occlusion or overlapping geometry.</li>
+                    <li><strong>Lighting Zoning (Unity 6):</strong> I utilized a high-contrast lighting setup to guide player attention. The central interactive table is highlighted with a bright, direct light source, while the perimeter workstations fade into deep shadows. This amplifies the claustrophobic atmosphere of isolation and psychologically anchors the group to the primary decision-making zone.</li>
                 </ul>
             </section>
                 <div class="media-grid-2">
