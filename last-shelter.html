@@ -272,13 +272,13 @@
 
             <!-- РАЗДЕЛ 3: СИСТЕМНЫЙ ДИЗАЙН И МАТЕМАТИЧЕСКИЙ БАЛАНС -->
             <section class="case-section">
-                <h3>Systems Design: Mathematical Balance & Synergies</h3>
-                <p>Чтобы исключить появление «доминантных стратегий» (когда игроков изгоняют просто по списку профессий), я разработала комплексную математическую модель <strong>Индекса Выживания (ИВ)</strong> финальной пары. Исход сессии рассчитывается автоматически на основе формулы:</p>
+                <h3>Gameplay Mechanics & Balancing</h3>
+                <p>To prevent dominant strategies and eliminate a predictable meta (where players are exiled based solely on a flat hierarchy of professions), I designed a comprehensive mathematical model called the <strong>Survival Index (SI)</strong> for the final pair. The match outcome is calculated automatically based on the following formula:</p>
                 <p style="background: #f9f9f9; border: 1px solid #e2e2e2; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.95rem; margin-bottom: 20px; font-weight: 600; text-align: center; color: #111111;">
-                    ИВ = Профессия + Стаж + Возраст + Здоровье + Фобия + Хобби + Черта Характера + Синергия Пары
+                    SI = Profession + Experience + Age + Health + Phobia + Hobby + Character Trait + Dynamic Synergy
                 </p>
 
-                <p>Ниже представлена разработанная мной матрица баланса из внутренней рабочей документации прототипа, которая легла в основу программной логики генерации персонажей:</p>
+                <p>Below is a simplified preview of the comprehensive core balancing matrix I developed to govern the character generation algorithm and software logic:</p>
 
                 <div class="balance-table-wrapper">
                     <table class="balance-table">
@@ -329,7 +329,8 @@
                     </table>
                 </div>
 
-                <p>Для создания глубины обсуждений в рамках балансировки были внедрены скрытые перекрестные модификаторы. Например, если в финале остаются <strong>Врач + Ученый</strong>, они получают бонус синергии <code>+2 балла</code>. Но если остаются два лидера, включается антисинергия за ресурсы со штрафом <code>-1 балл</code>. Сумма баллов определяет концовку: Бункер спасен (>15), Выживание с рисками (10-15) или Бункер обречен (<10).</p>
+                <p>To drive deeper verbal debate and tactical depth, I implemented hidden cross-modifiers within the mathematical balance. For instance, if the final surviving pair consists of a <strong> Doctor + Scientist</strong>, they receive a <code>+2 synergy bonus</code>. Conversely, if two players with the "Leader" trait survive together, they trigger a <code>-1 resource-competition penalty</code>.</p>
+                <p>This production matrix scales dynamically across hundreds of procedural character variations. The final accumulated score determines one of three distinct systemic endings: Shelter Survived (>15 points), Survival with Risks (10-15 points), or Shelter Doomed (<10 points).</p>
             </section>
             <!-- РАЗДЕЛ 4: UI/UX ПРОЕКТИРОВАНИЕ И ИТЕРАЦИИ -->
             <section class="case-section">
