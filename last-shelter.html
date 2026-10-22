@@ -232,6 +232,32 @@
                 <p>Based on the popular tabletop game "Bunker", <strong>Last Shelter</strong> is a 6-player 3D social deduction and cooperative survival game. Locked inside an underground shelter after a global catastrophe, players must verbally debate, analyze randomized character traits, and selectively disclose information to survive. With life-support systems strictly limited to sustain only two people, the group must vote to eliminate the least viable members before the automated self-destruction protocol triggers.</p>
             </section>
 
+            
+
+            <!-- РАЗДЕЛ 3: СИСТЕМНЫЙ ДИЗАЙН И МАТЕМАТИЧЕСКИЙ БАЛАНС -->
+            <section class="case-section">
+                <h3>Core Gameplay & Systemic Loops</h3>
+                <p><strong>Asymmetric Information & Traits Generation:</strong><br>
+  To achieve high replayability and prevent pre-calculated player meta-strategies, I designed a <strong>procedural character seeding system</strong>. At the start of each session, every player receives a completely randomized, unique configuration of parameters: profession, work experience, age, health condition, psychological phobias, hobbies, and starting inventory. Crucially, all traits are initially hidden. The core gameplay relies on selective disclosure — players have full agency to lie, conceal liabilities, or strategically filter information during debates to maximize their perceived group value.</p>
+
+    <!-- ДОБАВЛЯЕМ ТВОЮ ГРАФИКУ CORE LOOP ДЛЯ РАЗБИВКИ ТЕКСТА -->
+  <div class="screenshot-box" style="margin: 25px 0;">
+    <img src="images/last-shelter/core-loop.png" alt="Last Shelter Core Gameplay Loop Diagram">
+    <span class="screenshot-caption">Systemic Core Loop: The cyclical process of selective information disclosure, dynamic threat analysis, and blind consensus execution.</span>
+  </div>
+                
+  <p><strong>The Modifier Card System (Dynamic Disruption):</strong><br>
+  To inject unpredictability and disrupt predictable discussion loops, I implemented a <strong>Special Card System</strong>. Players can activate single-use cards during a round to actively change character traits, alter bunker resource parameters, or enforce temporary debuffs that distort how information is received. This mechanic adds a layer of tactical randomness, forcing the group to constantly re-evaluate their survival strategies live rather than relying on a static voting meta.</p>
+
+  <p><strong>The Commitment Voting Engine:</strong><br>
+  The round culminates in a dedicated <strong>Exclusion Voting phase</strong> managed by a strict "blind-voting" logic. To prevent players from simply bandwagoning on shifting vocal trends, I designed a two-step confirmation flow:
+  </p>
+  <ul class="bullet-list">
+    <li><strong>The Confirmation Rule:</strong> Players must actively select a target and press a dedicated <strong>confirmation button</strong> to lock their decision. Within the 1-minute round timer, votes can be dynamically re-routed until confirmed.</li>
+    <li><strong>The Hidden Ledger:</strong> All vote tallies and selections remain completely hidden throughout the active phase. The final distribution is revealed globally <strong>only after every participant locks in their vote</strong> or the timer expires, executing the final player exile.</li>
+  </ul>
+</section>
+
             <!-- РАЗДЕЛ 2: ЛЕВЕЛ-ДИЗАЙН И ДИЗАЙН ВЗГЛЯДА -->
             <section class="case-section">
                 <h3>Level Design: Designing Constraints & Sightlines</h3>
@@ -269,32 +295,6 @@
                         <div class="screenshot-caption">Production Scene (Angle B): High-contrast lighting zoning pass designed to psychologically anchor players to the central table.</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- РАЗДЕЛ 3: СИСТЕМНЫЙ ДИЗАЙН И МАТЕМАТИЧЕСКИЙ БАЛАНС -->
-            <section class="case-section">
-                <h3>Core Gameplay & Systemic Loops</h3>
-                <p><strong>Asymmetric Information & Traits Generation:</strong><br>
-  To achieve high replayability and prevent pre-calculated player meta-strategies, I designed a <strong>procedural character seeding system</strong>. At the start of each session, every player receives a completely randomized, unique configuration of parameters: profession, work experience, age, health condition, psychological phobias, hobbies, and starting inventory. Crucially, all traits are initially hidden. The core gameplay relies on selective disclosure — players have full agency to lie, conceal liabilities, or strategically filter information during debates to maximize their perceived group value.</p>
-
-    <!-- ДОБАВЛЯЕМ ТВОЮ ГРАФИКУ CORE LOOP ДЛЯ РАЗБИВКИ ТЕКСТА -->
-  <div class="screenshot-box" style="margin: 25px 0;">
-    <img src="images/last-shelter/core-loop.png" alt="Last Shelter Core Gameplay Loop Diagram">
-    <span class="screenshot-caption">Systemic Core Loop: The cyclical process of selective information disclosure, dynamic threat analysis, and blind consensus execution.</span>
-  </div>
-                
-  <p><strong>The Modifier Card System (Dynamic Disruption):</strong><br>
-  To inject unpredictability and disrupt predictable discussion loops, I implemented a <strong>Special Card System</strong>. Players can activate single-use cards during a round to actively change character traits, alter bunker resource parameters, or enforce temporary debuffs that distort how information is received. This mechanic adds a layer of tactical randomness, forcing the group to constantly re-evaluate their survival strategies live rather than relying on a static voting meta.</p>
-
-  <p><strong>The Commitment Voting Engine:</strong><br>
-  The round culminates in a dedicated <strong>Exclusion Voting phase</strong> managed by a strict "blind-voting" logic. To prevent players from simply bandwagoning on shifting vocal trends, I designed a two-step confirmation flow:
-  </p>
-  <ul class="bullet-list">
-    <li><strong>The Confirmation Rule:</strong> Players must actively select a target and press a dedicated <strong>confirmation button</strong> to lock their decision. Within the 1-minute round timer, votes can be dynamically re-routed until confirmed.</li>
-    <li><strong>The Hidden Ledger:</strong> All vote tallies and selections remain completely hidden throughout the active phase. The final distribution is revealed globally <strong>only after every participant locks in their vote</strong> or the timer expires, executing the final player exile.</li>
-  </ul>
-</section>
-                
             </section>
             <!-- РАЗДЕЛ 4: UI/UX ПРОЕКТИРОВАНИЕ И ИТЕРАЦИИ -->
             <section class="case-section">
