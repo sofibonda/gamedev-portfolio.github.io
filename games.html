@@ -166,31 +166,30 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(26, 26, 26, 0.65); /* Красивый глубокий темный тон */
+    background-color: rgba(15, 15, 15, 0.8); /* Плотный благородный темный тон */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2; /* Встает поверх видео */
+    z-index: 2;
     transition: background-color 0.25s ease;
 }
 
 /* Текст внутри плашки */
 .overlay-text {
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.7); /* Не чисто белый, а мягкий сероватый */
+    font-size: 0.75rem;
+    font-weight: 500; /* Менее жирный */
+    letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 8px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Едва заметная рамка */
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.2);
-    pointer-events: none; /* Чтобы мышка реагировала на саму карточку */
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
 }
-
 /* Эффект при наведении на карточку: плашка становится прозрачнее, приоткрывая видео */
 .project-card:hover .media-overlay {
-    background-color: rgba(26, 26, 26, 0.35);
+    background-color: rgba(15, 15, 15, 0.65); /* Видео слегка проявится, но не станет ярким */
 }
 
 
