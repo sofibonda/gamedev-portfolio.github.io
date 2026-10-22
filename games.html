@@ -159,6 +159,41 @@
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
+        /* Контейнер оверлея — перекрывает видео внутри .project-media-box */
+.media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.65); /* Красивый глубокий темный тон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* Встает поверх видео */
+    transition: background-color 0.25s ease;
+}
+
+/* Текст внутри плашки */
+.overlay-text {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none; /* Чтобы мышка реагировала на саму карточку */
+}
+
+/* Эффект при наведении на карточку: плашка становится прозрачнее, приоткрывая видео */
+.project-card:hover .media-overlay {
+    background-color: rgba(26, 26, 26, 0.35);
+}
+
+
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
@@ -215,6 +250,9 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="ghost-preview.mp4" type="video/mp4">
                         </video>
+                        <div class="media-overlay">
+            <span class="overlay-text">Case Study In Progress</span>
+        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Ghost Guys</h3>
@@ -233,6 +271,9 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="glow-preview.mp4" type="video/mp4">
                         </video>
+                        <div class="media-overlay">
+            <span class="overlay-text">Case Study In Progress</span>
+        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Glow of the Depths</h3>
@@ -251,6 +292,9 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
+                        <div class="media-overlay">
+            <span class="overlay-text">Case Study In Progress</span>
+        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">The Dwarves</h3>
