@@ -273,62 +273,27 @@
 
             <!-- РАЗДЕЛ 3: СИСТЕМНЫЙ ДИЗАЙН И МАТЕМАТИЧЕСКИЙ БАЛАНС -->
             <section class="case-section">
-                <h3>Gameplay Mechanics: The Multi-Layered Balancing Matrix</h3>
-                <p>To completely eliminate predictable meta-strategies (where players are exiled based on a flat, linear hierarchy of their professions), I developed a complex, multi-layered mathematical model called the <strong>Survival Index (SI)</strong> The final match outcome is evaluated algorithmically based on the traits of the surviving pair:</p>
-                <p style="background: #f9f9f9; border: 1px solid #e2e2e2; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.95rem; margin-bottom: 20px; font-weight: 600; text-align: center; color: #111111;">
-                    SI = Profession Base + Experience + Age + Health + Phobias + Character Traits + Cross-Character Synergies
-                </p>
+                <h3>Core Gameplay & Systemic Loops</h3>
+                <p><strong>Asymmetric Information & Traits Generation:</strong><br>
+  To achieve high replayability and prevent pre-calculated player meta-strategies, I designed a <strong>procedural character seeding system</strong>. At the start of each session, every player receives a completely randomized, unique configuration of parameters: profession, work experience, age, health condition, psychological phobias, hobbies, and starting inventory. Crucially, all traits are initially hidden. The core gameplay relies on selective disclosure — players have full agency to lie, conceal liabilities, or strategically filter information during debates to maximize their perceived group value.</p>
 
-                <p>Instead of relying on single-character stats, the gameplay economy forces players to deduce how their traits interact with others, shifting the core loop from simple voting to strategic social engineering.</p>
+  <p><strong>The Modifier Card System (Dynamic Disruption):</strong><br>
+  To inject unpredictability and disrupt predictable discussion loops, I implemented a <strong>Special Card System</strong>. Players can activate single-use cards during a round to actively change character traits, alter bunker resource parameters, or enforce temporary debuffs that distort how information is received. This mechanic adds a layer of tactical randomness, forcing the group to constantly re-evaluate their survival strategies live rather than relying on a static voting meta.</p>
 
-                <div class="balance-table-wrapper">
-                    <table class="balance-table">
-                        <thead>
-                            <tr>
-                                <th>Systemic Parameter & Category</th>
-                                <th>Elements & Gameplay Impact</th>
-                                <th>Value / Weight</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Professions (High Priority)</strong></td>
-                                <td>Doctor (life support maintenance), Engineer (bunker systems control)</td>
-                                <td><span class="balance-badge badge-plus">+6</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Professions (Medium Priority)</strong></td>
-                                <td>Scientist, Chemist / Biologist, Psychologist (group stabilization), Farmer</td>
-                                <td><span class="balance-badge badge-plus">+4 / +5</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Work Experience</strong></td>
-                                <td>Determines qualification level: 1–3 years (+1) | 16+ years (+4)</td>
-                                <td><span class="balance-badge badge-plus">+1 to +4</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Age Parameters</strong></td>
-                                <td>18–25 (physical strength, 0 pts) | 26–40 (optimal balance, +2) | 61+ (physical vulnerability, -1)</td>
-                                <td><span class="balance-badge badge-minus">-1</span> to <span class="balance-badge badge-plus">+2</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Health Status</strong></td>
-                                <td>Excellent (+3) | Average (+1) | Low (-2) | Severe chronic injuries (-3)</td>
-                                <td><span class="balance-badge badge-minus">-3</span> to <span class="balance-badge badge-plus">+3</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Psychological Phobias</strong></td>
-                                <td>Claustrophobia (critical penalty inside the bunker, -4) | Fear of Blood (minor penalty, -2)</td>
-                                <td><span class="balance-badge badge-minus">-4</span> to <span class="balance-badge badge-plus">0</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Character Traits</strong></td>
-                                <td>Leader (+3), Logician (+2) | Alarmist (critical group risk, -3), Egoist (-2)</td>
-                                <td><span class="balance-badge badge-minus">-3</span> to <span class="balance-badge badge-plus">+3</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+  <!-- ДОБАВЛЯЕМ ТВОЮ ГРАФИКУ CORE LOOP ДЛЯ РАЗБИВКИ ТЕКСТА -->
+  <div class="screenshot-box" style="margin: 25px 0;">
+    <img src="images/last-shelter/core-loop.png" alt="Last Shelter Core Gameplay Loop Diagram">
+    <span class="screenshot-caption">Systemic Core Loop: The cyclical process of selective information disclosure, dynamic threat analysis, and blind consensus execution.</span>
+  </div>
+
+  <p><strong>The Commitment Voting Engine:</strong><br>
+  The round culminates in a dedicated <strong>Exclusion Voting phase</strong> managed by a strict "blind-voting" logic. To prevent players from simply bandwagoning on shifting vocal trends, I designed a two-step confirmation flow:
+  </p>
+  <ul>
+    <li><strong>The Confirmation Rule:</strong> Players must actively select a target and press a dedicated <strong>confirmation button</strong> to lock their decision. Within the 1-minute round timer, votes can be dynamically re-routed until confirmed.</li>
+    <li><strong>The Hidden Ledger:</strong> All vote tallies and selections remain completely hidden throughout the active phase. The final distribution is revealed globally <strong>only after every participant locks in their vote</strong> or the timer expires, executing the final player exile.</li>
+  </ul>
+</section>
                 
                <!-- Начало спойлера с подробной системой баланса -->
 <details style="margin-top: 20px; margin-bottom: 20px; cursor: pointer;">
