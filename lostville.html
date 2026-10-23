@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sofya Bandarenka - LostVille Case Study</title>
+    <title>Sofya Bandarenka - LostVille</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
@@ -26,23 +26,65 @@
         .back-link { color: #888888; text-decoration: none; font-size: 0.9rem; align-self: flex-start; margin-bottom: 20px; transition: color 0.2s ease; }
         .back-link:hover { color: #111111; }
         
-        .project-headline { font-size: 2.2rem; font-weight: 600; color: #111111; margin: 0 0 20px 0; letter-spacing: -0.5px; }
+        .project-headline { font-size: 2.2rem; font-weight: 600; color: #111111; margin: 0 0 10px 0; letter-spacing: -0.5px; text-align: center; }
+        .project-description { color: #666666; font-size: 1.05rem; line-height: 1.6; margin: 0 auto 40px auto; max-width: 760px; text-align: center; }
+
+        /* ДВУХКОЛОНОЧНЫЙ МАКЕТ: ИНФО СЛЕВА, ВИДЕО СПРАВА */
+        .project-top-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-row h4 { margin: 0; font-size: 0.85rem; text-transform: uppercase; color: #888888; letter-spacing: 0.5px; font-weight: 600; }
+        .info-row p { margin: 0; color: #222222; font-size: 1rem; font-weight: 400; line-height: 1.5; }
+        .info-row ul { margin: 0; padding-left: 18px; color: #222222; font-size: 1rem; line-height: 1.6; }
+        .info-row li { margin-bottom: 4px; }
+
+        /* ВИДЕОПЛЕЕР В ПРАВОЙ КОЛОНКЕ */
+        .video-column {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e0e2e5;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+        .video-column video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ГОРИЗОНТАЛЬНАЯ ЛИНЕЙКА СКРИНШОТОВ С ВОЗМОЖНОСТЬЮ ОТКРЫТЬ */
+        .art-slider-wrapper { width: 100%; overflow-x: auto; margin: 30px 0; padding-bottom: 15px; -webkit-overflow-scrolling: touch; }
+        .art-slider { display: flex; gap: 15px; width: max-content; }
         
-        .meta-container { display: flex; flex-direction: column; gap: 20px; background-color: #f7f7f7; border: 1px solid #e0e2e5; border-radius: 14px; padding: 30px; margin-bottom: 40px; width: 100%; }
-        .meta-item h5 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: #888888; margin: 0 0 6px 0; letter-spacing: 0.5px; }
-        .meta-item p { font-size: 1rem; color: #222222; margin: 0; font-weight: 500; }
+        .art-slide-link { display: block; text-decoration: none; height: 380px; border: 1px solid #e0e2e5; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: transform 0.2s ease; }
+        .art-slide-link:hover { transform: scale(1.015); }
+        .art-slide-link img { height: 100%; width: auto; display: block; object-fit: contain; }
+
+        /* Кастомизация скроллбара */
+        .art-slider-wrapper::-webkit-scrollbar { height: 6px; }
+        .art-slider-wrapper::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+        .art-slider-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
         
-        h3 { font-size: 1.4rem; font-weight: 600; color: #111111; margin: 40px 0 16px 0; letter-spacing: -0.3px; border-bottom: 1px solid #e2e2e2; padding-bottom: 8px; width: 100%; }
-        p { font-size: 1.05rem; line-height: 1.65; color: #333333; margin: 0 0 20px 0; }
-        p strong { color: #111111; }
-        
-        .media-container { width: 100%; margin: 30px 0; display: flex; flex-direction: column; align-items: center; }
-        .media-container img { width: 100%; height: auto; border: 1px solid #e0e2e5; border-radius: 12px; display: block; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
-        .media-caption { font-size: 0.85rem; color: #888888; margin-top: 10px; text-align: center; line-height: 1.4; width: 100%; max-width: 90%; }
-        
-        .deliverables-container { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
-        .btn-link { display: inline-block; background: #222222; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; transition: background 0.2s ease; }
-        .btn-link:hover { background: #555555; }
+        .stores-container { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+        .store-badge img { height: 40px; width: auto; transition: opacity 0.2s ease; }
+        .store-badge:hover img { opacity: 0.8; }
 
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
@@ -53,10 +95,14 @@
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
+        @media (max-width: 900px) {
+            .project-top-layout { grid-template-columns: 1fr; gap: 30px; }
+        }
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
             .page-wrapper { padding: 25px 20px 80px 20px; }
+            .art-slide-link { height: 280px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -76,85 +122,97 @@
             </nav>
         </div>
     </header>
-
     <main class="container">
         <div class="page-wrapper">
             
             <a href="other.html" class="back-link">← Back to Other Projects</a>
 
             <h2 class="project-headline">LostVille: Find Hidden Objects</h2>
+            <p class="project-description">A hidden-object casual game combined with light city-building mechanics. Players explore beautifully illustrated scenes, search for missing items, and use in-game currency to expand and upgrade the town.</p>
 
-            <div class="meta-container">
-                <div class="meta-item">
-                    <h5>My Team Role</h5>
-                    <p>2D Game Artist & Asset Integrator</p>
+            <!-- ДВУХКОЛОНОЧНЫЙ МАКЕТ -->
+            <div class="project-top-layout">
+                
+                <!-- ЛЕВАЯ КОЛОНКА С ИНФОРМАЦИЕЙ И ТАСКАМИ -->
+                <div class="info-column">
+                    <div class="info-row">
+                        <h4>My Role:</h4>
+                        <p>• 2D Artist</p>
+                    </div>
+                    
+                    <div class="info-row">
+                        <h4>Type:</h4>
+                        <p>Commercial project</p>
+                    </div>
+
+                    <div class="info-row">
+                        <h4>Duration:</h4>
+                        <p>7 months</p>
+                    </div>
+
+                    <div class="info-row">
+                        <h4>My Tasks:</h4>
+                        <ul>
+                            <li>Created in-game 2D assets for multiple levels.</li>
+                            <li>Maintained a unified visual style and overall graphic quality.</li>
+                            <li>Enhanced player experience through detailed and readable visual elements.</li>
+                            <li>Collaborated closely with developers to integrate art assets into the project.</li>
+                            <li>Worked with Midjourney to generate concepts and ideas.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <h5>Duration</h5>
-                    <p>7 Months</p>
+
+                <!-- ПРАВАЯ КОЛОНКА С ВИДЕОМАТЕРИАЛОМ -->
+                <div class="video-column">
+                    <video controls poster="lostville-video-poster.jpg">
+                        <source src="lostville-gameplay.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-                <div class="meta-item">
-                    <h5>Engine & Stack</h5>
-                    <p>Unity, Photoshop, Midjourney AI</p>
+
+            </div>
+                <!-- ГОРИЗОНТАЛЬНАЯ ЛИНЕЙКА СКРИНШОТОВ (КАК БЫЛО НА ADOBE PORTFOLIO) -->
+                <!-- Каждая картинка кликабельна и открывается в оригинальном размере в новой вкладке -->
+                <div class="art-slider-wrapper">
+                    <div class="art-slider">
+                        <a href="lostville-art1.jpg" target="_blank" class="art-slide-link">
+                            <img src="lostville-art1.jpg" alt="LostVille Scene 1">
+                        </a>
+                        <a href="lostville-art2.jpg" target="_blank" class="art-slide-link">
+                            <img src="lostville-art2.jpg" alt="LostVille Scene 2">
+                        </a>
+                        <a href="lostville-art3.jpg" target="_blank" class="art-slide-link">
+                            <img src="lostville-art3.jpg" alt="LostVille Scene 3">
+                        </a>
+                        <a href="lostville-art4.jpg" target="_blank" class="art-slide-link">
+                            <img src="lostville-art4.jpg" alt="LostVille Scene 4">
+                        </a>
+                        <a href="lostville-art5.jpg" target="_blank" class="art-slide-link">
+                            <img src="lostville-art5.jpg" alt="LostVille Scene 5">
+                        </a>
+                        <a href="lostville-art6.jpg" target="_blank" class="art-slide-link">
+                            <img src="lostville-art6.jpg" alt="LostVille Scene 6">
+                        </a>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <h5>Project Status</h5>
-                    <p>Commercially Released (Mobile)</p>
+
+                <!-- БЛОК С ОРИГИНАЛЬНЫМИ ФИЧАМИ ИГРЫ -->
+                <div class="info-column" style="width: 100%; border-top: 1px solid #e0e2e5; padding-top: 30px; margin-top: 20px;">
+                    <div class="info-row">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Hidden-object gameplay mixed with town-building progression.</li>
+                            <li>Highly detailed scenes with interactive objects.</li>
+                            <li>Mobile-friendly, intuitive interface and smooth navigation.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <h3>Elevator Pitch</h3>
-            <p>
-                <strong>LostVille: Find Hidden Objects</strong> is a commercially released casual mobile game that seamlessly blends classic hidden-object mechanics with light city-building progression loops. Players explore rich, beautifully illustrated environments to find concealed items and earn in-game currency used to restore and upgrade their virtual town. As a 2D Artist on the project, my primary focus was delivering high-fidelity environmental art assets and interactive props, establishing a precise balance between strict visual aesthetics and immediate gameplay asset readability.
-            </p>
 
-            <h3>Core Art Production & AI Pipeline</h3>
-            <p>
-                In the mobile hidden-object genre, visual design is deeply tied to the core game design loops. To accelerate content production cycles while keeping art quality exceptionally high, I integrated <strong>generative AI-assisted workflows (Midjourney)</strong> into our daily design sprint pipeline. I utilized generative models during early pre-production for rapid asset ideation, testing compositional structures, and setting initial color palettes.
-            </p>
-            <p>
-                Once the core composition received a sign-off from our Lead Artist, I shifted to manual asset production using Photoshop. This included comprehensive asset clean-up, detailed manual digital painting, object isolation, and fine-tuning object rendering. Every single hidden asset had to organically blend into the rich environment while remaining sufficiently distinct and high-contrast to guarantee instant player readability on smaller mobile viewports.
-            </p>
-
-            <div class="media-container">
-                <img src="lostville-art1.jpg" alt="LostVille Production Scene 1">
-                <div class="media-caption">Production Scene 01: Final render pass of an active in-game hidden-object level featuring complex environment layouts.</div>
-            </div>
-
-            <p>
-                <strong>Unity Integration Pipeline:</strong> 
-                My production responsibilities extended far beyond asset exporting. I personally owned the asset integration pipeline within <strong>Unity</strong>. This involved building and maintaining scenes in the scene hierarchy, configuring core parameters in the Inspector, assembling UI components using strict anchor alignment logic, and executing resolution-scaling tests to ensure pixel-perfect canvas behavior across modern mobile screen dimensions.
-            </p>
-
-            <div class="media-container">
-                <img src="lostville-art2.jpg" alt="LostVille Production Scene 2">
-                <div class="media-caption">Production Scene 02: Managing render layering, asset occlusion, and sprite depth ordering inside the engine environment.</div>
-            </div>
-            <h3>UX/UI Design & Asset Optimization</h3>
-            <p>
-                A core challenge of the project was developing user interface elements that naturally complemented the vibrant, casual art style without cluttering the player's cognitive capacity. I designed and rendered a series of UI assets for various sub-menus, in-game storefronts, and town progression overlays. 
-            </p>
-            <p>
-                Every asset underwent strict mobile platform optimization. Texture atlases were configured efficiently to keep runtime memory consumption low, and interactive button bounds were set up in accordance with mobile UX guidelines to prevent accidental touches during active gameplay sessions.
-            </p>
-
-            <div class="media-container">
-                <img src="lostville-art3.jpg" alt="LostVille UI Layout">
-                <div class="media-caption">UI & Layout Showcase: Clean casual UI component design integrated directly into Unity production scenes.</div>
-            </div>
-
-            <h3>Summary</h3>
-            <p>
-                The title was successfully shipped and released onto global mobile storefronts. Over my 7-month tenure as a 2D Game Artist, I helped establish a highly efficient content pipeline bridging traditional digital painting with modern generative toolsets. The production аassets I integrated inside Unity ensured excellent runtime performance and delivered a strong layer of visual polish tailored perfectly to the expectations of the casual mobile market.
-            </p>
-
-            <!-- Project Assets & Deliverables Block -->
-            <div class="features-block" style="border-top: 1px solid #e0e2e5; padding-top: 30px; margin-top: 40px; margin-bottom: 20px;">
-                <h4 style="margin: 0 0 15px 0; font-size: 0.8rem; text-transform: uppercase; color: #888888; letter-spacing: 0.5px; font-weight: 600;">Project Assets & Deliverables</h4>
-                <div class="deliverables-container">
-                    <a href="https://apple.com" target="_blank" class="btn-link">Download on App Store ⎋</a>
-                    <a href="https://google.com" target="_blank" class="btn-link">Get it on Google Play ⎋</a>
+                <!-- ИКОНКИ МАГАЗИНОВ ПРИЛОЖЕНИЙ -->
+                <div class="stores-container">
+                    <a href="https://apple.com" target="_blank" class="store-badge"><img src="https://applemediaservices.com" alt="Download on the App Store"></a>
+                    <a href="https://google.com" target="_blank" class="store-badge"><img src="https://google.com" alt="Get it on Google Play" style="height: 58px; margin-top: -9px;"></a>
                 </div>
-            </div>
 
         </div>
     </main>
