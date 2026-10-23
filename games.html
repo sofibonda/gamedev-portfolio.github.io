@@ -117,13 +117,11 @@
 
         /* Контейнер для тегов */
         .project-tags {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    flex-wrap: wrap;        /* Разрешает тегам переноситься на новую строку вниз */
-    width: 100%;            /* Ограничивает контейнер шириной карточки */
-    max-width: 100%;        /* Не дает тегам расталкивать карточку вширь */
-}
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
         .project-tag {
             font-size: 0.70rem;
@@ -161,40 +159,6 @@
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
-        /* Контейнер оверлея — перекрывает видео внутри .project-media-box */
-.media-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 15, 15, 0.8); /* Плотный благородный темный тон */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    transition: background-color 0.25s ease;
-}
-
-/* Текст внутри плашки */
-.overlay-text {
-    color: rgba(255, 255, 255, 0.7); /* Не чисто белый, а мягкий сероватый */
-    font-size: 0.75rem;
-    font-weight: 500; /* Менее жирный */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 6px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Едва заметная рамка */
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-}
-/* Эффект при наведении на карточку: плашка становится прозрачнее, приоткрывая видео */
-.project-card:hover .media-overlay {
-    background-color: rgba(15, 15, 15, 0.65); /* Видео слегка проявится, но не станет ярким */
-}
-
-
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
@@ -222,7 +186,6 @@
             </nav>
         </div>
     </header>
-
     <main class="container">
         <div class="page-wrapper">
             
@@ -237,59 +200,47 @@
                     <div class="project-info">
                         <h3 class="project-title">Last Shelter</h3>
                         <div class="project-tags">
-                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Diploma</span>
-    <span class="project-tag" style="background-color: #e2ebf0; color: #4a6572;">Game & Level Design</span>
-    <span class="project-tag" style="background-color: #e2ede4; color: #4d6653;">PC</span>
-    <span class="project-tag" style="background-color: #f7eedb; color: #7c6435;">Social Deduction</span>
-</div>
+                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Diploma Project</span>
+                            <span class="project-tag" style="background-color: #e2ebf0; color: #4a6572;">Game & Level Design</span>
+                            <span class="project-tag" style="background-color: #e2ede4; color: #4d6653;">PC Multiplayer</span>
                         </div>
                         <div class="project-btn">View Case Study</div>
                     </div>
                 </a>
 
-            
-                
+                <!-- 2. Ghost Guys -->
+                <a href="#" class="project-card">
+                    <div class="project-media-box">
+                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
+                            <source src="ghost-preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Ghost Guys</h3>
+                        <div class="project-tags">
+                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Gameplay Prototype</span>
+                            <span class="project-tag" style="background-color: #eae4f2; color: #6d5b80;">Level Design & Balancing</span>
+                            <span class="project-tag" style="background-color: #fcebeb; color: #9c6666;">Mobile Multiplayer</span>
+                        </div>
+                        <div class="project-btn">View Case Study</div>
+                    </div>
+                </a>
+
                 <!-- 3. Glow of the Depths -->
                 <a href="#" class="project-card">
                     <div class="project-media-box">
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="glow-preview.mp4" type="video/mp4">
                         </video>
-                        <div class="media-overlay">
-            <span class="overlay-text">Case Study In Progress</span>
-        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Glow of the Depths</h3>
                         <div class="project-tags">
-                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Game Jam</span>
-    <span class="project-tag" style="background-color: #e2ebf0; color: #4a6572;">Game & Level Design</span>
-    <span class="project-tag" style="background-color: #e2ede4; color: #4d6653;">PC</span>
-    <span class="project-tag" style="background-color: #eaeade; color: #636150;">Puzzle Exploration</span>
+                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Game Jam Project</span>
+                            <span class="project-tag" style="background-color: #e2ebf0; color: #4a6572;">Game & Level Design</span>
+                            <span class="project-tag" style="background-color: #eaeade; color: #636150;">PC Puzzle Exploration</span>
                         </div>
-                        <div class="project-btn">Sneak Peek</div>
-                    </div>
-                </a>
-
-<!-- 2. Ghost Guys -->
-                <a href="#" class="project-card">
-                    <div class="project-media-box">
-                        <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
-                            <source src="ghost-preview.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-overlay">
-            <span class="overlay-text">Case Study In Progress</span>
-        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Ghost Guys</h3>
-                        <div class="project-tags">
-                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Prototype</span>
-    <span class="project-tag" style="background-color: #eae4f2; color: #6d5b80;">Design & Balance</span>
-    <span class="project-tag" style="background-color: #fcebeb; color: #9c6666;">Mobile</span>
-    <span class="project-tag" style="background-color: #e8f4f8; color: #3b6677;">Party Royale</span>
-                        </div>
-                        <div class="project-btn">Sneak Peek</div>
+                        <div class="project-btn">View Case Study</div>
                     </div>
                 </a>
 
@@ -299,19 +250,15 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
-                        <div class="media-overlay">
-            <span class="overlay-text">Case Study In Progress</span>
-        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">The Dwarves</h3>
                         <div class="project-tags">
-                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Prototype</span>
-    <span class="project-tag" style="background-color: #eae4f2; color: #6d5b80;">Design & Lighting</span>
-    <span class="project-tag" style="background-color: #e2ede4; color: #4d6653;">PC</span>
-    <span class="project-tag" style="background-color: #e6ebf2; color: #50637d;">Puzzle</span>
+                            <span class="project-tag" style="background-color: #e4e7eb; color: #4a5568;">Level Prototype</span>
+                            <span class="project-tag" style="background-color: #eae4f2; color: #6d5b80;">Level Design & Lighting</span>
+                            <span class="project-tag" style="background-color: #e6ebf2; color: #50637d;">PC Puzzle</span>
                         </div>
-                        <div class="project-btn">Sneak Peek</div>
+                        <div class="project-btn">View Case Study</div>
                     </div>
                 </a>
 
@@ -324,9 +271,9 @@
             <div class="footer-left">Portfolio by Sofibonda</div>
             <div class="footer-right">
                 <span>Let's talk games:</span>
-                <a href="https://www.linkedin.com/in/sofya-bandarenka/" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
-                <a href="https://t.me/sonya_bond" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg></a>
             </div>
         </div>
     </footer>
