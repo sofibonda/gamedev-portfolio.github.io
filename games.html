@@ -159,6 +159,41 @@
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
+        /* Контейнер оверлея — теперь он темнее и плотнее (0.8 вместо 0.65) */
+.media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.8); /* Плотный благородный темный тон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background-color 0.25s ease;
+}
+
+/* Текст внутри плашки — сделали его меньше и тоньше, чтобы не бил в глаза */
+.overlay-text {
+    color: rgba(255, 255, 255, 0.7); /* Не чисто белый, а мягкий сероватый */
+    font-size: 0.75rem;
+    font-weight: 500; /* Менее жирный */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Едва заметная рамка */
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* При наведении карточка чуть-чуть приоткрывается, но остается очень темной */
+.project-card:hover .media-overlay {
+    background-color: rgba(15, 15, 15, 0.65); /* Видео слегка проявится, но не станет ярким */
+}
+
+
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; }
             nav { gap: 20px; flex-wrap: wrap; }
@@ -215,6 +250,9 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="glow-preview.mp4" type="video/mp4">
                         </video>
+                        <div class="media-overlay">
+            <span class="overlay-text">Case Study In Progress</span>
+        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Glow of the Depths</h3>
@@ -232,6 +270,9 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-fallback.jpg">
                             <source src="ghost-preview.mp4" type="video/mp4">
                         </video>
+                        <div class="media-overlay">
+            <span class="overlay-text">Case Study In Progress</span>
+        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Ghost Guys</h3>
@@ -250,6 +291,9 @@
                         <video autoplay loop muted playsinline width="150%" poster="preview-dwarwesback.jpg">
                             <source src="dwarves-preview.mp4" type="video/mp4">
                         </video>
+                        <div class="media-overlay">
+            <span class="overlay-text">Case Study In Progress</span>
+        </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">The Dwarves</h3>
