@@ -91,7 +91,7 @@
         .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
         .art-slider-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
         
-                               /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
+                                      /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
         .stores-container { 
             display: flex; 
             justify-content: center; 
@@ -101,14 +101,14 @@
             flex-wrap: wrap;
         }
 
-        /* ОБЩИЙ СТИЛЬ ДЛЯ КНОПОК */
+        /* ОБЩИЙ СТИЛЬ КНОПОК */
         .custom-store-btn {
             display: flex;
             align-items: center;
             background: #111111;
             color: #ffffff;
             text-decoration: none;
-            padding: 8px 22px;
+            padding: 8px 20px;
             border-radius: 9px;
             min-width: 175px;
             height: 50px;
@@ -121,14 +121,48 @@
             transform: translateY(-1px);
         }
 
-        /* НАСТРОЙКА НАРИСОВАННЫХ SVG ИКОНОК */
-        .custom-store-btn svg {
+        /* КОНТЕЙНЕР ДЛЯ НАШИХ CSS ИКОНОК */
+        .store-icon-box {
             width: 24px;
             height: 24px;
-            fill: #ffffff;
-            margin-right: 12px;
+            margin-right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            display: block;
+            position: relative;
+        }
+
+        /* ГЕОМЕТРИЯ ЯБЛОКА (ЧИСТЫЙ CSS) */
+        .css-apple-body {
+            width: 18px;
+            height: 16px;
+            background: #ffffff;
+            border-radius: 9px 9px 10px 10px;
+            position: relative;
+            margin-top: 4px;
+        }
+        .css-apple-body::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 6px;
+            width: 5px;
+            height: 6px;
+            border-left: 2px solid #ffffff;
+            border-radius: 4px 0 0 0;
+            transform: rotate(25px);
+            transform: rotate(30deg);
+        }
+
+        /* ГЕОМЕТРИЯ ТРЕУГОЛЬНИКА GOOGLE PLAY (ЧИСТЫЙ CSS) */
+        .css-play-triangle {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 18px solid #ffffff; /* Рисуем идеальный плоский стрелочный треугольник */
+            margin-left: 4px;
         }
 
         /* ТЕКСТ ВНУТРИ КНОПОК */
@@ -141,7 +175,7 @@
         .store-btn-text .badge-top {
             font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
             color: #aaaaaa;
             line-height: 1.2;
         }
@@ -151,8 +185,9 @@
             letter-spacing: -0.2px;
             color: #ffffff;
             line-height: 1.2;
-            margin-top: 1px;
+            margin-top: 2px;
         }
+
 
 
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
@@ -270,33 +305,30 @@
                     </div>
                 </div>
 
-                               <!-- ЗАПРОГРАММИРОВАННЫЕ КНОПКИ СТОРОВ (ИДЕАЛЬНЫЙ МОНОХРОМНЫЙ ФИКС) -->
+                                       <!-- ЗАПРОГРАММИРОВАННЫЕ КНОПКИ МАГАЗИНОВ (ЖЕЛЕЗОБЕТОННЫЙ ВАРИАНТ) -->
         <div class="stores-container">
             <!-- Кнопка App Store -->
             <a href="https://apple.com" target="_blank" class="custom-store-btn">
-                <svg viewBox="0 0 384 512" style="width: 22px; height: 22px; fill: #ffffff; margin-right: 12px; flex-shrink: 0; display: block;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 47.5-24.4 76.5 26.9 2.4 51.2-16 68.3-38.9z"/></svg>
+                <div class="store-icon-box">
+                    <div class="css-apple-body"></div>
+                </div>
                 <div class="store-btn-text">
                     <span class="badge-top">Download on the</span>
                     <span class="badge-main">App Store</span>
                 </div>
             </a>
 
-            <!-- Кнопка Google Play (Чистый неразрушаемый белый силуэт) -->
+            <!-- Кнопка Google Play -->
             <a href="https://google.com" target="_blank" class="custom-store-btn">
-                <svg viewBox="0 0 512 512" style="width: 22px; height: 22px; fill: #ffffff; margin-right: 12px; flex-shrink: 0; display: block;">
-                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58 33.2-60.1-60.1 60.1-60.1 58 33.2c16 9.2 25.2 24.4 25.2 41.5s-9.2 32.3-25.2 42.3zM325.3 277.7l60.1 60.1L104.6 499l220.7-221.3z"/>
-                </svg>
+                <div class="store-icon-box">
+                    <div class="css-play-triangle"></div>
+                </div>
                 <div class="store-btn-text">
                     <span class="badge-top">GET IT ON</span>
                     <span class="badge-main">Google Play</span>
                 </div>
             </a>
         </div>
-
-
-
-
-
 
 
         </div>
