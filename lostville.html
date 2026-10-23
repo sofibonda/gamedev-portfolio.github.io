@@ -91,7 +91,7 @@
         .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
         .art-slider-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
         
-                /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
+                       /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
         .stores-container { 
             display: flex; 
             justify-content: center; 
@@ -101,18 +101,19 @@
             flex-wrap: wrap;
         }
 
-        /* ОБЩИЙ СТИЛЬ ЗАПРОГРАММИРОВАННЫХ КНОПОК */
+        /* ОБЩИЙ СТИЛЬ КНОПОК */
         .custom-store-btn {
             display: flex;
             align-items: center;
             background: #111111;
             color: #ffffff;
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 8px 16px 8px 52px; /* Оставили место слева под иконку */
             border-radius: 9px;
             min-width: 170px;
             height: 50px;
             border: 1px solid #222222;
+            position: relative;
             transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
         }
         .custom-store-btn:hover {
@@ -121,13 +122,20 @@
             transform: translateY(-1px);
         }
 
-        /* ИКОНКИ ВНУТРИ КНОПОК */
-        .custom-store-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: #ffffff;
-            margin-right: 12px;
-            flex-shrink: 0;
+        /* КНОПКА APPLE (ВШИТАЯ ИКОНКА) */
+        .btn-apple {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 384 512'%3E%3Cpath fill='%23ffffff' d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 47.5-24.4 76.5 26.9 2.4 51.2-16 68.3-38.9z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 18px center;
+            background-size: 20px auto;
+        }
+
+        /* КНОПКА GOOGLE PLAY (ВШИТАЯ ИКОНКА) */
+        .btn-google {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffffff' d='M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58 33.2-60.1-60.1 60.1-60.1 58 33.2c16 9.2 25.2 24.4 25.2 41.5s-9.2 32.3-25.2 42.3zM325.3 277.7l60.1 60.1L104.6 499l220.7-221.3z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 16px center;
+            background-size: 22px auto;
         }
 
         /* ТЕКСТ ВНУТРИ КНОПОК */
@@ -136,11 +144,12 @@
             flex-direction: column;
             text-align: left;
             font-family: -apple-system, system-ui, sans-serif;
+            user-select: none;
         }
         .store-btn-text .badge-top {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
             color: #aaaaaa;
             line-height: 1.2;
         }
@@ -150,8 +159,9 @@
             letter-spacing: -0.2px;
             color: #ffffff;
             line-height: 1.2;
-            margin-top: 1px;
+            margin-top: 2px;
         }
+
 
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
@@ -268,11 +278,10 @@
                     </div>
                 </div>
 
-                               <!-- ЗАПРОГРАММИРОВАННЫЕ КНОПКИ МАГАЗИНОВ (НАДЕЖНЫЙ ВАРИАНТ) -->
+                                       <!-- ЗАПРОГРАММИРОВАННЫЕ КНОПКИ МАГАЗИНОВ -->
         <div class="stores-container">
             <!-- Кнопка App Store -->
-            <a href="https://apple.com" target="_blank" class="custom-store-btn">
-                <i class="fab fa-apple" style="font-size: 24px; margin-right: 12px; color: #ffffff;"></i>
+            <a href="https://apple.com" target="_blank" class="custom-store-btn btn-apple">
                 <div class="store-btn-text">
                     <span class="badge-top">Download on the</span>
                     <span class="badge-main">App Store</span>
@@ -280,14 +289,14 @@
             </a>
 
             <!-- Кнопка Google Play -->
-            <a href="https://google.com" target="_blank" class="custom-store-btn">
-                <i class="fab fa-google-play" style="font-size: 22px; margin-right: 12px; color: #ffffff;"></i>
+            <a href="https://google.com" target="_blank" class="custom-store-btn btn-google">
                 <div class="store-btn-text">
                     <span class="badge-top">GET IT ON</span>
                     <span class="badge-main">Google Play</span>
                 </div>
             </a>
         </div>
+
 
 
 
