@@ -91,7 +91,7 @@
         .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
         .art-slider-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
         
-                                      /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
+                                              /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
         .stores-container { 
             display: flex; 
             justify-content: center; 
@@ -101,14 +101,14 @@
             flex-wrap: wrap;
         }
 
-        /* ОБЩИЙ СТИЛЬ КНОПОК */
+        /* СТИЛЬ КНОПКИ КАК ОДНОЙ БОЛЬШОЙ ССЫЛКИ */
         .custom-store-btn {
             display: flex;
             align-items: center;
             background: #111111;
             color: #ffffff;
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 9px;
             min-width: 175px;
             height: 50px;
@@ -121,48 +121,14 @@
             transform: translateY(-1px);
         }
 
-        /* КОНТЕЙНЕР ДЛЯ НАШИХ CSS ИКОНОК */
-        .store-icon-box {
+        /* ЖЕСТКИЙ РАЗМЕР ДЛЯ КАРТИНОК-ИКОНОК */
+        .store-icon-img {
             width: 24px;
             height: 24px;
-            margin-right: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: contain;
+            margin-right: 12px;
             flex-shrink: 0;
-            position: relative;
-        }
-
-        /* ГЕОМЕТРИЯ ЯБЛОКА (ЧИСТЫЙ CSS) */
-        .css-apple-body {
-            width: 18px;
-            height: 16px;
-            background: #ffffff;
-            border-radius: 9px 9px 10px 10px;
-            position: relative;
-            margin-top: 4px;
-        }
-        .css-apple-body::before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: 6px;
-            width: 5px;
-            height: 6px;
-            border-left: 2px solid #ffffff;
-            border-radius: 4px 0 0 0;
-            transform: rotate(25px);
-            transform: rotate(30deg);
-        }
-
-        /* ГЕОМЕТРИЯ ТРЕУГОЛЬНИКА GOOGLE PLAY (ЧИСТЫЙ CSS) */
-        .css-play-triangle {
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 18px solid #ffffff; /* Рисуем идеальный плоский стрелочный треугольник */
-            margin-left: 4px;
+            display: block;
         }
 
         /* ТЕКСТ ВНУТРИ КНОПОК */
@@ -187,7 +153,6 @@
             line-height: 1.2;
             margin-top: 2px;
         }
-
 
 
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
@@ -305,13 +270,11 @@
                     </div>
                 </div>
 
-                                       <!-- ЗАПРОГРАММИРОВАННЫЕ КНОПКИ МАГАЗИНОВ (ЖЕЛЕЗОБЕТОННЫЙ ВАРИАНТ) -->
+                                               <!-- КНОПКИ МАГАЗИНОВ С КАРТИНКАМИ-ИКОНКАМИ -->
         <div class="stores-container">
             <!-- Кнопка App Store -->
             <a href="https://apple.com" target="_blank" class="custom-store-btn">
-                <div class="store-icon-box">
-                    <div class="css-apple-body"></div>
-                </div>
+                <img src="apple-icon.png" alt="Apple" class="store-icon-img">
                 <div class="store-btn-text">
                     <span class="badge-top">Download on the</span>
                     <span class="badge-main">App Store</span>
@@ -320,9 +283,7 @@
 
             <!-- Кнопка Google Play -->
             <a href="https://google.com" target="_blank" class="custom-store-btn">
-                <div class="store-icon-box">
-                    <div class="css-play-triangle"></div>
-                </div>
+                <img src="play-icon.png" alt="Google Play" class="store-icon-img">
                 <div class="store-btn-text">
                     <span class="badge-top">GET IT ON</span>
                     <span class="badge-main">Google Play</span>
