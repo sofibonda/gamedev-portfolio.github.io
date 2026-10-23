@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - LostVille</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        /* ШАПКА И МЕНЮ В ТВОЕМ ЕДИНОМ СТИЛЕ */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
+        header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
+        
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        
+        /* Общий враппер контента */
+        .page-wrapper { 
+            max-width: 860px; 
+            width: 100%; 
+            padding: 50px 0 120px 0; 
+            display: flex; 
+            flex-direction: column; 
+            position: relative; 
+            margin: 0 auto;
+        }
+
+        .back-link { color: #888888; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 30px; width: fit-content; transition: color 0.2s ease; }
+        .back-link:hover { color: #111111; }
+
+        .project-headline { font-size: 2.2rem; margin: 0 0 10px 0; color: #111111; font-weight: 600; letter-spacing: -0.5px; }
+        .project-sub { color: #666666; font-size: 1.1rem; line-height: 1.6; margin: 0 0 40px 0; max-width: 760px; }
+
+        /* Верхняя техническая инфо-панель (В два столбца: Метаданные и Задачи) */
+        .project-meta-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            border-bottom: 1px solid #e0e2e5;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+
+        .meta-side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .meta-block h4, .tasks-block h4, .features-block h4 { 
+            margin: 0 0 8px 0; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            color: #888888; 
+            letter-spacing: 0.5px; 
+            font-weight: 600; 
+        }
+
+        .meta-block p { margin: 0; color: #222222; font-size: 1rem; font-weight: 500; }
+
+        .tasks-block ul, .features-block ul { margin: 0; padding-left: 20px; color: #444444; font-size: 0.95rem; line-height: 1.7; }
+        .tasks-block li, .features-block li { margin-bottom: 8px; }
+
+        /* Галерея артов в стиле аккуратной плитки */
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .art-item {
+            width: 100%;
+            background: #f7f7f7;
+            border: 1px solid #e0e2e5;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .art-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Кнопки сторов */
+        .stores-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .store-badge img {
+            height: 40px;
+            width: auto;
+            transition: opacity 0.2s ease;
+        }
+        .store-badge:hover img { opacity: 0.8; }
+
+        /* ФУТЕР В ТВОЕМ ЕДИНОМ СТИЛЕ */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            .page-wrapper { padding: 30px 20px 80px 20px; }
+            .project-meta-layout { grid-template-columns: 1fr; gap: 30px; }
+            .art-gallery { grid-template-columns: 1fr; } 
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game Designer & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html">Games</a>
+                <a href="other.html" class="active">Other Projects</a>
+                <a href="resume.html">CV</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="page-wrapper">
+            
+            <a href="other.html" class="back-link">← Back to Other Projects</a>
+
+            <h2 class="project-headline">LostVille: Find Hidden Objects</h2>
+            <p class="project-sub">A hidden-object casual game combined with light city-building mechanics. Players explore beautifully illustrated scenes, search for missing items, and use in-game currency to expand and upgrade the town.</p>
+
+            <!-- Технический блок: Метаданные слева, список задач справа -->
+            <div class="project-meta-layout">
+                <div class="meta-side-column">
+                    <div class="meta-block">
+                        <h4>My Role</h4>
+                        <p>2D Artist</p>
+                    </div>
+                    <div class="meta-block">
+                        <h4>Type</h4>
+                        <p>Commercial Project</p>
+                    </div>
+                    <div class="meta-block">
+                        <h4>Duration</h4>
+                        <p>7 months</p>
+                    </div>
+                </div>
+
+                <div class="tasks-block">
+                    <h4>My Tasks</h4>
+                    <ul>
+                        <li>Created optimized 2D assets and interactive objects for multiple core hidden-object levels.</li>
+                        <li>Maintained a unified bright visual style and ensured overall graphic quality across backgrounds.</li>
+                        <li>Enhanced player experience through detailed, high-contrast, and highly readable visual elements.</li>
+                        <li>Collaborated closely with tech-art and developers for seamless asset integration inside Unity.</li>
+                        <li>Worked with Midjourney for rapid asset ideation, sketch generation, and concept workflows.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Сетка с твоими сочными игровыми скриншотами -->
+            <div class="art-gallery">
+                <div class="art-item"><img src="lostville-art1.jpg" alt="LostVille Scene 1"></div>
+                <div class="art-item"><img src="lostville-art2.jpg" alt="LostVille Scene 2"></div>
+                <div class="art-item"><img src="lostville-art3.jpg" alt="LostVille Scene 3"></div>
+                <div class="art-item"><img src="lostville-art4.jpg" alt="LostVille Scene 4"></div>
+                <div class="art-item"><img src="lostville-art5.jpg" alt="LostVille Scene 5"></div>
+                <div class="art-item"><img src="lostville-art6.jpg" alt="LostVille Scene 6"></div>
+            </div>
+
+            <!-- Дополнительные ключевые особенности игры -->
+            <div class="features-block" style="border-top: 1px solid #e0e2e5; padding-top: 30px; margin-bottom: 20px;">
+                <h4>Key Features</h4>
+                <ul>
+                    <li>Hidden-object gameplay mixed with smooth town-building progression.</li>
+                    <li>Highly detailed environments filled with hundreds of interactive and hidden assets.</li>
+                    <li>Mobile-friendly, intuitive UI scaling and polished spatial navigation.</li>
+                </ul>
+            </div>
+
+            <!-- Иконки магазинов приложений (Ссылки ведут на сторы) -->
+            <div class="stores-container">
+                <a href="https://apple.com" target="_blank" class="store-badge"><img src="https://applemediaservices.com" alt="Download on the App Store"></a>
+                <a href="https://google.com" target="_blank" class="store-badge"><img src="https://google.com" alt="Get it on Google Play" style="height: 58px; margin-top: -9px;"></a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">Portfolio by Sofibonda</div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
