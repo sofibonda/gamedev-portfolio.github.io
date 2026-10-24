@@ -12,7 +12,6 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ - НЕИЗМЕННЫ ПОВСЮДУ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -21,26 +20,79 @@
         nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
         nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
-        /* Главный контент */
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
-        .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .page-wrapper { max-width: 1000px; width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; margin: 0 auto; }
         
-        /* ПОДЗАГОЛОВОК СТАЛ МЕНЬШЕ, ВЫШЕ И СТРОГО ПО ЦЕНТРУ (КООРДИНАТЫ ОДИН В ОДИН) */
-       
-        /* Сетка в 2 колонки для крупных карточек с твоего скриншота */
-        .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 30px; width: 100%; padding-top: 20px; }
+        /* Сетка в 3 колонки */
+        .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px; width: 100%; padding-top: 20px; }
         
-        /* Карточка проекта */
-        .project-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; text-align: center; }
+        /* КАРТОЧКА ПРОЕКТА - СТИЛЬ ОДИН В ОДИН КАК В GAMES */
+        .project-card { 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            flex-direction: column; 
+            text-align: center; 
+            background-color: #f7f7f7; 
+            border: 1px solid #e0e2e5;  
+            border-radius: 14px;       
+            overflow: hidden;          
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease; 
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); 
+        }
+        .project-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #b5b5b5; 
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); 
+        }
         
-        /* Заглушка для картинок/гифок с мягким скруглением 16px */
-        .project-media-box { width: 100%; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background-color: #f5f5f5; border: 1px solid #e5e5e5; transition: transform 0.2s ease, border-color 0.2s ease; }
-        .project-card:hover .project-media-box { transform: translateY(-4px); border-color: #b5b5b5; }
-        .project-media-box img { width: 100%; height: 100%; object-fit: cover; }
+        /* Медиабокс внутри карточки */
+        .project-media-box { 
+            width: 100%; 
+            aspect-ratio: 4 / 3; 
+            overflow: hidden; 
+            background-color: #fafafa; 
+            border-bottom: 1px solid #e0e2e5; 
+            position: relative; 
+        }
+        .project-media-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         
-        /* Текстовые названия строго ПО ЦЕНТРУ под карточками */
-        .project-info { padding: 15px 2px 0 2px; text-align: center; }
-        .project-title { font-size: 1.1rem; font-weight: 500; color: #111111; margin: 0; line-height: 1.3; }
+        /* Текстовая зона карточки */
+        .project-info { 
+            padding: 20px 14px 22px 14px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .project-title { font-size: 1.1rem; font-weight: 600; color: #111111; margin: 0; line-height: 1.3; letter-spacing: -0.2px; }
+
+        /* Изящная подчёркнутая ссылка внизу карточки */
+        .project-btn {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #888888;
+            border-bottom: 1px dashed #b5b5b5; 
+            padding-bottom: 1px;
+            margin-top: 2px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .project-card:hover .project-btn { color: #000000; border-color: #000000; }
 
         /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
@@ -48,18 +100,12 @@
         .footer-left { font-weight: 400; color: #666666; }
         .footer-right { display: flex; align-items: center; gap: 15px; }
         .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
-        
         .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
         .social-icon:hover { background: #555555; transform: translateY(-2px); }
         .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
 
-        @media (max-width: 768px) {
-            header { padding: 30px 0 20px 0; }
-            nav { gap: 20px; flex-wrap: wrap; }
-            .page-wrapper { padding: 25px 0 60px 0; }
-            .other-grid { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; }
-            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
-        }
+        @media (max-width: 820px) { .other-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; } }
+        @media (max-width: 580px) { .other-grid { grid-template-columns: 1fr; gap: 35px; } header { padding: 30px 0 20px 0; } nav { gap: 20px; flex-wrap: wrap; } .page-wrapper { padding: 25px 20px 60px 20px; } .footer-content { flex-direction: column; gap: 15px; text-align: center; } }
     </style>
 </head>
 <body>
@@ -77,57 +123,56 @@
             </nav>
         </div>
     </header>
-
     <main class="container">
         <div class="page-wrapper">
-            <!-- Подзаголовок страницы -->
             
+            <!-- РЯД ИЗ 3 КАРТОЧЕК ДЛЯ ДЕСКТОПА -->
             <div class="other-grid">
 
+                <!-- 1. LOSTVILLE -->
                 <a href="lostville.html" class="project-card">
                     <div class="project-media-box">
                         <img src="lostville-preview.gif" alt="Lostville">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Lostville: Find Hidden Objects</h3>
+                        <div class="project-btn">View Case Study</div>
                     </div>
                 </a>
                 
-                <!-- Карточка Анимаций -->
+                <!-- 2. ANIMATIONS -->
                 <a href="animations.html" class="project-card">
                     <div class="project-media-box">
                         <img src="animations-preview.gif" alt="Animations">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Animations</h3>
+                        <div class="project-btn">View Project</div>
                     </div>
                 </a>
 
-                <!-- Карточка 3D -->
+                <!-- 3. 3D ART -->
                 <a href="3d.html" class="project-card">
                     <div class="project-media-box">
                         <img src="3d-preview.jpg" alt="3D">
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">3D</h3>
+                        <h3 class="project-title">3D Art</h3>
+                        <div class="project-btn">View Project</div>
                     </div>
                 </a>
 
             </div>
         </div>
     </main>
-
     <footer>
         <div class="container footer-content">
             <div class="footer-left">Portfolio by Sofibonda</div>
             <div class="footer-right">
                 <span>Let's talk games:</span>
-                <a href="https://www.linkedin.com/in/sofya-bandarenka/" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                
-                <!-- ИСПРАВЛЕННЫЙ ВЕКТОР ЗНАЧКА ПОЧТЫ (РОВНЫЙ И БЕЗ НАЛОЖЕНИЙ) -->
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-                
-                <a href="https://t.me/sonya_bond" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.156.156-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.856-2.105-1.377 1.325c-.152.152-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
             </div>
         </div>
     </footer>
