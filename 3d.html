@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - 3D Art</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
+        header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
+        
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        
+        .page-wrapper { max-width: 960px; width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; position: relative; margin: 0 auto; }
+        .back-link { color: #888888; text-decoration: none; font-size: 0.9rem; align-self: flex-start; margin-bottom: 20px; transition: color 0.2s ease; }
+        .back-link:hover { color: #111111; }
+        
+        .project-headline { font-size: 2.2rem; font-weight: 600; color: #111111; margin: 0 0 10px 0; letter-spacing: -0.5px; text-align: center; }
+        .project-description { color: #666666; font-size: 1.05rem; line-height: 1.6; margin: 0 auto 40px auto; max-width: 760px; text-align: center; }
+
+        /* ДВУХКОЛОНОЧНЫЙ БЛОК ДЛЯ КАЖДОЙ МОДЕЛИ */
+        .model-row-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            width: 100%;
+            margin-bottom: 50px;
+            align-items: start;
+        }
+
+        /* КАРТОЧКА С ОПИСАНИЕМ ЗАДАЧ (СТИЛЬ LAST SHELTER) */
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #f7f7f7;
+            border: 1px solid #e0e2e5;
+            border-radius: 14px;
+            padding: 25px;
+            width: 100%;
+        }
+        .info-card h3 { font-size: 1.2rem; font-weight: 600; color: #111111; margin: 0; letter-spacing: -0.2px; }
+        .info-card h5 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: #888888; margin: 10px 0 6px 0; letter-spacing: 0.5px; }
+        .info-card ul { margin: 0; padding-left: 18px; color: #333333; font-size: 0.95rem; line-height: 1.5; }
+        .info-card li { margin-bottom: 4px; }
+
+        /* ЛИНЕЙКА СКРИНШОТОВ КАРТОЧКИ */
+        .art-slider-wrapper { width: 100%; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; }
+        .art-slider { display: flex; gap: 15px; width: max-content; }
+        
+        .art-slide-link { display: block; text-decoration: none; height: 220px; border: 1px solid #e0e2e5; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: transform 0.2s ease; }
+        .art-slide-link:hover { transform: scale(1.015); }
+        .art-slide-link img { height: 100%; width: auto; display: block; object-fit: contain; }
+
+        /* Скроллбар */
+        .art-slider-wrapper::-webkit-scrollbar { height: 5px; }
+        .art-slider-wrapper::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+        
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        @media (max-width: 850px) {
+            .model-row-layout { grid-template-columns: 1fr; gap: 20px; }
+            .art-slide-link { height: 180px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; } nav { gap: 20px; flex-wrap: wrap; } .page-wrapper { padding: 25px 20px 80px 20px; } .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game Designer & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html">Games</a>
+                <a href="other.html" class="active">Other Projects</a>
+                <a href="resume.html">CV</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div class="page-wrapper">
+            
+            <a href="other.html" class="back-link">← Back to Other Projects</a>
+
+            <h2 class="project-headline">3D Art & Modeling Showcase</h2>
+            <p class="project-description">A collection of academic and personal 3D projects focused on low-poly modeling, UV unwrapping, and game-ready asset texturing pipelines.</p>
+
+            <!-- 1. MODEL BLOCK: BUNNY -->
+            <div class="model-row-layout">
+                <!-- Карточка с описанием задач -->
+                <div class="info-card">
+                    <h3>Bunny</h3>
+                    <div>
+                        <h5>What I did:</h5>
+                        <ul>
+                            <li>Unwrapped UVs</li>
+                            <li>Created textures</li>
+                            <li>Imported into Unreal Engine</li>
+                            <li>Scene Setup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Линейка скриншотов модели -->
+                <div class="art-slider-wrapper">
+                    <div class="art-slider">
+                        <a href="bunny-art1.png" target="_blank" class="art-slide-link">
+                            <img src="bunny-art1.png" alt="Bunny Render 1">
+                        </a>
+                        <a href="bunny-art2.png" target="_blank" class="art-slide-link">
+                            <img src="bunny-art2.png" alt="Bunny Engine Screenshot">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. MODEL BLOCK: DIORAMA -->
+            <div class="model-row-layout">
+                <!-- Карточка с описанием задач -->
+                <div class="info-card">
+                    <h3>Diorama</h3>
+                    <div>
+                        <h5>What I did:</h5>
+                        <ul>
+                            <li>Modeled objects</li>
+                            <li>Created simple compositions</li>
+                            <li>Set up lighting and adjusted colors</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Линейка скриншотов модели -->
+                <div class="art-slider-wrapper">
+                    <div class="art-slider">
+                        <a href="diorama-art1.png" target="_blank" class="art-slide-link">
+                            <img src="diorama-art1.png" alt="Diorama Render 1">
+                        </a>
+                        <a href="diorama-art2.png" target="_blank" class="art-slide-link">
+                            <img src="diorama-art2.png" alt="Diorama Render 2">
+                        </a>
+                        <a href="diorama-art3.png" target="_blank" class="art-slide-link">
+                            <img src="diorama-art3.png" alt="Diorama Details">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 3. MODEL BLOCK: FIRE HYDRANT -->
+            <div class="model-row-layout">
+                <!-- Карточка с описанием задач -->
+                <div class="info-card">
+                    <h3>Fire Hydrant</h3>
+                    <div>
+                        <h5>What I did:</h5>
+                        <ul>
+                            <li>Unwrapped UVs</li>
+                            <li>Textured the model</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Линейка скриншотов модели -->
+                <div class="art-slider-wrapper">
+                    <div class="art-slider">
+                        <a href="hydrant-art1.png" target="_blank" class="art-slide-link">
+                            <img src="hydrant-art1.png" alt="Fire Hydrant Render">
+                        </a>
+                        <a href="hydrant-art2.png" target="_blank" class="art-slide-link">
+                            <img src="hydrant-art2.png" alt="Fire Hydrant Mesh">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. MODEL BLOCK: BUCKET -->
+            <div class="model-row-layout">
+                <!-- Карточка с описанием задач -->
+                <div class="info-card">
+                    <h3>Bucket</h3>
+                    <div>
+                        <h5>What I did:</h5>
+                        <ul>
+                            <li>Modeled objects</li>
+                            <li>Created materials</li>
+                            <li>Added grass</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Линейка скриншотов модели -->
+                <div class="art-slider-wrapper">
+                    <div class="art-slider">
+                        <a href="bucket-art1.png" target="_blank" class="art-slide-link">
+                            <img src="bucket-art1.png" alt="Bucket Render 1">
+                        </a>
+                        <a href="bucket-art2.png" target="_blank" class="art-slide-link">
+                            <img src="bucket-art2.png" alt="Bucket Render 2">
+                        </a>
+                        <a href="bucket-art3.png" target="_blank" class="art-slide-link">
+                            <img src="bucket-art3.png" alt="Bucket Wireframe">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">Portfolio by Sofibonda</div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.856-2.105-1.377 1.36c-.152.152-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
