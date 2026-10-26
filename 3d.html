@@ -55,18 +55,27 @@
         .info-card ul { margin: 0; padding-left: 18px; color: #333333; font-size: 0.95rem; line-height: 1.5; }
         .info-card li { margin-bottom: 4px; }
 
-        /* ЛИНЕЙКА СКРИНШОТОВ КАРТОЧКИ */
-        .art-slider-wrapper { width: 100%; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; }
-        .art-slider { display: flex; gap: 15px; width: max-content; }
+        /* КОМПАКТНАЯ СЕТКА ИЗ 2 КОЛОНОК ДЛЯ КАРТИНОК БЕЗ СКРОЛЛА */
+        .model-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
         
-        .art-slide-link { display: block; text-decoration: none; height: 220px; border: 1px solid #e0e2e5; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: transform 0.2s ease; }
+        .art-slide-link { 
+            display: block; 
+            text-decoration: none; 
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border: 1px solid #e0e2e5; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02); 
+            transition: transform 0.2s ease; 
+        }
         .art-slide-link:hover { transform: scale(1.015); }
-        .art-slide-link img { height: 100%; width: auto; display: block; object-fit: contain; }
-
-        /* Скроллбар */
-        .art-slider-wrapper::-webkit-scrollbar { height: 5px; }
-        .art-slider-wrapper::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
-        .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+        .art-slide-link img { width: 100%; height: 100%; display: block; object-fit: cover; }
         
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
@@ -79,7 +88,6 @@
 
         @media (max-width: 850px) {
             .model-row-layout { grid-template-columns: 1fr; gap: 20px; }
-            .art-slide-link { height: 180px; }
         }
         @media (max-width: 768px) {
             header { padding: 30px 0 20px 0; } nav { gap: 20px; flex-wrap: wrap; } .page-wrapper { padding: 25px 20px 80px 20px; } .footer-content { flex-direction: column; gap: 15px; text-align: center; }
@@ -101,6 +109,7 @@
             </nav>
         </div>
     </header>
+
     <main class="container">
         <div class="page-wrapper">
             
@@ -111,7 +120,6 @@
 
             <!-- 1. MODEL BLOCK: BUNNY -->
             <div class="model-row-layout">
-                <!-- Карточка с описанием задач -->
                 <div class="info-card">
                     <h3>Bunny</h3>
                     <div>
@@ -125,22 +133,18 @@
                     </div>
                 </div>
                 
-                <!-- Линейка скриншотов модели -->
-                <div class="art-slider-wrapper">
-                    <div class="art-slider">
-                        <a href="bunny-art1.png" target="_blank" class="art-slide-link">
-                            <img src="bunny-art1.png" alt="Bunny Render 1">
-                        </a>
-                        <a href="bunny-art2.png" target="_blank" class="art-slide-link">
-                            <img src="bunny-art2.png" alt="Bunny Engine Screenshot">
-                        </a>
-                    </div>
+                <div class="model-images-grid">
+                    <a href="bunny-art1.png" target="_blank" class="art-slide-link">
+                        <img src="bunny-art1.png" alt="Bunny Render 1">
+                    </a>
+                    <a href="bunny-art2.png" target="_blank" class="art-slide-link">
+                        <img src="bunny-art2.png" alt="Bunny Render 2">
+                    </a>
                 </div>
             </div>
 
             <!-- 2. MODEL BLOCK: DIORAMA -->
             <div class="model-row-layout">
-                <!-- Карточка с описанием задач -->
                 <div class="info-card">
                     <h3>Diorama</h3>
                     <div>
@@ -153,24 +157,18 @@
                     </div>
                 </div>
                 
-                <!-- Линейка скриншотов модели -->
-                <div class="art-slider-wrapper">
-                    <div class="art-slider">
-                        <a href="diorama-art1.png" target="_blank" class="art-slide-link">
-                            <img src="diorama-art1.png" alt="Diorama Render 1">
-                        </a>
-                        <a href="diorama-art2.png" target="_blank" class="art-slide-link">
-                            <img src="diorama-art2.png" alt="Diorama Render 2">
-                        </a>
-                        <a href="diorama-art3.png" target="_blank" class="art-slide-link">
-                            <img src="diorama-art3.png" alt="Diorama Details">
-                        </a>
-                    </div>
+                <div class="model-images-grid">
+                    <a href="diorama-art1.png" target="_blank" class="art-slide-link">
+                        <img src="diorama-art1.png" alt="Diorama Render 1">
+                    </a>
+                    <a href="diorama-art2.png" target="_blank" class="art-slide-link">
+                        <img src="diorama-art2.png" alt="Diorama Render 2">
+                    </a>
                 </div>
             </div>
+
             <!-- 3. MODEL BLOCK: FIRE HYDRANT -->
             <div class="model-row-layout">
-                <!-- Карточка с описанием задач -->
                 <div class="info-card">
                     <h3>Fire Hydrant</h3>
                     <div>
@@ -182,22 +180,18 @@
                     </div>
                 </div>
                 
-                <!-- Линейка скриншотов модели -->
-                <div class="art-slider-wrapper">
-                    <div class="art-slider">
-                        <a href="hydrant-art1.png" target="_blank" class="art-slide-link">
-                            <img src="hydrant-art1.png" alt="Fire Hydrant Render">
-                        </a>
-                        <a href="hydrant-art2.png" target="_blank" class="art-slide-link">
-                            <img src="hydrant-art2.png" alt="Fire Hydrant Mesh">
-                        </a>
-                    </div>
+                <div class="model-images-grid">
+                    <a href="hydrant-art1.png" target="_blank" class="art-slide-link">
+                        <img src="hydrant-art1.png" alt="Fire Hydrant Render 1">
+                    </a>
+                    <a href="hydrant-art2.png" target="_blank" class="art-slide-link">
+                        <img src="hydrant-art2.png" alt="Fire Hydrant Render 2">
+                    </a>
                 </div>
             </div>
 
             <!-- 4. MODEL BLOCK: BUCKET -->
             <div class="model-row-layout">
-                <!-- Карточка с описанием задач -->
                 <div class="info-card">
                     <h3>Bucket</h3>
                     <div>
@@ -210,19 +204,13 @@
                     </div>
                 </div>
                 
-                <!-- Линейка скриншотов модели -->
-                <div class="art-slider-wrapper">
-                    <div class="art-slider">
-                        <a href="bucket-art1.png" target="_blank" class="art-slide-link">
-                            <img src="bucket-art1.png" alt="Bucket Render 1">
-                        </a>
-                        <a href="bucket-art2.png" target="_blank" class="art-slide-link">
-                            <img src="bucket-art2.png" alt="Bucket Render 2">
-                        </a>
-                        <a href="bucket-art3.png" target="_blank" class="art-slide-link">
-                            <img src="bucket-art3.png" alt="Bucket Wireframe">
-                        </a>
-                    </div>
+                <div class="model-images-grid">
+                    <a href="bucket-art1.png" target="_blank" class="art-slide-link">
+                        <img src="bucket-art1.png" alt="Bucket Render 1">
+                    </a>
+                    <a href="bucket-art2.png" target="_blank" class="art-slide-link">
+                        <img src="bucket-art2.png" alt="Bucket Render 2">
+                    </a>
                 </div>
             </div>
 
@@ -236,7 +224,7 @@
                 <span>Let's talk games:</span>
                 <a href="https://linkedin.com" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.856-2.105-1.377 1.36c-.152.152-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
+                <a href="https://t.me" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.556 8.133l-1.92 9.065c-.145.64-.525.796-1.058.497l-2.922-2.154-1.41 1.36c-.152.152-.287.287-.588.287l.21-2.981 5.43-4.909c.235-.211-.051-.328-.365-.119l-6.71 4.222-2.892-.906c-.629-.196-.643-.629.131-.931l11.299-4.359c.525-.196.983.119.785.908z"/></svg></a>
             </div>
         </div>
     </footer>
