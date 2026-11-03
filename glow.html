@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofya Bandarenka - Glow of the Depths</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
+        
+        /* ШАПКА И МЕНЮ */
+        header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
+        header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
+        header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
+        
+        nav { display: flex; justify-content: center; gap: 35px; }
+        nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+        nav a.active, nav a:hover { color: #111111; border-color: #111111; }
+        
+        /* ГЛАВНЫЙ КОНТЕНТ */
+        main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        
+        .page-wrapper { 
+            width: 100%; 
+            padding: 15px 0 120px 0; 
+            display: flex; 
+            flex-direction: column; 
+            position: relative; 
+        }
+        
+        .back-panel { width: 100%; margin-bottom: 15px; display: flex; justify-content: flex-start; }
+        .back-link { text-decoration: none; color: #888888; font-size: 0.95rem; font-weight: 400; transition: color 0.2s ease; }
+        .back-link:hover { color: #111111; }
+
+        .project-title-block { margin-bottom: 25px; text-align: left; width: 100%; }
+        .project-title-block h2 { font-size: 2.2rem; font-weight: 700; color: #111111; letter-spacing: -0.5px; margin-bottom: 12px; }
+        .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { font-size: 0.8rem; font-weight: 500; padding: 4px 12px; border-radius: 6px; background: #f5f5f5; border: 1px solid #eaeaea; color: #555555; }
+        .tag-accent { background-color: #e8f4fd; color: #2b6cb0; border-color: #d2e9fb; }
+
+        .project-hero-split {
+            display: grid;
+            grid-template-columns: 400px 1fr; 
+            gap: 40px;
+            align-items: stretch;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        
+        .project-meta-grid { 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #f9f9f9; 
+            border: 1px solid #e2e2e2; 
+            border-radius: 14px; 
+            padding: 30px; 
+            width: 100%;
+            margin-bottom: 0 !important;
+        }
+        
+        .meta-item { 
+            text-align: left !important; 
+            width: 100%;
+        }
+        
+        .meta-item h5 { font-size: 0.75rem; text-transform: uppercase; color: #888888; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
+        .meta-item p { font-size: 0.95rem; color: #111111; font-weight: 500; line-height: 1.4; }
+
+        .gameplay-media-wrapper { 
+            width: 100%; 
+            height: 100%; 
+            min-height: 340px; 
+            border-radius: 14px; 
+            border: 1px solid #e2e2e2; 
+            background: #f9f9f9; 
+            overflow: hidden; 
+            position: relative; 
+            margin-bottom: 0 !important;
+            transform: translateZ(0); 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02); 
+        }
+        .gameplay-media-wrapper img, 
+        .gameplay-media-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .case-section { width: 100%; margin-bottom: 40px; text-align: left; }
+        .case-section h3 { font-size: 1.3rem; font-weight: 600; color: #111111; margin: 0 0 15px 0; letter-spacing: -0.3px; border-left: 3px solid #111111; padding-left: 14px; }
+        .case-section p { font-size: 0.95rem; color: #555555; line-height: 1.8; margin-bottom: 15px; font-weight: 400; }
+        .case-section strong { color: #111111; font-weight: 600; }
+
+        .media-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 25px 0 30px 0; width: 100%; }
+        
+        .screenshot-box { width: 100%; border-radius: 14px; border: 1px solid #e2e2e2; background: #f9f9f9; overflow: hidden; display: flex; flex-direction: column; transform: translateZ(0); }
+        .screenshot-box img { width: 100%; height: auto; display: block; object-fit: cover; }
+        .screenshot-caption { padding: 12px 16px; font-size: 0.85rem; color: #777777; background: #f4f4f4; border-top: 1px solid #e2e2e2; text-align: left; line-height: 1.5; }
+
+        .bullet-list { margin-left: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 10px; list-style-type: square; }
+        .bullet-list li { font-size: 0.95rem; color: #555555; line-height: 1.6; }
+
+        .doc-panel { background: #f9f9f9; border: 1px solid #e2e2e2; border-radius: 14px; padding: 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; width: 100%; transform: translateZ(0); margin-top: 20px; }
+        .doc-info { flex: 1; text-align: left; }
+        .doc-info h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: #111111; }
+        .doc-info p { font-size: 0.9rem; color: #666666; margin: 0; line-height: 1.5; }
+        
+        .btn-black { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #222222; color: #ffffff; text-decoration: none; border-radius: 12px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+        .btn-black:hover { background: #444444; }
+        .btn-black:active { transform: scale(0.98); }
+
+        /* ФУТЕР */
+        footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { font-weight: 400; color: #666666; }
+        .footer-right { display: flex; align-items: center; gap: 15px; }
+        .footer-right span { font-weight: 500; color: #333333; margin-right: 5px; letter-spacing: 0.3px; }
+        
+        .social-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #222222; border-radius: 50%; color: #ffffff; transition: background 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon:hover { background: #555555; transform: translateY(-2px); }
+        .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 0 20px 0; }
+            nav { gap: 20px; flex-wrap: wrap; }
+            .page-wrapper { padding: 25px 0 60px 0; }
+            .project-hero-split { grid-template-columns: 1fr; gap: 30px; }
+            .gameplay-media-wrapper { height: 280px; order: -1; }
+            .project-meta-grid { flex-direction: column; gap: 16px; padding: 20px; }
+            .media-grid-2 { grid-template-columns: 1fr; gap: 20px; }
+            .doc-panel { flex-direction: column; text-align: center; gap: 16px; }
+            .doc-info { text-align: center; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Sofya Bandarenka</h1>
+            <div class="subtitle">Game Designer & Level Designer</div>
+            <nav>
+                <a href="index.html">About</a>
+                <a href="games.html" class="active">Games</a>
+                <a href="other.html">Other Projects</a>
+                <a href="resume.html">CV</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-wrapper">
+            
+            <div class="back-panel">
+                <a href="games.html" class="back-link">← Back to Games</a>
+            </div>
+
+            <div class="project-title-block">
+                <h2>Glow of the Depths</h2>
+                <div class="project-tags">
+                    <span class="tag tag-accent">CDV Game Jam 2025</span>
+                    <span class="tag">Game & Level Design</span>
+                    <span class="tag">Unity 2D</span>
+                    <span class="tag">48h Jam Project</span>
+                </div>
+            </div>
+
+            <!-- HERO SPLIT BLOCK -->
+            <div class="project-hero-split">
+
+                <!-- Left Column: Metadata -->
+                <div class="project-meta-grid">
+                    <div class="meta-item">
+                        <h5>My Team Role</h5>
+                        <p>Lead Game & Level Design, Project Management, Unity Generalist</p>
+                    </div>
+                    <div class="meta-item">
+                        <h5>Duration</h5>
+                        <p>48 Hours (CDV Game Jam 2025)</p>
+                    </div>
+                    <div class="meta-item">
+                        <h5>Engine & Stack</h5>
+                        <p>Unity 2D, Git</p>
+                    </div>
+                    <div class="meta-item">
+                        <h5>Team Size</h5>
+                        <p>5 Developers (1 Programmer, 3 Artists, 1 Designer/PM)</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Gameplay Screenshot / Video -->
+                <div class="gameplay-media-wrapper">
+                    <!-- Замени путь к файлу на свой скриншот или гифку -->
+                    <img src="images/glow-of-the-depths/hero-screen.png" alt="Glow of the Depths gameplay screenshot">
+                </div>
+
+            </div>
+
+            <!-- SECTION 1: OVERVIEW -->
+            <section class="case-section">
+                <h3>Project Overview & Concept</h3>
+                <p>Developed in just 48 hours during the <strong>CDV Game Jam 2025</strong> around the theme <em>"Neon"</em>, <strong>Glow of the Depths</strong> is an atmospheric 2D stealth-puzzle game set in a pitch-black ocean abyss. Players control a diver who must navigate branching cave systems, relying strictly on decaying bioluminescent coral crystals as their sole light source and survival tool.</p>
+            </section>
+
+            <!-- SECTION 2: MECHANICS & PROGRESSION -->
+            <section class="case-section">
+                <h3>Core Mechanics & Color-Coded Pacing</h3>
+                <p><strong>Light as a Decaying Resource:</strong><br>
+                Instead of using conventional UI timers or health bars, light management serves as the primary game loop. The player harvests crystals from bioluminescent corals to illuminate the surrounding cave. As the crystal's glow steadily diminishes, the visibility radius shrinks, creating psychological tension and forcing quick spatial decisions before complete darkness takes over.</p>
+
+                <p><strong>4-Phase Color Progression:</strong><br>
+                To deliver a structured experience within tight jam limits, I designed the level pacing around four distinct color-coded mechanical phases:</p>
+
+                <ul class="bullet-list">
+                    <li><strong>Violet Corals (Onboarding):</strong> Teaches basic light decay timers, coral harvesting, and pathing in a safe environment.</li>
+                    <li><strong>Green Corals (Stealth & Cover):</strong> Introduces patrolling underwater predators and a kelp camouflage mechanic for stealthy passage.</li>
+                    <li><strong>Blue Corals (Escort Navigation):</strong> Features fast bioluminescent fish acting as dynamic guiding lights through completely unlit hazard zones.</li>
+                    <li><strong>The Abyss (Culmination):</strong> A dramatic spike in tension featuring an open-space escape from a giant apex predator toward the surface light.</li>
+                </ul>
+
+                <!-- Media Grid for Level Map and Unity Implementation -->
+                <div class="media-grid-2">
+                    <div class="screenshot-box">
+                        <!-- Путь к картинке с бумажным чертежом -->
+                        <img src="images/glow-of-the-depths/paper-map.png" alt="Initial level design paper sketch">
+                        <div class="screenshot-caption">Level Design Pre-production: Initial paper sketch mapping cave topology, branching paths, and hazard zones.</div>
+                    </div>
+                    <div class="screenshot-box">
+                        <!-- Путь к картинке со скриншотом из Unity -->
+                        <img src="images/glow-of-the-depths/unity-scene.png" alt="Level scene view inside Unity editor">
+                        <div class="screenshot-caption">Unity 2D Scene Pass: Implementing non-linear cave pathways and high-contrast ambient lighting.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: PRODUCTION & ENGINE WORK -->
+            <section class="case-section">
+                <h3>Production & Unity Implementation</h3>
+                <p><strong>Scope & Project Management:</strong><br>
+                With a 5-person team containing only <strong>one programmer</strong>, strict scope discipline was essential. As the Lead Designer and Project Manager, I prioritized core mechanics to prevent feature creep, keeping the team aligned through the 48-hour crunch.</p>
+
+                <p><strong>Hands-on Unity Work:</strong><br>
+                To relieve programmer bottlenecks, I took on a hybrid Unity Generalist role. Beyond initial paper prototyping, I built environment layouts directly inside Unity, configured object hierarchies, and authored dynamic cinematic animations for key sequence events.</p>
+            </section>
+
+            <!-- SECTION 4: DELIVERABLES & LINKS -->
+            <section class="case-section">
+                <h3>Project Summary</h3>
+                <p>Glow of the Depths highlights rapid prototyping, dynamic resource-based level pacing, and effective cross-functional leadership under extreme time constraints.</p>
+                
+                <div class="doc-panel">
+                    <div class="doc-info">
+                        <h4>Playable Game Jam Build</h4>
+                        <p>Explore the level design and light-management mechanics firsthand on itch.io.</p>
+                    </div>
+                    <!-- Вставь свою ссылку на itch.io -->
+                    <a href="https://your-profile.itch.io/glow-of-the-depths" class="btn-black" target="_blank">
+                        <span>Launch Game on itch.io</span>
+                        <span style="font-size: 0.8rem; opacity: 0.7;">⎋</span>
+                    </a>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">Portfolio by Sofibonda</div>
+            <div class="footer-right">
+                <span>Let's talk games:</span>
+                <a href="https://www.linkedin.com/in/sofya-bandarenka/" class="social-icon" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="mailto:sofya.bandarenka@gmail.com" class="social-icon" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
+                <a href="https://t.me/sonya_bond" class="social-icon" target="_blank" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.308 7.153l-1.874 8.835c-.141.633-.516.788-1.047.491l-2.856-2.105-1.377 1.325c-.152.152-.28.28-.574.28l.205-2.909 5.295-4.782c.23-.205-.05-.319-.357-.115l-6.544 4.12-2.822-.882c-.613-.192-.625-.613.128-.908l11.021-4.248c.511-.192.957.114.799.992z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
