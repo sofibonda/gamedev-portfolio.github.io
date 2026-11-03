@@ -52,16 +52,17 @@
         }
         
         .project-meta-grid { 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: #f9f9f9; 
-            border: 1px solid #e2e2e2; 
-            border-radius: 14px; 
-            padding: 30px; 
-            width: 100%;
-            margin-bottom: 0 !important;
-        }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Прижимает элементы к верху */
+    gap: 24px;                  /* Задает фиксированный аккуратный отступ */
+    background: #f9f9f9; 
+    border: 1px solid #e2e2e2; 
+    border-radius: 14px; 
+    padding: 30px; 
+    width: 100%;
+    margin-bottom: 0 !important;
+}
         
         .meta-item { 
             text-align: left !important; 
@@ -193,9 +194,11 @@
 
                 <!-- Right Column: Gameplay Screenshot / Video -->
                 <div class="gameplay-media-wrapper">
-                    <!-- Замени путь к файлу на свой скриншот или гифку -->
-                    <img src="images/glow-of-the-depths/hero-screen.png" alt="Glow of the Depths gameplay screenshot">
-                </div>
+    <video controls playsinline autoplay loop muted>
+        <source src="videos/glow-of-the-depths-gameplay.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
             </div>
 
