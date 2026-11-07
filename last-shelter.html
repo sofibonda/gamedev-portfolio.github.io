@@ -12,7 +12,6 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА — НЕИЗМЕННЫ ПОВСЮДУ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -21,10 +20,8 @@
         nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
         nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
-               /* Главный контент */
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
         
-        /* Ужали лишний воздух сверху от меню до заголовка (было 40px) */
         .page-wrapper { 
             width: 100%; 
             padding: 15px 0 120px 0; 
@@ -33,12 +30,10 @@
             position: relative; 
         }
         
-        /* Кнопка назад */
         .back-panel { width: 100%; margin-bottom: 15px; display: flex; justify-content: flex-start; }
         .back-link { text-decoration: none; color: #888888; font-size: 0.95rem; font-weight: 400; transition: color 0.2s ease; }
         .back-link:hover { color: #111111; }
 
-        /* Заголовок проекта и теги (ужали отступ снизу до 25px) */
         .project-title-block { margin-bottom: 25px; text-align: left; width: 100%; }
         .project-title-block h2 { font-size: 2.2rem; font-weight: 700; color: #111111; letter-spacing: -0.5px; margin-bottom: 12px; }
         .project-tags { display: flex; gap: 8px; }
@@ -47,33 +42,29 @@
 
         .project-hero-split {
             display: grid;
-            /* Левая часть занимает 400px, правая — всё оставшееся место */
             grid-template-columns: 400px 1fr; 
             gap: 40px;
-            align-items: stretch; /* Растягивает оба блока до одинаковой высоты */
+            align-items: stretch;
             width: 100%;
             margin-bottom: 50px;
         }
-        /* ИСПРАВЛЕННАЯ СЕТКА МЕТА-ДАННЫХ: двигает Duration вправо и выравнивает расстояния */
         .project-meta-grid { 
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Равномерно распределяет элементы по высоте */
+            justify-content: space-between; 
             background: #f9f9f9; 
             border: 1px solid #e2e2e2; 
             border-radius: 14px; 
             padding: 30px; 
-            width: 100%; /* Занимает ровно выделенные ей 400px */
+            width: 100%;
             margin-bottom: 0 !important;
         }
         
-        /* Предотвращает хаотичное слипание текстовых блоков */
         .meta-item { 
             text-align: left !important; 
             width: 100%;
         }
         
-        /* Выделяем первой колонке с длинным текстом чуть больше места, чтобы остальные сдвинулись вправо */
         .meta-item:last-child {
             text-align: right;
         }
@@ -81,11 +72,10 @@
         .meta-item h5 { font-size: 0.75rem; text-transform: uppercase; color: #888888; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
         .meta-item p { font-size: 0.95rem; color: #111111; font-weight: 500; line-height: 1.4; }
 
-        /* Окно для полного видео геймплея (уменьшили высоту до 460px, чтобы убрать гигантский размер) */
         .gameplay-video-wrapper { 
             width: 100%; 
-            height: 100%; /* Автоматически подстраивается под высоту текстовой плашки */
-            min-height: 340px; /* Защита от излишнего сжатия */
+            height: 100%; 
+            min-height: 340px; 
             border-radius: 14px; 
             border: 1px solid #e2e2e2; 
             background: #f9f9f9; 
@@ -96,13 +86,12 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.02); 
         }
         .gameplay-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        /* Разделы кейс-стади (ужали пустоту между блоками с 60px до 40px) */
+
         .case-section { width: 100%; margin-bottom: 20px; text-align: left; }
         .case-section h3 { font-size: 1.3rem; font-weight: 600; color: #111111; margin: 0 0 5px 0; letter-spacing: -0.3px; border-left: 3px solid #111111; padding-left: 14px; }
         .case-section p { font-size: 0.95rem; color: #555555; line-height: 1.8; margin-bottom: 5px; font-weight: 400; }
         .case-section strong { color: #111111; font-weight: 600; }
 
-        /* Таблица баланса */
         .balance-table-wrapper { width: 100%; overflow-x: auto; margin: 20px 0; border: 1px solid #e2e2e2; border-radius: 14px; transform: translateZ(0); }
         .balance-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; background: #f9f9f9; }
         .balance-table th { background: #f4f4f4; padding: 12px 16px; font-weight: 600; color: #111111; border-bottom: 1px solid #e2e2e2; }
@@ -112,7 +101,6 @@
         .badge-plus { background: #e6f4ea; color: #137333; }
         .badge-minus { background: #fce8e6; color: #c5221f; }
 
-        /* Сетки для скриншотов (ужали маржины, чтобы картинки сидели плотнее к тексту) */
         .media-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 0px 0 30px 0; width: 100%; }
         .media-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 15px 0 20px 0; width: 100%; }
         
@@ -132,7 +120,6 @@
         .btn-black:hover { background: #444444; }
         .btn-black:active { transform: scale(0.98); }
 
-        /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -148,7 +135,7 @@
             nav { gap: 20px; flex-wrap: wrap; }
             .page-wrapper { padding: 25px 0 60px 0; }
             .project-hero-split { grid-template-columns: 1fr; gap: 30px; }
-            .gameplay-video-wrapper { height: 280px; order: -1; /* На смартфонах видео встанет наверх */ }
+            .gameplay-video-wrapper { height: 280px; order: -1; }
             .project-meta-grid { flex-direction: column; gap: 16px; padding: 20px; }
             .meta-item:first-child { max-width: 100%; }
             .gameplay-video-wrapper { height: 280px; }
@@ -198,10 +185,8 @@
                 </div>
             </div>
 
-            <!-- НАЧАЛО ОБЩЕГО БЛОКА-СПЛИТА -->
             <div class="project-hero-split">
 
-                <!-- Левая колонка: Вертикальные мета-данные -->
                 <div class="project-meta-grid">
                     <div class="meta-item">
                         <h5>My Team Role</h5>
@@ -221,7 +206,6 @@
                     </div>
                 </div>
 
-                <!-- Правая колонка: Видео геймплея -->
                 <div class="gameplay-video-wrapper">
                     <video controls playsinline>
                         <source src="videos/last-shelter-gameplay.mp4" type="video/mp4">
@@ -230,23 +214,17 @@
                 </div>
 
             </div>
-            <!-- КОНЕЦ ОБЩЕГО БЛОКА-СПЛИТА -->
 
-            <!-- РАЗДЕЛ 1: КОНЦЕПЦИЯ И ПСИХОЛОГИЧЕСКИЙ ХУК -->
             <section class="case-section">
                 <h3>Elevator Pitch</h3>
                 <p>Based on the popular tabletop game "Bunker", <strong>Last Shelter</strong> is a 3-6-player 3D <strong>Social Deduction Strategy</strong> game. Locked inside an underground shelter after a global catastrophe, players must verbally debate, analyze randomized character traits, and selectively disclose information to survive. With life-support systems strictly limited to sustain only two people, the group must vote to eliminate the least viable members before the automated self-destruction protocol triggers.</p>
             </section>
 
-            
-
-            <!-- РАЗДЕЛ 3: СИСТЕМНЫЙ ДИЗАЙН И МАТЕМАТИЧЕСКИЙ БАЛАНС -->
             <section class="case-section">
                 <h3>Core Gameplay & Systemic Loops</h3>
                 <p><strong>Asymmetric Information & Traits Generation:</strong><br>
   To achieve high replayability and prevent pre-calculated player meta-strategies, I designed a <strong>procedural character seeding system</strong>. At the start of each session, every player receives a completely randomized, unique configuration of parameters: profession, work experience, age, health condition, psychological phobias, hobbies, and starting inventory. Crucially, all traits are initially hidden. The core gameplay relies on selective disclosure — players have full agency to lie, conceal liabilities, or strategically filter information during debates to maximize their perceived group value.</p>
 
-    <!-- ДОБАВЛЯЕМ ТВОЮ ГРАФИКУ CORE LOOP ДЛЯ РАЗБИВКИ ТЕКСТА -->
   <div class="screenshot-box" style="margin: 25px 0;">
     <img src="images/last-shelter/core-loop.png" alt="Last Shelter Core Gameplay Loop Diagram">
     <span class="screenshot-caption">Systemic Core Loop: The cyclical process of selective information disclosure, dynamic threat analysis, and blind consensus execution.</span>
@@ -264,7 +242,6 @@
   </ul>
 </section>
 
-            <!-- РАЗДЕЛ 2: ЛЕВЕЛ-ДИЗАЙН И ДИЗАЙН ВЗГЛЯДА -->
             <section class="case-section">
                 <h3>Level Design: Designing Constraints & Sightlines</h3>
                 <p>By keeping players seated around the central table, the gameplay focuses entirely on verbal communication and behavioral analysis. Under these strict spatial constraints, level design shifts from traditional environment layout to managing player focus within a restricted <strong>First-Person POV</strong>.</p>
@@ -302,7 +279,6 @@
                     </div>
                 </div>
             </section>
-            <!-- РАЗДЕЛ 4: UI/UX ПРОЕКТИРОВАНИЕ И ИТЕРАЦИИ -->
             <section class="case-section">
                 <h3>UX & Onboarding Design</h3>
                 <p>
@@ -326,7 +302,6 @@
   </p>            
             </section>
 
-            <!-- РАЗДЕЛ 5: ДОКУМЕНТАЦИЯ -->
             <section class="case-section">
                 <h3>Summary</h3>
                 <p>The project was successfully defended as a Bachelor’s Diploma Thesis in 2026. As the Game & Level Designer, I delivered a fully functional 3D prototype featuring an interactive single-player tutorial alongside the core multiplayer setup, backed by a scalable balancing matrix and comprehensive documentation.</p>
@@ -347,7 +322,6 @@
         </div>
     </main>
 
-    <!-- Подвал сайта -->
     <footer>
         <div class="container footer-content">
             <div class="footer-left">Portfolio by Sofibonda</div>
