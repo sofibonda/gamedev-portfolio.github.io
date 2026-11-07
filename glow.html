@@ -12,7 +12,6 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -21,7 +20,6 @@
         nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
         nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
-        /* ГЛАВНЫЙ КОНТЕНТ */
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; width: 100%; }
         
         .page-wrapper { 
@@ -54,8 +52,8 @@
         .project-meta-grid { 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Прижимает элементы к верху */
-    gap: 24px;                  /* Задает фиксированный аккуратный отступ */
+    justify-content: flex-start;
+    gap: 24px;
     background: #f9f9f9; 
     border: 1px solid #e2e2e2; 
     border-radius: 14px; 
@@ -95,7 +93,7 @@
 
         .media-grid-2 { 
     display: grid; 
-    grid-template-columns: 400px 1fr; /* Левая карточка ровно 320px, правая занимает всё остальное место */
+    grid-template-columns: 400px 1fr;
     gap: 24px; 
     margin: 25px 0 30px 0; 
     width: 100%; 
@@ -103,7 +101,7 @@
         
         .screenshot-box { 
     width: 100%; 
-    height: 100%; /* Растягивает карточку на всю высоту ряда */
+    height: 100%;
     border-radius: 14px; 
     border: 1px solid #e2e2e2; 
     background: #f9f9f9; 
@@ -115,8 +113,8 @@
         .screenshot-box img { 
     width: 100%; 
     height: 103%; 
-    max-height: 440px; /* Ограничивает общую высоту обоих блоков, чтобы они смотрелись аккуратно */
-    object-fit: cover; /* Заполняет весь блок карточки */
+    max-height: 440px; 
+    object-fit: cover; 
     display: block; 
 }
         .screenshot-caption { padding: 12px 16px; font-size: 0.85rem; color: #777777; background: #f4f4f4; border-top: 1px solid #e2e2e2; text-align: left; line-height: 1.5; flex: 1; }
@@ -133,7 +131,6 @@
         .btn-black:hover { background: #444444; }
         .btn-black:active { transform: scale(0.98); }
 
-        /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -197,10 +194,8 @@
                 </div>
             </div>
 
-            <!-- HERO SPLIT BLOCK -->
             <div class="project-hero-split">
 
-                <!-- Left Column: Metadata -->
                 <div class="project-meta-grid">
                     <div class="meta-item">
                         <h5>My Team Role</h5>
@@ -220,7 +215,6 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Gameplay Screenshot / Video -->
                 <div class="gameplay-media-wrapper">
     <video controls playsinline autoplay loop muted>
         <source src="videos/glow-of-the-depths-gameplay.mp4" type="video/mp4">
@@ -230,7 +224,6 @@
 
             </div>
 
-            <!-- SECTION 1: OVERVIEW -->
             <section class="case-section">
                 <h3>Project Overview & Concept</h3>
                 <p style="font-style: italic; border-left: 2px solid #e2e2e2; padding-left: 14px; margin-bottom: 20px; color: #666666;">
@@ -239,7 +232,6 @@
                 <p>Developed during <strong>PogJam 2026</strong> around the theme <em>"Neon"</em>, <strong>Glow of the Depths</strong> is an atmospheric 2D puzzle-exploration game built around this core narrative premise. As the Solo Game & Level Designer, I turned these narrative constraints into explicit gameplay loops where light management, visibility, and color-coded pacing dictate survival.</p>
             </section>
 
-            <!-- SECTION 2: MECHANICS & PROGRESSION -->
             <section class="case-section">
                 <h3>Core Mechanics & Color-Coded Pacing</h3>
                 <p><strong>Light as a Decaying Resource:</strong><br>
@@ -255,20 +247,15 @@
                     <li><strong>The Abyss (Culmination):</strong> A dramatic spike in tension featuring an open-space escape from a giant apex predator toward the surface light.</li>
                 </ul>
 
-                <!-- Media Grid for Level Map and Unity Implementation -->
                 <div class="media-grid-2">
-    <!-- Левая карточка (Скетч) -->
     <div class="screenshot-box">
-        <!-- object-fit: contain не дает картинке обрезаться, а background: #ffffff сливается с бумагой -->
         <img src="images/glow-of-depth/paper-map.png" alt="Initial level design paper sketch" style="object-fit: contain; background: #ffffff;">
         <div class="screenshot-caption">
             <strong>Pre-production Level Topology:</strong> Initial hand-drawn map illustrating player flow, color-coded zone transitions (V/G/B), and spatial tension build-up before Unity greyboxing.
         </div>
     </div>
     
-    <!-- Правая карточка (Скриншот / видео) -->
     <div class="screenshot-box">
-        <!-- object-fit: cover полностью заполняет блок, обрезая бока при необходимости -->
         <img src="images/glow-of-depth/unity-scene.png" alt="Level scene view inside Unity editor" style="object-fit: cover;">
         <div class="screenshot-caption">
             <strong>Unity 2D Scene Pass:</strong> Implementing non-linear cave pathways and high-contrast ambient lighting inside the editor.
@@ -277,7 +264,6 @@
 </div>
             </section>
 
-            <!-- SECTION 3: PRODUCTION & ENGINE WORK -->
             <section class="case-section">
                 <h3>Production & Unity Implementation</h3>
                 <p><strong>Scope & Project Management:</strong><br>
@@ -287,7 +273,6 @@
                 To relieve programmer bottlenecks, I took on a hybrid Unity Generalist role. Beyond initial paper prototyping, I built environment layouts directly inside Unity, configured object hierarchies, and authored dynamic cinematic animations for key sequence events.</p>
             </section>
 
-            <!-- SECTION 4: DELIVERABLES & LINKS -->
             <section class="case-section">
                 <h3>Project Summary</h3>
                 <p>Glow of the Depths highlights rapid prototyping, dynamic resource-based level pacing, and effective cross-functional leadership under extreme time constraints.</p>
@@ -297,7 +282,6 @@
                         <h4>Playable Game Jam Build</h4>
                         <p>Explore the level design and light-management mechanics firsthand on itch.io.</p>
                     </div>
-                    <!-- Вставь свою ссылку на itch.io -->
                     <a href="https://cheba-iu.itch.io/glow-of-the-depths" class="btn-black" target="_blank">
                         <span>Launch Game on itch.io</span>
                         <span style="font-size: 0.8rem; opacity: 0.7;">⎋</span>
