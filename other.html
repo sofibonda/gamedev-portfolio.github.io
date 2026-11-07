@@ -23,10 +23,8 @@
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { max-width: 1000px; width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; align-items: center; position: relative; margin: 0 auto; }
         
-        /* Сетка в 3 колонки */
         .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px; width: 100%; padding-top: 20px; }
         
-        /* КАРТОЧКА ПРОЕКТА - СТИЛЬ ОДИН В ОДИН КАК В GAMES */
         .project-card { 
             text-decoration: none; 
             color: inherit; 
@@ -49,8 +47,6 @@
             border-color: #b5b5b5; 
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); 
         }
-        
-        /* Медиабокс внутри карточки */
         .project-media-box { 
             width: 100%; 
             aspect-ratio: 4 / 3; 
@@ -70,7 +66,6 @@
             transform: translate(-50%, -50%);
         }
         
-        /* Текстовая зона карточки */
         .project-info { 
             padding: 20px 14px 22px 14px; 
             display: flex;
@@ -82,7 +77,6 @@
         }
         .project-title { font-size: 1.1rem; font-weight: 600; color: #111111; margin: 0; line-height: 1.3; letter-spacing: -0.2px; }
 
-        /* Изящная подчёркнутая ссылка внизу карточки */
         .project-btn {
             font-size: 0.85rem;
             font-weight: 500;
@@ -94,7 +88,6 @@
         }
         .project-card:hover .project-btn { color: #000000; border-color: #000000; }
 
-        /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -132,13 +125,11 @@
     <main class="container">
         <div class="page-wrapper">
             
-            <!-- РЯД ИЗ 3 КАРТОЧЕК ДЛЯ ДЕСКТОПА -->
             <div class="other-grid">
 
                 <!-- 1. LOSTVILLE -->
                 <a href="lostville.html" class="project-card">
                     <div class="project-media-box">
-                        <!-- Заменили картинку на автовоспроизводящееся видео -->
                         <video autoplay loop muted playsinline width="105%">
                             <source src="videos/lostville-preview.mp4" type="video/mp4">
                         </video>
