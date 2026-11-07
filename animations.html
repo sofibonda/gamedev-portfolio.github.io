@@ -28,10 +28,9 @@
         
         .project-headline { font-size: 2.2rem; font-weight: 600; color: #111111; margin: 0 0 30px 0; letter-spacing: -0.5px; text-align: center; }
         
-        /* ГЛАВНЫЙ ВИЗУАЛЬНЫЙ ХУК: ДВЕ КРУПНЫЕ КОЛОНКИ НАД ТЕКСТОМ */
         .media-hero-grid {
             display: grid;
-            grid-template-columns: 4.5fr 5.5fr; /* Слегка сузили левую колонку под квадратный аватар персонажа */
+            grid-template-columns: 4.5fr 5.5fr; 
             gap: 30px;
             width: 100%;
             margin-bottom: 50px;
@@ -57,7 +56,6 @@
             display: block;
         }
 
-        /* КОНТЕНТНЫЙ БЛОК ДЛЯ ТЕКСТА СНИЗУ */
         .content-section {
             max-width: 760px;
             width: 100%;
@@ -66,7 +64,6 @@
             flex-direction: column;
         }
         
-        /* СЕРАЯ КАРТОЧКА МЕТАДАННЫХ */
         .meta-container { display: flex; flex-direction: column; gap: 20px; background-color: #f7f7f7; border: 1px solid #e0e2e5; border-radius: 14px; padding: 30px; margin-bottom: 40px; width: 100%; }
         .meta-item h5 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: #888888; margin: 0 0 6px 0; letter-spacing: 0.5px; }
         .meta-item p { font-size: 1rem; color: #222222; margin: 0; font-weight: 500; }
@@ -125,9 +122,7 @@
 
             <h2 class="project-headline">2D Bone-Based Character Animation</h2>
 
-                        <!-- МОЩНЫЙ ВИЗУАЛЬНЫЙ ХУК: МЕДИАКОНТЕНТ В САМОМ ВЕРХУ (ФИКС МАСШТАБА) -->
             <div class="media-hero-grid" style="grid-template-columns: 1fr 1.6fr; align-items: center;">
-                <!-- ЛЕВАЯ КОЛОНКА: ВЕРТИКАЛЬНЫЙ АВАТАР ПЕРСОНАЖА -->
                 <div class="hero-media-box" style="border: none; background: transparent; box-shadow: none;">
                     <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid #e0e2e5; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
                         <source src="videos/animation-bone1.mp4" type="video/mp4">
@@ -135,18 +130,13 @@
                     </video>
                 </div>
                 
-                <!-- ПРАВАЯ КОЛОНКА: СКРИНШОТ РЕДАКТОРА UNITY БЕЗ ОБРЕЗКИ (CONTAIN) -->
                 <div class="hero-media-box" style="border: none; background: transparent; box-shadow: none;">
                     <img src="images/anim/animations-unity-editor.png" alt="Unity 2D Animation Window" style="width: 100%; height: auto; display: block; object-fit: contain; border-radius: 16px; border: 1px solid #e0e2e5; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
                 </div>
             </div>
 
-                
-
-            <!-- СЕКЦИЯ С ТЕКСТОМ ПОД КРУПНЫМ ВИЗУАЛОМ -->
             <div class="content-section">
 
-                <!-- МЕТАДАННЫЕ В СТИЛЕ LAST SHELTER -->
                 <div class="meta-container">
                     <div class="meta-item">
                         <h5>My Role</h5>
@@ -174,8 +164,8 @@
                     <li><strong>Animation Production:</strong> Authored several seamless 2D animations from scratch, including state loops for <code>idle</code>, <code>walk</code>, <code>wave</code>, <code>fly</code>, and <code>land</code>.</li>
                 </ul>
 
-            </div> <!-- Конец текстовой секции content-section -->
-        </div> <!-- Конец враппера page-wrapper -->
+            </div> 
+        </div> 
     </main>
 
     <footer>
