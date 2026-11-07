@@ -12,7 +12,6 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #333333; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-y: scroll; }
         .container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 40px; }
         
-        /* ШАПКА И МЕНЮ СЕРОГО ЦВЕТА ИЗ ВАШЕЙ ВЕРСИИ */
         header { background: #f4f4f4; width: 100%; padding: 35px 0 28px 0; border-bottom: 1px solid #e2e2e2; text-align: center; }
         header h1 { font-size: 1.5rem; margin: 0 0 6px 0; font-weight: 500; letter-spacing: -0.3px; color: #111111; }
         header .subtitle { color: #888888; font-size: 0.85rem; margin: 0 0 24px 0; letter-spacing: 0.5px; font-weight: 400; }
@@ -21,24 +20,17 @@
         nav a { text-decoration: none; color: #888888; font-size: 1.1rem; font-weight: 400; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
         nav a.active, nav a:hover { color: #111111; border-color: #111111; }
         
-        /* Главный контент */
         main { flex: 1; padding: 0; display: flex; flex-direction: column; align-items: center; }
         .page-wrapper { width: 100%; padding: 25px 0 120px 0; display: flex; flex-direction: column; position: relative; }
         
-        /* ПОДЗАГОЛОВОК СТРОГО ПО ЦЕНТРУ И КООРДИНАТАМ ОДИН В ОДИН */
-        
-        
-        /* Панель кнопки скачивания справа */
         .resume-header-panel { display: flex; justify-content: flex-end; width: 100%; padding-top: 20px; margin-bottom: 50px; }
         .btn-download { display: inline-block; padding: 11px 22px; background: #222222; color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-radius: 12px; transition: background 0.2s ease, transform 0.2s ease; }
         .btn-download:hover { background: #444444; transform: translateY(-1px); }
         
-        /* Разделы сайта */
         .web-resume-section { width: 100%; margin-bottom: 60px; position: relative; }
         .web-resume-section:last-of-type { margin-bottom: 0; }
         .web-resume-section h3 { font-size: 0.9rem; font-weight: 600; color: #111111; text-transform: uppercase; letter-spacing: 1.2px; margin: 0 0 30px 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
         
-        /* СТИЛИ ТАЙМЛАЙНА (ВЕРТИКАЛЬНЫЙ ТРЕК С ЛИНИЕЙ) */
         .timeline-container { position: relative; padding-left: 32px; }
         .timeline-container::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: #e5e5e5; }
         
@@ -54,14 +46,12 @@
         .timeline-item ul { margin: 10px 0 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
         .timeline-item li { font-size: 0.9rem; color: #555555; line-height: 1.6; }
         
-        /* СЕТКА НАВЫКОВ (ПЛАШКИ-ТЕГИ) */
         .skills-web-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 50px; width: 100%; }
         .skill-column h4 { font-size: 0.95rem; font-weight: 600; color: #111111; margin: 0 0 14px 0; }
         .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tag { display: inline-block; padding: 6px 12px; background: #f5f5f5; color: #555555; font-size: 0.82rem; font-weight: 400; border-radius: 8px; border: 1px solid #eaeaea; transition: all 0.2s ease; }
         .tech-tag:hover { background: #ededed; color: #111111; border-color: #dcdcdc; }
         
-        /* СТИЛИ ДЛЯ КРЕАТИВНОГО ПОДВАЛА С ИКОНКАМИ */
         .personal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 50px; width: 100%; }
         .personal-item { display: flex; gap: 20px; align-items: flex-start; }
         .personal-icon-box { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; color: #555555; flex-shrink: 0; margin-top: 2px; }
@@ -73,7 +63,6 @@
         .meta-list li { font-size: 0.9rem; color: #555555; line-height: 1.4; }
         .meta-list strong { font-weight: 500; color: #111111; }
 
-        /* ФУТЕР */
         footer { background: #e5e5e5; color: #555555; padding: 25px 0; font-size: 0.85rem; width: 100%; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-left { font-weight: 400; color: #666666; }
@@ -119,7 +108,6 @@
     <main class="container">
         <div class="page-wrapper">
             
-            
             <div class="resume-header-panel">
                 <a href="https://drive.google.com/file/d/1sCqGTTdc8oDyawIBlbj4RlxmUjtz2J9s/view?usp=drivesdk" class="btn-download" download>Download CV (PDF)</a>
             </div>
@@ -154,12 +142,12 @@
                     
                 </div>
             </section>
-            <!-- РАЗДЕЛ 2: SKILLS & TOOLS (АККУРАТНЫЕ ПЛАШКИ-ТЕГИ) -->
+            
+            <!-- РАЗДЕЛ 2: SKILLS & TOOLS -->
             <section class="web-resume-section">
                 <h3>Skills & Tools</h3>
                 <div class="skills-web-grid">
                     
-                    <!-- Группа 1 -->
                     <div class="skill-column">
                         <h4>Software & Engines</h4>
                         <div class="tags-container">
@@ -175,7 +163,6 @@
                         </div>
                     </div>
                     
-                    <!-- Группа 2 -->
                     <div class="skill-column">
                         <h4>Game & Level Design</h4>
                         <div class="tags-container">
@@ -191,7 +178,6 @@
                         </div>
                     </div>
                     
-                    <!-- Группа 3 -->
                     <div class="skill-column">
                         <h4>Technical Skills</h4>
                         <div class="tags-container">
@@ -201,7 +187,6 @@
                         </div>
                     </div>
                     
-                    <!-- Группа 4 -->
                     <div class="skill-column">
                         <h4>Soft Skills</h4>
                         <div class="tags-container">
@@ -216,11 +201,10 @@
                 </div>
             </section>
             
-            <!-- РАЗДЕЛ 3: EDUCATION (ТАЙМЛАЙН) -->
+            <!-- РАЗДЕЛ 3: EDUCATION -->
             <section class="web-resume-section">
                 <h3>Education</h3>
                 <div class="timeline-container">
-                    <!-- Магистратура (Новый блок) -->
     <div class="timeline-item">
         <div class="job-header">
             <h4 class="job-title">Creative Management <span>| Collegium da Vinci</span></h4>
@@ -229,7 +213,6 @@
         <p style="font-size: 0.95rem; margin: 8px 0 0 0; color: #555555; line-height: 1.5;">
             Master’s Program | Flexible schedule | Specialization: Creative Management
         </p>
-        <!-- Аккуратный пастельный маркер для HR, что ты доступна для работы на полный день -->
         <p style="font-size: 0.85rem; margin: 10px 0 0 0; color: #2b6cb0; font-weight: 500; background: #e8f4fd; border: 1px solid #d2e9fb; display: inline-block; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.2px;">
             ※ Fully available for full-time remote work
         </p>
@@ -246,7 +229,7 @@
                 </div>
             </section>
 
-            <!-- РАЗДЕЛ 4: LANGUAGES (ОТДЕЛЬНЫЙ ПЛОСКИЙ БЛОК) -->
+            <!-- РАЗДЕЛ 4: LANGUAGES -->
             <section class="web-resume-section">
                 <h3>Languages</h3>
                 <div class="resume-bottom-split" style="grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -261,12 +244,11 @@
                 </div>
             </section>
             
-            <!-- РАЗДЕЛ 5: OUTSIDE THE ENGINE (ЖИВЫЕ ИНТЕРЕСЫ С ИКОНКАМИ ПО РЕФЕРЕНСУ) -->
+            <!-- РАЗДЕЛ 5: OUTSIDE THE ENGINE -->
             <section class="web-resume-section">
                 <h3>Outside the Engine</h3>
                 <div class="personal-grid">
                     
-                    <!-- 1. ИГРЫ -->
                     <div class="personal-item">
                         <div class="personal-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
@@ -277,7 +259,6 @@
                         </div>
                     </div>
                     
-                    <!-- 2. СЕРИАЛЫ И КИНО -->
                     <div class="personal-item">
                         <div class="personal-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4h-2l2 4h-3l-2-4h-2v16h18V4z"/></svg>
@@ -288,7 +269,6 @@
                         </div>
                     </div>
                     
-                    <!-- 3. ДУДЛЫ -->
                     <div class="personal-item">
                         <div class="personal-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
@@ -299,7 +279,6 @@
                         </div>
                     </div>
                     
-                    <!-- 4. АКТИВНОСТИ -->
                     <div class="personal-item">
                         <div class="personal-icon-box">
                             <svg viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 14h-2v2h2v-2zm0-10h-2v6h2V6z"/></svg>
