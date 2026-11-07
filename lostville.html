@@ -30,7 +30,6 @@
         .project-headline { font-size: 2.2rem; font-weight: 600; color: #111111; margin: 0 0 10px 0; letter-spacing: -0.5px; text-align: center; }
         .project-description { color: #666666; font-size: 1.05rem; line-height: 1.6; margin: 0 auto 40px auto; max-width: 760px; text-align: center; }
 
-        /* ДВУХКОЛОНОЧНЫЙ МАКЕТ: ИНФО СЛЕВА, ВИДЕО СПРАВА */
         .project-top-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -62,7 +61,6 @@
         .info-row ul { margin: 0; padding-left: 18px; color: #222222; font-size: 1rem; line-height: 1.6; }
         .info-row li { margin-bottom: 4px; }
 
-        /* ВИДЕОПЛЕЕР В ПРАВОЙ КОЛОНКЕ */
         .video-column { 
             width: 100%; 
             max-width: fit-content;
@@ -71,13 +69,12 @@
             justify-content: center; 
             background: transparent; 
             border: 1px solid #e0e2e5; 
-            border-radius: 20px;       /* Закругляем внешний контейнер */
-            overflow: hidden;          /* Обрезаем острые углы видео */
+            border-radius: 20px;       
+            overflow: hidden;          
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
         .video-column video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* ГОРИЗОНТАЛЬНАЯ ЛИНЕЙКА СКРИНШОТОВ С ВОЗМОЖНОСТЬЮ ОТКРЫТЬ */
         .art-slider-wrapper { width: 100%; overflow-x: auto; margin: 30px 0; padding-bottom: 15px; -webkit-overflow-scrolling: touch; }
         .art-slider { display: flex; gap: 15px; width: max-content; }
         
@@ -85,13 +82,11 @@
         .art-slide-link:hover { transform: scale(1.015); }
         .art-slide-link img { height: 100%; width: auto; display: block; object-fit: contain; }
 
-        /* Кастомизация скроллбара */
         .art-slider-wrapper::-webkit-scrollbar { height: 6px; }
         .art-slider-wrapper::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
         .art-slider-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
         .art-slider-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
         
-                                              /* КОНТЕЙНЕР ДЛЯ КНОПОК СТОРОВ */
         .stores-container { 
             display: flex; 
             justify-content: center; 
@@ -101,7 +96,6 @@
             flex-wrap: wrap;
         }
 
-        /* СТИЛЬ КНОПКИ КАК ОДНОЙ БОЛЬШОЙ ССЫЛКИ */
         .custom-store-btn {
             display: flex;
             align-items: center;
@@ -121,19 +115,15 @@
             transform: translateY(-1px);
         }
 
-        /* ЖЕСТКИЙ РАЗМЕР ДЛЯ КАРТИНОК-ИКОНОК */
-                /* УВЕЛИЧИЛИ РАЗМЕР КАРТИНОК-ИКОНОК ДО 30PX */
         .store-icon-img {
             width: 40px;
             height: 40px;
             object-fit: contain;
-            margin-right: 14px; /* Чуть увеличили отступ до текста, чтобы не прилипало */
+            margin-right: 14px; 
             flex-shrink: 0;
             display: block;
         }
 
-
-        /* ТЕКСТ ВНУТРИ КНОПОК */
         .store-btn-text {
             display: flex;
             flex-direction: column;
@@ -207,10 +197,8 @@
             <h2 class="project-headline">LostVille: Find Hidden Objects</h2>
             <p class="project-description">A hidden-object casual game combined with light city-building mechanics. Players explore beautifully illustrated scenes, search for missing items, and use in-game currency to expand and upgrade the town.</p>
 
-            <!-- ДВУХКОЛОНОЧНЫЙ МАКЕТ -->
             <div class="project-top-layout">
                 
-                                <!-- ЛЕВАЯ КОЛОНКА В СТИЛЕ LAST SHELTER -->
                 <div class="info-column">
                     <div class="info-row">
                         <h5 style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: #888888; margin: 0 0 6px 0; letter-spacing: 0.5px;">My Team Role</h5>
@@ -234,8 +222,6 @@
                     </div>
                 </div>
 
-
-                <!-- ПРАВАЯ КОЛОНКА С ВИДЕОМАТЕРИАЛОМ -->
                  <div class="video-column">
                     <video controls preload="metadata" poster="lostville-video-poster.png" style="max-height: 470px; width: auto; height: auto; display: block; border-radius: inherit">
                         <source src="videos/lostville-gameplay1.mp4" type="video/mp4">
@@ -244,8 +230,6 @@
                 </div>
 
             </div>
-                <!-- ГОРИЗОНТАЛЬНАЯ ЛИНЕЙКА СКРИНШОТОВ (КАК БЫЛО НА ADOBE PORTFOLIO) -->
-                <!-- Каждая картинка кликабельна и открывается в оригинальном размере в новой вкладке -->
                 <div class="art-slider-wrapper">
                     <div class="art-slider">
                         <a href="lostville-art1.png" target="_blank" class="art-slide-link">
@@ -266,7 +250,6 @@
                     </div>
                 </div>
 
-                <!-- БЛОК С ОРИГИНАЛЬНЫМИ ФИЧАМИ ИГРЫ -->
                 <div class="info-column" style="width: 100%; border-top: 1px solid #e0e2e5; padding-top: 30px; margin-top: 20px;">
                     <div class="info-row">
                         <h4>Key Features:</h4>
@@ -278,9 +261,8 @@
                     </div>
                 </div>
 
-                                               <!-- КНОПКИ МАГАЗИНОВ С КАРТИНКАМИ-ИКОНКАМИ -->
         <div class="stores-container">
-            <!-- Кнопка App Store -->
+
             <a href="https://apps.apple.com/by/app/lostville-find-hidden-objects/id6739944657" target="_blank" class="custom-store-btn">
                 <img src="images/icons/apple-icon.png" alt="Apple" class="store-icon-img">
                 <div class="store-btn-text">
@@ -289,7 +271,6 @@
                 </div>
             </a>
 
-            <!-- Кнопка Google Play -->
             <a href="https://play.google.com/store/apps/details?id=com.dp.seekville.hidden.objects" target="_blank" class="custom-store-btn">
                 <img src="images/icons/play-icon.png" alt="Google Play" class="store-icon-img">
                 <div class="store-btn-text">
@@ -298,7 +279,6 @@
                 </div>
             </a>
         </div>
-
 
         </div>
     </main>
